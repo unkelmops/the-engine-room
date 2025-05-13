@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE ENGINE ROOM | Advanced Trading Bots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff00f0;
+            --dark: #0a0a0f;
+            --darker: #050508;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+        
+        .neon-hover:hover {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+            transition: width 1.5s ease-out;
+        }
+        
+        .feature-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .feature-item::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .glow {
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+            }
+        }
+        
+        .section {
+            scroll-margin-top: 80px;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: var(--primary);
+        }
+        
+        .ea-card {
+            background: linear-gradient(145deg, #1a1a1f, #0f0f12);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .ea-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+        }
+        
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-90 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold neon-text">THE ENGINE ROOM</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#bots" class="text-white hover:text-cyan-400 transition">Bots</a>
+                    <a href="#performance" class="text-white hover:text-cyan-400 transition">Performance</a>
+                    <a href="#updates" class="text-white hover:text-cyan-400 transition">Updates</a>
+                    <a href="#contact" class="text-white hover:text-cyan-400 transition">Contact</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-6 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 neon-text">THE ENGINE ROOM</h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+                Next-generation algorithmic trading solutions powered by advanced market analysis
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#bots" class="px-8 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-medium rounded-full transition transform hover:scale-105 neon-hover">
+                    Explore Bots
+                </a>
+                <a href="#updates" class="px-8 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-900 hover:bg-opacity-30 font-medium rounded-full transition transform hover:scale-105">
+                    Get Updates
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trading Bots Section -->
+    <section id="bots" class="section py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 neon-text">TRADING BOTS OVERVIEW</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- MOPSENTRY EA Card -->
+                <div class="ea-card p-8 neon-hover">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-1">MOPSENTRY EA</h3>
+                            <p class="text-gray-400 text-sm">Advanced algorithmic trading for indices & forex</p>
+                        </div>
+                        <span class="badge bg-gray-800 text-cyan-400">Indices & Forex</span>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-gray-300 font-medium">Development Progress</span>
+                            <span class="font-bold text-cyan-400">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%" data-width="75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-200 border-b border-gray-700 pb-2">Key Features:</h4>
+                        <ul class="space-y-2">
+                            <li class="feature-item">4H Bias Analysis</li>
+                            <li class="feature-item">1H Structure Recognition</li>
+                            <li class="feature-item">5M/1M Precision Entries</li>
+                            <li class="feature-item">FVG + OTE Strategy</li>
+                            <li class="feature-item">Liquidity-Based Take-Profit</li>
+                            <li class="feature-item">Advanced Trade Management</li>
+                            <li class="feature-item">Economic News Filter</li>
+                            <li class="feature-item">Custom Risk Logic</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-center pt-4 border-t border-gray-800">
+                        <p class="text-gray-400 mb-1 text-sm">Expected Release Date</p>
+                        <p class="text-xl font-bold text-cyan-400">JULY 2025</p>
+                    </div>
+                </div>
+                
+                <!-- CASH CATALYST EA Card -->
+                <div class="ea-card p-8 neon-hover">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-purple-400 mb-1">CASH CATALYST EA</h3>
+                            <p class="text-gray-400 text-sm">High-frequency forex trading automation</p>
+                        </div>
+                        <span class="badge bg-gray-800 text-purple-400">Forex Focused</span>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-gray-300 font-medium">Development Progress</span>
+                            <span class="font-bold text-purple-400">45%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%" data-width="45%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-200 border-b border-gray-700 pb-2">Key Features:</h4>
+                        <ul class="space-y-2">
+                            <li class="feature-item">Fair Value Gap Strategy</li>
+                            <li class="feature-item">Multi-Timeframe Analysis</li>
+                            <li class="feature-item">Smart Entry Filters</li>
+                            <li class="feature-item">Auto-Execution System</li>
+                            <li class="feature-item">Dynamic Position Sizing</li>
+                            <li class="feature-item">Volatility Adjustment</li>
+                            <li class="feature-item">News Event Protection</li>
+                            <li class="feature-item">Adaptive Risk Management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-center pt-4 border-t border-gray-800">
+                        <p class="text-gray-400 mb-1 text-sm">Expected Release Date</p>
+                        <p class="text-xl font-bold text-purple-400">JULY 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Highlight Section -->
+    <section id="performance" class="section py-20 px-6 bg-black">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 neon-text">STRATEGY STRENGTH</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Strategy Card 1 -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-cyan-500 transition-all duration-300">
+                    <div class="text-cyan-400 text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Algorithmic Precision</h3>
+                    <p class="text-gray-400">
+                        Our bots eliminate emotional trading with mathematically precise entry and exit strategies based on market structure.
+                    </p>
+                </div>
+                
+                <!-- Strategy Card 2 -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-cyan-500 transition-all duration-300">
+                    <div class="text-cyan-400 text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multi-Timeframe Analysis</h3>
+                    <p class="text-gray-400">
+                        Simultaneously analyzing multiple timeframes to identify high-probability trading opportunities with optimal risk/reward.
+                    </p>
+                </div>
+                
+                <!-- Strategy Card 3 -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-cyan-500 transition-all duration-300">
+                    <div class="text-cyan-400 text-4xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Risk Management</h3>
+                    <p class="text-gray-400">
+                        Advanced risk parameters dynamically adjust position sizes and stop losses based on market volatility and account equity.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 max-w-4xl mx-auto bg-gray-900 rounded-xl p-8 border border-gray-800">
+                <h3 class="text-2xl font-bold text-center mb-6 text-cyan-400">DEVELOPMENT ROADMAP</h3>
+                <div class="space-y-8">
+                    <!-- Timeline Item 1 -->
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-6">
+                            <div class="w-4 h-4 rounded-full bg-cyan-500 mt-1"></div>
+                            <div class="w-px h-full bg-gray-600"></div>
+                        </div>
+                        <div class="pb-8">
+                            <p class="text-gray-400 mb-1">Q1 2024</p>
+                            <h4 class="text-lg font-bold">Core Strategy Development</h4>
+                            <p class="text-gray-400 mt-2">Finalizing the foundational trading algorithms and backtesting frameworks.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-6">
+                            <div class="w-4 h-4 rounded-full bg-cyan-500 mt-1"></div>
+                            <div class="w-px h-full bg-gray-600"></div>
+                        </div>
+                        <div class="pb-8">
+                            <p class="text-gray-400 mb-1">Q3 2024</p>
+                            <h4 class="text-lg font-bold">Alpha Testing Phase</h4>
+                            <p class="text-gray-400 mt-2">Closed testing with select traders to refine parameters and optimize performance.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-6">
+                            <div class="w-4 h-4 rounded-full bg-cyan-500 mt-1"></div>
+                            <div class="w-px h-full bg-gray-600"></div>
+                        </div>
+                        <div class="pb-8">
+                            <p class="text-gray-400 mb-1">Q1 2025</p>
+                            <h4 class="text-lg font-bold">Beta Testing Phase</h4>
+                            <p class="text-gray-400 mt-2">Expanded testing with more users across different market conditions.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-6">
+                            <div class="w-4 h-4 rounded-full bg-purple-500 mt-1"></div>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-1">July 2025</p>
+                            <h4 class="text-lg font-bold text-purple-400">Official Release</h4>
+                            <p class="text-gray-400 mt-2">Public launch of both trading bots with full documentation and support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="updates" class="section py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-gray-900 rounded-xl p-10 border border-gray-800 neon-border">
+                <h2 class="text-3xl font-bold text-center mb-6 neon-text">WANT UPDATES WHEN THE BOTS DROP?</h2>
+                <p class="text-xl text-center text-gray-300 mb-10">Enter your email below to get notified about releases and updates.</p>
+                
+                <form action="https://formspree.io/f/manopnkj" method="POST" class="max-w-md mx-auto">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Enter your email" 
+                            required
+                            class="flex-grow px-5 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                        >
+                        <button 
+                            type="submit" 
+                            class="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-medium rounded-lg transition transform hover:scale-105"
+                        >
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+                
+                <p class="text-center text-gray-500 mt-6 text-sm">
+                    We'll notify you directly. Mobile version is coming soon 📱
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20 px-6 bg-gray-900">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 neon-text">CONNECT WITH US</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Instagram -->
+                <div class="bg-gray-800 rounded-xl p-6 text-center hover:bg-gray-700 transition">
+                    <div class="text-3xl mb-4 text-pink-500">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Instagram</h3>
+                    <p class="text-gray-400 mb-1">@unkel.mops</p>
+                    <p class="text-gray-500 text-sm">IGNICIOUS T - 91 followers</p>
+                </div>
+                
+                <!-- WhatsApp -->
+                <div class="bg-gray-800 rounded-xl p-6 text-center hover:bg-gray-700 transition">
+                    <div class="text-3xl mb-4 text-green-500">
+                        <i class="fab fa-whatsapp social-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">WhatsApp</h3>
+                    <p class="text-gray-400">073 266 1557</p>
+                </div>
+                
+                <!-- Email -->
+                <div class="bg-gray-800 rounded-xl p-6 text-center hover:bg-gray-700 transition">
+                    <div class="text-3xl mb-4 text-cyan-400">
+                        <i class="fas fa-envelope social-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Email</h3>
+                    <p class="text-gray-400">thabopopane2@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 bg-black border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold neon-text">THE ENGINE ROOM</h2>
+                    <p class="text-gray-500 mt-2">Algorithmic trading solutions</p>
+                    <p class="text-gray-500 text-sm mt-1">Established in 2025</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-green-400 transition">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 THE ENGINE ROOM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize ScrollReveal
+        ScrollReveal().reveal('.neon-hover', {
+            delay: 200,
+            distance: '20px',
+            origin: 'bottom',
+            interval: 100,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle (placeholder - would need more implementation)
+        document.querySelector('nav button').addEventListener('click', function() {
+            alert('Mobile menu would open here in a full implementation');
+        });
+        
+        // Animate progress bars on scroll
+        const animateProgressBars = () => {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            let animated = false;
+            
+            const checkScroll = () => {
+                const triggerPoint = window.innerHeight / 5 * 4;
+                progressBars.forEach(bar => {
+                    const barTop = bar.getBoundingClientRect().top;
+                    if (barTop < triggerPoint && !animated) {
+                        animated = true;
+                        bar.style.width = bar.getAttribute('data-width');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Run once on page load in case already in view
+        };
+        
+        // Set initial widths for progress bars
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            bar.setAttribute('data-width', width);
+        });
+        
+        // Run animations after page load
+        window.addEventListener('load', animateProgressBars);
+    </script>
+</body>
+</html>
