@@ -146,6 +146,37 @@
             </div>
         </div>
     </nav>
+<style>
+  /* your existing styles... */
+
+  /* Mobile-friendly improvements */
+  input, button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  #countdown {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .bot-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bot {
+      width: 100%;
+      max-width: 90vw;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+  }
+
+</style>
 
     <!-- Hero Section -->
     <header class="pt-32 pb-20 px-6 bg-gradient-to-b from-black to-gray-900">
