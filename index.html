@@ -203,93 +203,63 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 neon-text">TRADING BOTS OVERVIEW</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- MOPSENTRY EA Card -->
-                <div class="ea-card p-8 neon-hover">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-1">MOPSENTRY EA</h3>
-                            <p class="text-gray-400 text-sm">Advanced algorithmic trading for indices & forex</p>
-                        </div>
-                        <span class="badge bg-gray-800 text-cyan-400">Indices & Forex</span>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-gray-300 font-medium">Development Progress</span>
-                            <span class="font-bold text-cyan-400">90%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 75%" data-width="75%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-  
-                    <div class="mb-8">
-                        <h4 class="text-lg font-semibold mb-4 text-gray-200 border-b border-gray-700 pb-2">Key Features:</h4>
-                        <ul class="space-y-2">
-                            <li class="feature-item">4H Bias Analysis</li>
-                            <li class="feature-item">1H Structure Recognition</li>
-                            <li class="feature-item">5M/1M Precision Entries</li>
-                            <li class="feature-item">FVG + OTE Strategy</li>
-                            <li class="feature-item">Liquidity-Based Take-Profit</li>
-                            <li class="feature-item">Advanced Trade Management</li>
-                            <li class="feature-item">Economic News Filter</li>
-                            <li class="feature-item">Custom Risk Logic</li>
-                        </ul>
-                    </div>
-                    <div class="mb-4">
-  <p class="text-gray-300 font-medium">💸 Standard Price:</p>
-  <p class="text-purple-400 font-bold text-lg">R550</p>
-  <p class="text-sm text-gray-400 mt-1 italic">Early access offer: <span class="text-green-400 font-semibold">R350</span> for the first 3 customers.</p>
-</div>
-                    <div class="text-center pt-4 border-t border-gray-800">
-                        <p class="text-gray-400 mb-1 text-sm">Expected Release Date</p>
-                        <p class="text-xl font-bold text-cyan-400">JULY 2025</p>
-                    </div>
-                </div>
-                
-                <!-- CASH CATALYST EA Card -->
-                <div class="ea-card p-8 neon-hover">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold text-purple-400 mb-1">CASH CATALYST EA</h3>
-                            <p class="text-gray-400 text-sm">High-frequency forex trading automation</p>
-                        </div>
-                        <span class="badge bg-gray-800 text-purple-400">Forex Focused</span>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-gray-300 font-medium">Development Progress</span>
-                            <span class="font-bold text-purple-400">75%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 75%" data-width="75%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-lg font-semibold mb-4 text-gray-200 border-b border-gray-700 pb-2">Key Features:</h4>
-                        <ul class="space-y-2">
-                            <li class="feature-item">Fair Value Gap Strategy</li>
-                            <li class="feature-item">Multi-Timeframe Analysis</li>
-                            <li class="feature-item">Smart Entry Filters</li>
-                            <li class="feature-item">Auto-Execution System</li>
-                            <li class="feature-item">Dynamic Position Sizing</li>
-                            <li class="feature-item">Volatility Adjustment</li>
-                            <li class="feature-item">News Event Protection</li>
-                            <li class="feature-item">Adaptive Risk Management</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="text-center pt-4 border-t border-gray-800">
-                        <p class="text-gray-400 mb-1 text-sm">Expected Release Date</p>
-                        <p class="text-xl font-bold text-purple-400">AUGUST 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <section class="ea-scroll-wrapper">
+  <!-- MOPSENTRY EA -->
+  <div class="ea-card">
+    <h3 class="ea-title">MOPSENTRY EA</h3>
+    <p class="ea-subtext">Advanced algorithmic trading for indices & forex</p>
+    <span class="ea-tag">Indices & Forex</span>
+
+    <div class="ea-progress">
+      <p>Development Progress <strong>90%</strong></p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 90%"></div>
+      </div>
+    </div>
+
+    <ul class="ea-features">
+      <li>4H Bias Analysis</li>
+      <li>1H Structure Recognition</li>
+      <li>5M/1M Precision Entries</li>
+      <li>FVG + OTE Strategy</li>
+      <li>Liquidity-Based Take-Profit</li>
+      <li>Advanced Trade Management</li>
+      <li>Economic News Filter</li>
+      <li>Custom Risk Logic</li>
+    </ul>
+
+    <div class="ea-price">
+      <p>💸 Standard Price: <strong>R550</strong></p>
+      <p class="ea-offer">Early access offer: <span>R350</span> for the first 3 customers</p>
+    </div>
+  </div>
+
+  <!-- CASH CATALYST EA -->
+  <div class="ea-card">
+    <h3 class="ea-title">CASH CATALYST EA</h3>
+    <p class="ea-subtext">High-frequency forex trading automation</p>
+    <span class="ea-tag">Forex Focused</span>
+
+    <div class="ea-progress">
+      <p>Development Progress <strong>60%</strong></p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 60%"></div>
+      </div>
+    </div>
+
+    <ul class="ea-features">
+      <li>Fair Value Gap (FVG) Strategy</li>
+      <li>ICT Scalping Model</li>
+      <li>Multi-Timeframe Filtering</li>
+      <li>Risk Allocation Logic</li>
+    </ul>
+
+    <div class="ea-price">
+      <p>💸 Standard Price: <strong>R1500</strong></p>
+    </div>
+  </div>
+</section>
+
 
     <!-- Performance Highlight Section -->
     <section id="performance" class="section py-20 px-6 bg-black">
