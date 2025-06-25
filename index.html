@@ -175,45 +175,24 @@
       font-size: 2rem;
     }
   }
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
+.ea-scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-snap-type: x mandatory;
+}
 
-  .ea-card {
-    padding: 1rem;
-    margin: 1rem auto;
-    width: 90%;
-  }
+.ea-scroll-wrapper .ea-card {
+  min-width: 85%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
+}
 
-  .ea-card h3 {
-    font-size: 1.25rem;
-  }
-
-  .ea-card p, .ea-card li, .ea-card span {
-    font-size: 0.9rem;
-  }
-
-  .progress-bar {
-    height: 8px;
-  }
-
-  .text-lg {
-    font-size: 1rem !important;
-  }
-
-  .text-2xl {
-    font-size: 1.25rem !important;
-  }
-
-  .badge {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-  }
-
-  .flex {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 
