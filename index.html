@@ -107,6 +107,29 @@
         }
         .subscribe-btn:hover::after {
             left: 100%;
+            .buy-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.buy-now-btn {
+  background-color: transparent;
+  color: #00e6f6;
+  border: 2px solid #00e6f6;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.buy-now-btn:hover {
+  background-color: #00e6f6;
+  color: #0a0a0a;
+}
+
         }
     </style>
 </head>
@@ -134,13 +157,7 @@
                 
                 <div class="mb-6">
                     <div class="flex justify-between text-xs text-gray-400 mb-1">
-                        <span>Development Progress</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%;"></div>
-                    </div>
-                </div>
+            
                 
                 <div class="mb-6">
                     <h4 class="text-sm font-medium text-gray-300 mb-2">FEATURES:</h4>
@@ -186,8 +203,14 @@
                         <p class="text-green-400 italic text-sm mt-1 early-access px-2 py-1 rounded">Early Access: R350 for first 3 customers</p>
                     </div>
                 </div>
-                
-                <p class="text-xs text-gray-400 text-center">Expected Release: <span class="text-blue-300">20 JULY 2025</span></p>
+                <!-- WhatsApp Buy Button -->
+<div class="buy-btn-container">
+  <a href="https://wa.me/27732661557?text=Hi%2C%20I%20want%20to%20buy%20the%20EA" target="_blank">
+    <button class="buy-now-btn">Buy</button>
+  </a>
+</div>
+
+                <p class="text-xs text-gray-400 text-center">AVAILABLE: <span class="text-blue-300"></span></p>
             </div>
             
             <!-- CASH CATALYST EA Card -->
