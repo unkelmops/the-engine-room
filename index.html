@@ -81,8 +81,8 @@
             transition: all 0.3s ease;
         }
         .early-access a p:hover {
-  background-color: #00e6f6;
-  color: #0a0a0a;
+            background-color: #00e6f6;
+            color: #0a0a0a;
         }
         .subscribe-btn {
             background: linear-gradient(135deg, #4cc9f0, #4361ee);
@@ -107,6 +107,42 @@
         .subscribe-btn:hover::after {
             left: 100%;
         }
+        .telegram-card {
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.1), rgba(0, 204, 120, 0.1)) !important;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 136, 204, 0.4) !important;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .telegram-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 136, 204, 0.3);
+            border-color: rgba(0, 136, 204, 0.7) !important;
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.15), rgba(0, 204, 120, 0.15)) !important;
+        }
+        .telegram-btn {
+            background: linear-gradient(135deg, #0088cc, #00cc78);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.4);
+        }
+        .telegram-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        .telegram-btn:hover::after {
+            left: 100%;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -121,135 +157,110 @@
     <!-- Trading Bot Cards -->
     <section class="py-12 px-4 max-w-7xl mx-auto">
         <h2 class="title-font text-2xl md:text-3xl text-center mb-12 text-blue-400">OUR EXPERT ADVISORS</h2>
-        
-        <div class="flex overflow-x-auto scroll-container pb-6 md:overflow-visible md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+       
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-8 lg:gap-12">
             <!-- MOPSENTRY EA Card -->
-<div class="flex-shrink-0 w-80 md:w-auto md:flex-shrink-100 bg-gray-900 rounded-xl p-6 border border-gray-800 mr-6 md:mr-0 card-hover transition-all duration-300">
-    <div class="flex justify-between items-start mb-4">
-        <h3 class="title-font text-xl text-blue-300">MOPSENTRY EA</h3>
-        <span class="text-xs bg-gray-800 text-teal-300 px-2 py-1 rounded">Indices & Forex</span>
-    </div>
-    
-    <p class="text-gray-300 text-sm mb-4">Advanced algorithmic trading for indices and forex</p>
-    
-    <div class="mb-6">
-        <h4 class="text-sm font-medium text-gray-300 mb-2">FEATURES:</h4>
-        <ul class="text-xs text-gray-400 space-y-1">
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>4H Bias Analysis</span>
-            </li>
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>1H Structure Recognition</span>
-            </li>
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>5M/1M Precision Entries</span>
-            </li>
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>FVG + OTE Strategy</span>
-            </li>
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>Liquidity-Based Take-Profit</span>
-            </li>
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>Advanced Trade Management</span>
-            </li>
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>News Filter</span>
-            </li>
-            <li class="flex items-start">
-                <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
-                <span>Custom Risk Logic</span>
-            </li>
-        </ul>
-    </div>
-
-    <div class="price-box rounded-lg p-4 mb-4 text-center border border-gray-700">
-        <p class="text-gray-300 line-through text-sm">Standard Price: R550</p>
-        <p class="text-green-400 italic text-sm mt-1 early-access px-2 py-1 rounded">Early Access: R350 for first 3 customers</p>
-
-        <!-- Buy Button -->
-        <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20interested%20in%20early%20access%20to%20the%20bot" target="_blank"
-           class="inline-block mt-3 px-4 py-2 border border-teal-400 text-teal-300 rounded hover:bg-teal-400 hover:text-gray-900 transition-all duration-200">
-           Buy Now
-        </a>
-    </div>
-
-    <p class="text-xs text-gray-400 text-center"><span class="text-blue-300">AVAILABLE NOW</span></p>
-</div>
-
-            
-            <!-- CASH CATALYST EA Card -->
-            <div class="flex-shrink-0 w-80 md:w-auto md:flex-shrink-100 bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover transition-all duration-300">
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover transition-all duration-300">
                 <div class="flex justify-between items-start mb-4">
-                    <h3 class="title-font text-xl text-purple-300">CASH CATALYST EA</h3>
-                    <span class="text-xs bg-gray-800 text-purple-300 px-2 py-1 rounded">Forex Focused</span>
+                    <h3 class="title-font text-xl text-blue-300">MOPSENTRY EA</h3>
+                    <span class="text-xs bg-gray-800 text-teal-300 px-2 py-1 rounded">Indices & Forex</span>
                 </div>
-                <p class="text-gray-300 text-sm mb-4">High-frequency forex trading automation</p>
-                
-                <div class="mb-6">
-                    <div class="flex justify-between text-xs text-gray-400 mb-1">
-                        <span>Development Progress</span>
-                        <span>60%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 60%; background: linear-gradient(90deg, #b5179e, #7209b7);"></div>
-                    </div>
-                </div>
-                
+               
+                <p class="text-gray-300 text-sm mb-4">Advanced algorithmic trading for indices and forex</p>
+               
                 <div class="mb-6">
                     <h4 class="text-sm font-medium text-gray-300 mb-2">FEATURES:</h4>
                     <ul class="text-xs text-gray-400 space-y-1">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-purple-400 mr-2 mt-0.5"></i>
-                            <span>ICT Scalping Strategy</span>
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>4H Bias Analysis</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-purple-400 mr-2 mt-0.5"></i>
-                            <span>Fair Value Gap Detection</span>
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>1H Structure Recognition</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-purple-400 mr-2 mt-0.5"></i>
-                            <span>Multi-Timeframe Filtering</span>
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>5M/1M Precision Entries</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-purple-400 mr-2 mt-0.5"></i>
-                            <span>Risk Allocation Logic</span>
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>FVG + OTE Strategy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>Liquidity-Based Take-Profit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>Advanced Trade Management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>News Filter</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i>
+                            <span>Custom Risk Logic</span>
                         </li>
                     </ul>
                 </div>
-                
-                <div class="h-24 flex items-center justify-center">
-                    <p class="text-xs text-gray-400 text-center">Pricing details coming soon</p>
+                <div class="price-box rounded-lg p-4 mb-4 text-center border border-gray-700">
+                    <p class="text-gray-300 line-through text-sm">Standard Price: R550</p>
+                    <p class="text-green-400 italic text-sm mt-1 early-access px-2 py-1 rounded">Early Access: R350 for first 3 customers</p>
+                    <!-- Buy Button -->
+                    <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20interested%20in%20early%20access%20to%20the%20MOPSENTRY%20EA" target="_blank"
+                       class="inline-block mt-3 px-6 py-3 border border-teal-400 text-teal-300 rounded-lg hover:bg-teal-400 hover:text-gray-900 transition-all duration-200 font-medium">
+                       <i class="fab fa-whatsapp mr-2"></i>Buy Now
+                    </a>
                 </div>
-                
-                <p class="text-xs text-gray-400 text-center mt-6">Expected Release: <span class="text-purple-300">AUGUST 2025</span></p>
+                <p class="text-xs text-gray-400 text-center"><span class="text-blue-300">AVAILABLE NOW</span></p>
             </div>
+        </div>
+    </section>
+
+    <!-- Telegram Proof Channel -->
+    <section class="py-16 px-4 max-w-4xl mx-auto">
+        <div class="telegram-card rounded-2xl p-8 md:p-12 text-center border">
+            <div class="text-6xl mb-6">
+                <i class="fab fa-telegram-plane text-blue-400"></i>
+            </div>
+            <h2 class="title-font text-3xl md:text-4xl text-center mb-6 bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 bg-clip-text text-transparent">
+                Live Results & Proof
+            </h2>
+            <p class="text-gray-300 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+                Join our <strong>FREE</strong> Telegram channel to see <strong>real-time MOPSENTRY EA performance</strong>, 
+                live trading results, account statements, and verified proof of profits.
+            </p>
+            <a href="https://t.me/YOUR_CHANNEL_LINK" target="_blank" 
+               class="telegram-btn inline-flex items-center justify-center px-8 py-4 rounded-xl text-white font-semibold text-lg w-full md:w-auto shadow-lg">
+                <i class="fab fa-telegram-plane mr-3 text-xl"></i>
+                Join FREE Channel Now
+                <i class="fas fa-arrow-right ml-3"></i>
+            </a>
+            <p class="text-sm text-gray-500 mt-6">
+                <i class="fas fa-lock-open mr-2 text-green-400"></i>
+                100% Free • Daily Updates • Verified Results
+            </p>
         </div>
     </section>
 
     <!-- Email Subscription -->
     <section class="py-12 px-4 max-w-2xl mx-auto">
         <h2 class="title-font text-2xl md:text-3xl text-center mb-6 text-blue-400">Stay Updated</h2>
-        
+       
         <form action="https://formspree.io/f/manopnkj" method="POST" class="space-y-4">
             <div>
                 <label for="email" class="sr-only">Email Address</label>
-                <input type="email" id="email" name="email" required 
+                <input type="email" id="email" name="email" required
                        class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-gray-200 font-light focus:outline-none focus:ring-2 focus:ring-blue-500"
                        placeholder="Enter your email">
             </div>
             <button type="submit" class="subscribe-btn w-full py-3 px-6 rounded-lg text-white font-medium">
-                Subscribe for Updates
+                <i class="fas fa-bell mr-2"></i>Subscribe for Updates
             </button>
         </form>
-        
+       
         <p class="text-center text-xs text-gray-500 mt-4">
             <i class="fas fa-mobile-alt mr-1"></i> Mobile version coming soon
         </p>
@@ -258,7 +269,7 @@
     <!-- Strategy Strength Section -->
     <section class="py-12 px-4 max-w-4xl mx-auto">
         <h2 class="title-font text-2xl md:text-3xl text-center mb-12 text-teal-400">STRATEGY STRENGTH</h2>
-        
+       
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="feature-card bg-gray-900 rounded-xl p-6 border border-gray-800 transition-all duration-300">
                 <div class="text-3xl text-blue-400 mb-3">
@@ -267,7 +278,7 @@
                 <h3 class="title-font text-lg text-blue-300 mb-2">Algorithmic Precision</h3>
                 <p class="text-gray-400 text-sm font-light">Our bots execute trades with mathematical precision, eliminating emotional decision-making from your trading.</p>
             </div>
-            
+           
             <div class="feature-card bg-gray-900 rounded-xl p-6 border border-gray-800 transition-all duration-300">
                 <div class="text-3xl text-teal-400 mb-3">
                     <i class="fas fa-bullseye"></i>
@@ -275,7 +286,7 @@
                 <h3 class="title-font text-lg text-teal-300 mb-2">Liquidity Targeting</h3>
                 <p class="text-gray-400 text-sm">Strategies designed to identify and target liquidity pools for optimal entry and exit points.</p>
             </div>
-            
+           
             <div class="feature-card bg-gray-900 rounded-xl p-6 border border-gray-800 transition-all duration-300">
                 <div class="text-3xl text-purple-400 mb-3">
                     <i class="fas fa-bolt"></i>
@@ -311,9 +322,13 @@
                         <i class="fab fa-instagram mr-2 text-purple-400"></i>
                         <span>@unkel.mops</span>
                     </li>
+                    <li class="flex items-center">
+                        <i class="fab fa-telegram-plane mr-2 text-blue-400"></i>
+                        <span>Free Results Channel</span>
+                    </li>
                 </ul>
             </div>
-            
+           
             <div class="text-center md:text-right">
                 <p class="text-xs text-gray-500">
                     © 2025 THE ENGINE ROOM. All rights reserved.
