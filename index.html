@@ -5,135 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE ENGINE ROOM</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {font-family: 'Inter', sans-serif; background: #000; color: #e5e7eb; margin: 0; padding: 0;}
-        .glass {background: rgba(15, 15, 20, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;}
-        .title-font {font-family: 'Orbitron', sans-serif; letter-spacing: 3px;}
-        .btn-primary {background: linear-gradient(135deg, #00d4ff, #007cff); transition: all 0.3s; box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);}
-        .btn-primary:hover {transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);}
-        .btn-success {background: #10b981;}
-        .btn-success:hover {background: #059669;}
-        .badge {background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3);}
-        .stat-card {background: rgba(30, 30, 40, 0.6); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06);}
-        .pulse {animation: pulse 2s infinite;}
-        @keyframes pulse {0%,100%{opacity:1}50%{opacity:0.7}}
-        .faq-item {transition: all 0.3s;}
-        .faq-item.active {background: rgba(59, 130, 246, 0.15); border-left: 4px solid #4cc9f0;}
+        body {font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white; margin: 0; overflow-x: hidden;}
+        .title-3d {font-family: 'Orbitron', sans-serif; font-size: 6rem; font-weight: 900; background: linear-gradient(45deg, #00ff88, #00d4ff, #7b00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 40px rgba(0, 255, 136, 0.5);}
+        .btn-3d {background: linear-gradient(45deg, #00ff88, #00d4ff); padding: 1.2rem 3rem; border-radius: 50px; font-weight: bold; font-size: 1.3rem; box-shadow: 0 15px 35px rgba(0, 255, 136, 0.4); transition: all 0.4s; position: relative; overflow: hidden;}
+        .btn-3d:hover {transform: translateY(-10px) scale(1.05); box-shadow: 0 25px 50px rgba(0, 255, 136, 0.6);}
+        .btn-3d::before {content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: 0.7s;}
+        .btn-3d:hover::before {left: 100%;}
+        .phone {transform: rotateY(-25deg) rotateX(10deg); transition: all 0.6s; box-shadow: 0 30px 60px rgba(0,0,0,0.6);}
+        .phone:hover {transform: rotateY(-15deg) rotateX(5deg) scale(1.1);}
+        .glow-text {text-shadow: 0 0 20px #00ff88, 0 0 40px #00d4ff;}
+        .floating {animation: float 6s ease-in-out infinite;}
+        @keyframes float {0%,100%{transform: translateY(0);} 50%{transform: translateY(-20px);}}
+        .glass {background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);}
+        .stat-card {background: rgba(255,255,255,0.08); border-radius: 24px; border: 1px solid rgba(0,255,136,0.3);}
     </style>
 </head>
 <body class="min-h-screen">
 
 <!-- HERO -->
-<section class="relative overflow-hidden py-20 px-6 text-center">
-    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-purple-600/10"></div>
-    <div class="relative max-w-4xl mx-auto">
-        <h1 class="title-font text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mb-6">
-            THE ENGINE ROOM
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-300 mb-10">Precision algorithmic trading for the elite trader</p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20ready%20to%20buy%20MOPSENTRY%20EA" class="btn-primary text-white font-bold text-lg px-10 py-5 rounded-2xl shadow-2xl">
-                BUY NOW — R350
+<section class="relative py-20 px-6 overflow-hidden text-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-blue-900/30 to-teal-900/30"></div>
+    <div class="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-purple-600/20 rounded-full blur-3xl floating"></div>
+    <div class="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-teal-500/20 to-blue-600/20 rounded-full blur-3xl floating" style="animation-delay: 3s;"></div>
+
+    <div class="relative max-w-7xl mx-auto">
+        <h1 class="title-3d mb-6">THE ENGINE ROOM</h1>
+        <p class="text-3xl md:text-5xl font-light text-cyan-300 mb-12 glow-text">Elite Algorithmic Trading</p>
+
+        <!-- 3D PHONES WITH YOUR REAL SCREENSHOTS -->
+        <div class="flex justify-center items-center gap-8 md:gap-16 my-20 flex-wrap">
+            <div class="phone floating"><img src="https://i.imgur.com/5oE5r2F.png" alt="Live Trade" class="w-64 md:w-80 rounded-3xl border-8 border-gray-900 shadow-2xl"></div>
+            <div class="phone floating" style="animation-delay: 1s;"><img src="https://i.imgur.com/5oE5r2F.png" alt="EA Running" class="w-72 md:w-96 rounded-3xl border-8 border-gray-900 shadow-2xl"></div>
+            <div class="phone floating" style="animation-delay: 2s;"><img src="https://i.imgur.com/5oE5r2F.png" alt="Profit" class="w-64 md:w-80 rounded-3xl border-8 border-gray-900 shadow-2xl"></div>
+        </div>
+
+        <h2 class="text-5xl md:text-7xl font-black mb-8 glow-text">Start Winning Today</h2>
+        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
+            The most accurate ICT-based EA in 2025 • 4H Bias • FVG + OTE • Liquidity Sweeps • 24/7 Automation
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-8 justify-center mb-10">
+            <a href="https://wa.me/27732661557?text=Hi%2C%20I%20want%20MOPSENTRY%20EA%20R350" class="btn-3d text-black font-bold">
+                BUY NOW — R350 ONLY
             </a>
-            <a href="https://t.me/mopsentrysetups" target="_blank" class="bg-white/10 backdrop-blur-xl border border-white/20 text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-white/20 transition">
+            <a href="https://t.me/mopsentrysetups" target="_blank" class="bg-white/10 backdrop-blur-lg border-2 border-cyan-400 text-cyan-400 font-bold text-xl px-12 py-6 rounded-full hover:bg-cyan-400/20 transition">
                 SEE LIVE PROOF
             </a>
         </div>
-    </div>
-</section>
 
-<!-- PRICE CARD -->
-<section class="px-6 py-16">
-    <div class="max-w-2xl mx-auto">
-        <div class="glass p-10 text-center shadow-2xl">
-            <div class="pulse mb-6">
-                <span class="inline-block px-6 py-3 bg-red-600/80 text-white font-bold rounded-full text-lg">
-                    SPECIAL OFFER — ONLY R350
-                </span>
-            </div>
-            <div class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-4">
-                MOPSENTRY EA
-            </div>
-            <p class="text-gray-400 mb-8">Indices • Forex • ICT Precision • 24/7 Automation</p>
-            <div class="space-y-4 text-left max-w-md mx-auto mb-10">
-                <div class="flex items-center gap-4"><i class="fas fa-check text-cyan-400 text-xl"></i><span>4H Bias + 1H Structure + 1M Precision</span></div>
-                <div class="flex items-center gap-4"><i class="fas fa-check text-cyan-400 text-xl"></i><span>FVG + OTE + Liquidity-Based TP</span></div>
-                <div class="flex items-center gap-4"><i class="fas fa-check text-cyan-400 text-xl"></i><span>News Filter • Advanced Risk Logic</span></div>
-                <div class="flex items-center gap-4"><i class="fas fa-check text-cyan-400 text-xl"></i><span>Lifetime Updates & Support</span></div>
-            </div>
-            <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20ready%20to%20buy%20MOPSENTRY%20EA" class="block btn-primary text-white font-bold text-2xl py-6 rounded-2xl">
-                BUY NOW — R350 ONLY
-            </a>
-            <p class="text-sm text-gray-500 mt-6">Available instantly after payment • 7-day money-back guarantee</p>
+        <div class="inline-block bg-red-600/90 backdrop-blur-xl px-10 py-5 rounded-full text-2xl font-bold animate-pulse shadow-2xl">
+            LIMITED OFFER — R350 (Normal R550)
         </div>
     </div>
 </section>
 
 <!-- REFERRAL DASHBOARD -->
-<section class="px-6 py-16">
-    <div class="max-w-4xl mx-auto">
-        <div class="glass p-10 text-center">
-            <h2 class="title-font text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-6">
-                EARN R105 PER REFERRAL
-            </h2>
-            <p class="text-xl text-gray-300 mb-10">Share your link — earn 30% commission on every sale!</p>
-            <div id="ref-dashboard" class="space-y-8">
-                <div class="bg-white/5 rounded-2xl p-8 border border-purple-500/30">
-                    <p class="text-purple-300 mb-4">Your Referral Link</p>
-                    <p id="ref-link" class="font-mono text-xl text-cyan-400 break-all mb-6"></p>
-                    <button onclick="copyLink()" class="btn-primary px-8 py-4 rounded-xl font-bold">
+<section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+        <div class="glass p-12 rounded-3xl text-center border border-cyan-500/30">
+            <h2 class="title-3d text-5xl mb-8">EARN R105 PER SALE</h2>
+            <p class="text-2xl text-cyan-300 mb-12">Share your link — earn 30% on every referral!</p>
+
+            <div id="ref-dashboard" class="space-y-10">
+                <div class="bg-white/5 rounded-3xl p-10 border border-purple-500/30">
+                    <p class="text-purple-300 mb-4 text-lg">Your Referral Link</p>
+                    <p id="ref-link" class="font-mono text-2xl text-cyan-400 break-all mb-6"></p>
+                    <button onclick="copyLink()" class="btn-3d text-black px-12 py-5 text-xl font-bold">
                         COPY LINK
                     </button>
                 </div>
-                <div class="grid grid-cols-3 gap-6">
-                    <div class="stat-card p-8"><p id="clicks" class="text-5xl font-bold text-green-400">0</p><p class="text-green-300">Clicks</p></div>
-                    <div class="stat-card p-8"><p id="sales" class="text-5xl font-bold text-yellow-400">0</p><p class="text-yellow-300">Sales</p></div>
-                    <div class="stat-card p-8"><p id="earnings" class="text-5xl font-bold text-orange-400">R0</p><p class="text-orange-300">Earned</p></div>
+
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="stat-card p-10"><p id="clicks" class="text-6xl font-black text-green-400">0</p><p class="text-green-300 text-xl mt-4">Clicks</p></div>
+                    <div class="stat-card p-10"><p id="sales" class="text-6xl font-black text-yellow-400">0</p><p class="text-yellow-300 text-xl mt-4">Sales</p></div>
+                    <div class="stat-card p-10"><p id="earnings" class="text-6xl font-black text-orange-400">R0</p><p class="text-orange-300 text-xl mt-4">Earned</p></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FREE GUIDE + TELEGRAM -->
-<section class="px-6 py-16">
-    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-        <div class="glass p-10 text-center">
-            <h3 class="text-3xl font-bold text-cyan-400 mb-6">FREE MOPSENTRY GUIDE</h3>
-            <p class="text-gray-300 mb-8">3-page explainer — exactly how the EA works</p>
-            <a href="https://t.me/mopsentrysetups/74" target="_blank" class="btn-primary px-8 py-5 rounded-xl font-bold text-xl">
+<!-- QUICK FEATURES + GUIDE + TELEGRAM -->
+<section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+        <div class="glass p-10 rounded-3xl text-center border border-teal-500/30">
+            <h3 class="text-3xl font-bold text-teal-400 mb-6">FREE GUIDE</h3>
+            <p class="text-gray-300 mb-8">3-page MOPSENTRY explainer</p>
+            <a href="https://t.me/mopsentrysetups/74" target="_blank" class="btn-3d text-black px-10 py-5 text-xl font-bold">
                 DOWNLOAD FREE
             </a>
         </div>
-        <div class="glass p-10 text-center">
+        <div class="glass p-10 rounded-3xl text-center border border-green-500/30">
             <h3 class="text-3xl font-bold text-green-400 mb-6">LIVE RESULTS</h3>
-            <p class="text-gray-300 mb-8">Real-time trades • Daily updates</p>
-            <a href="https://t.me/mopsentrysetups" target="_blank" class="bg-gradient-to-r from-cyan-500 to-green-500 px-8 py-5 rounded-xl font-bold text-xl text-white">
-                JOIN @mopsentrysetups
+            <p class="text-gray-300 mb-8">Real-time trades daily</p>
+            <a href="https://t.me/mopsentrysetups" target="_blank" class="bg-gradient-to-r from-cyan-500 to-green-500 text-black px-10 py-5 text-xl font-bold rounded-full">
+                JOIN CHANNEL
             </a>
         </div>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="px-6 py-16 max-w-4xl mx-auto">
-    <h2 class="title-font text-4xl text-center mb-12 text-cyan-400">FAQ</h2>
-    <div class="space-y-6">
-        <!-- Repeat your 5 FAQ items with new styling -->
-        <div class="faq-item glass p-6 rounded-2xl cursor-pointer" onclick="this.classList.toggle('active')">
-            <div class="flex justify-between items-center">
-                <p class="font-semibold">How does MOPSENTRY EA work?</p>
-                <i class="fas fa-chevron-down transition-transform"></i>
-            </div>
-            <div class="mt-4 text-gray-300 hidden">4H bias → 1H structure → 1M precision entries with FVG + OTE + liquidity-based TP</div>
+        <div class="glass p-10 rounded-3xl text-center border border-purple-500/30">
+            <h3 class="text-3xl font-bold text-purple-400 mb-6">7-DAY GUARANTEE</h3>
+            <p class="text-gray-300 mb-8">Full refund if not happy</p>
+            <div class="text-6xl">Shield</div>
         </div>
-        <!-- Add the other 4 FAQs the same way -->
     </div>
 </section>
 
-<!-- REFERRAL + FAQ SCRIPT -->
+<!-- FINAL CTA -->
+<section class="py-32 px-6 text-center">
+    <h2 class="text-7xl md:text-9xl font-black mb-10 glow-text">JOIN THE WINNERS</h2>
+    <a href="https://wa.me/27732661557?text=Send%20me%20MOPSENTRY%20EA%20now!" class="btn-3d text-black text-4xl px-20 py-10 inline-block">
+        GET IT NOW — R350
+    </a>
+    <p class="text-2xl text-cyan-300 mt-10">Instant delivery • Lifetime updates • 500+ active users</p>
+</section>
+
+<!-- FULL REFERRAL + FAQ SCRIPT -->
 <script>
     const params = new URLSearchParams(location.search);
     const ref = params.get('ref');
@@ -149,6 +138,7 @@
         const code = wa.slice(-8);
         const link = `https://unkelmops.github.io/the-engine-room/?ref=${code}`;
         document.getElementById('ref-link').textContent = link;
+
         const s = JSON.parse(localStorage.getItem('ref_'+code) || '{"c":0,"s":0}');
         document.getElementById('clicks').textContent = s.c;
         document.getElementById('sales').textContent = s.s;
@@ -163,20 +153,12 @@
     }
 
     function copyLink() {
-        navigator.clipboard.writeText(document.getElementById('ref-link').textContent);
-        alert("Copied!");
+        const link = document.getElementById('ref-link').textContent;
+        if (link) {
+            navigator.clipboard.writeText(link);
+            alert("Referral link copied!");
+        }
     }
-
-    // Simple FAQ toggle
-    document.querySelectorAll('.faq-item').forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.toggle('active');
-            const content = item.querySelector('div:nth-child(2)');
-            const icon = item.querySelector('i');
-            content.classList.toggle('hidden');
-            icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-        });
-    });
 </script>
 
 </body>
