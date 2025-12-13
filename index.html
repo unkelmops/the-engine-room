@@ -13,7 +13,62 @@
             background-color: #0a0a0f;
             color: #e0e0e0;
             font-weight: 300;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
         }
+
+        /* 3D Futuristic Grid Background (Pure CSS - No JS) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0f;
+            perspective: 800px;
+            z-index: -1;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .grid-lines {
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(to right, rgba(76, 201, 240, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(76, 201, 240, 0.2) 1px, transparent 1px);
+            background-size: 60px 60px;
+            transform: rotateX(60deg) translateY(-50%);
+            animation: gridMove 30s linear infinite;
+            opacity: 0.4;
+        }
+
+        .grid-fade {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, #0a0a0f 70%);
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            0% { transform: rotateX(60deg) translateY(-50%); }
+            100% { transform: rotateX(60deg) translateY(0%); }
+        }
+
         .title-font {
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 2px;
@@ -43,10 +98,6 @@
             box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
             background: rgba(40, 40, 60, 0.5) !important;
             border-color: rgba(76, 201, 240, 0.5);
-        }
-        .urgency-banner {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            animation: pulse 2s infinite;
         }
         .special-offer-box {
             background: linear-gradient(135deg, #dc2626, #b91c1c);
@@ -130,6 +181,13 @@
     </style>
 </head>
 <body class="min-h-screen">
+
+    <!-- 3D Grid Background -->
+    <div class="grid-bg">
+        <div class="grid-lines"></div>
+        <div class="grid-fade"></div>
+    </div>
+
     <!-- Header -->
     <header class="py-12 px-4 text-center">
         <h1 class="title-font text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500 mb-4">
@@ -137,10 +195,11 @@
         </h1>
         <p class="text-gray-400 max-w-2xl mx-auto">Advanced algorithmic trading solutions for the modern trader</p>
     </header>
+
     <!-- Trading Bot Cards -->
     <section class="py-12 px-4 max-w-7xl mx-auto">
         <h2 class="title-font text-2xl md:text-3xl text-center mb-12 text-blue-400">OUR EXPERT ADVISOR</h2>
-      
+    
         <div class="grid grid-cols-1 md:grid-cols-1 gap-8 lg:gap-12">
             <!-- MOPSENTRY EA Card -->
             <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover transition-all duration-300">
@@ -148,9 +207,9 @@
                     <h3 class="title-font text-xl text-blue-300">MOPSENTRY EA</h3>
                     <span class="text-xs bg-gray-800 text-teal-300 px-2 py-1 rounded">Indices & Forex</span>
                 </div>
-              
+            
                 <p class="text-gray-300 text-sm mb-4">Advanced algorithmic trading for indices and forex</p>
-              
+            
                 <div class="mb-6">
                     <h4 class="text-sm font-medium text-gray-300 mb-2">FEATURES:</h4>
                     <ul class="text-xs text-gray-400 space-y-1">
@@ -164,14 +223,14 @@
                         <li class="flex items-start"><i class="fas fa-check text-teal-400 mr-2 mt-0.5"></i><span>Custom Risk Logic</span></li>
                     </ul>
                 </div>
-               
+             
                 <!-- URGENCY BANNER -->
                 <div class="special-offer-box text-center rounded-lg p-4 mb-4">
                     <i class="fas fa-fire mr-2"></i>
                     <span class="font-bold text-white text-sm">⚡ SPECIAL OFFER: R350 ONLY! ⚡</span>
                     <i class="fas fa-bolt ml-2 animate-pulse"></i>
                 </div>
-               
+             
                 <div class="price-box rounded-lg p-4 mb-4 text-center border border-gray-700">
                     <p class="text-gray-300 line-through text-sm">Standard Price: R550</p>
                     <p class="text-green-400 italic text-sm mt-1">Special Offer: R350</p>
@@ -184,6 +243,7 @@
             </div>
         </div>
     </section>
+
     <!-- FREE MOPSENTRY GUIDE -->
     <section class="py-16 px-4 max-w-4xl mx-auto">
         <div class="guide-card rounded-2xl p-8 md:p-12 text-center border">
@@ -226,6 +286,7 @@
             </p>
         </div>
     </section>
+
     <!-- Telegram Proof Channel -->
     <section class="py-16 px-4 max-w-4xl mx-auto">
         <div class="telegram-card rounded-2xl p-8 md:p-12 text-center border">
@@ -251,12 +312,13 @@
             </p>
         </div>
     </section>
+
     <!-- FAQ Section -->
     <section class="py-16 px-4 max-w-5xl mx-auto">
         <h2 class="title-font text-3xl md:text-4xl text-center mb-12 text-cyan-400">FREQUENTLY ASKED QUESTIONS</h2>
-       
+     
         <div class="space-y-4 max-w-4xl mx-auto">
-            <!-- FAQ Item 1 -->
+            <!-- FAQ Items (unchanged) -->
             <div class="faq-item bg-gray-900/80 backdrop-blur-xl rounded-xl border overflow-hidden">
                 <div class="faq-header flex justify-between items-center p-6 pr-4" onclick="toggleFAQ(this)">
                     <div class="flex items-center">
@@ -269,7 +331,6 @@
                     <p>MOPSENTRY uses a multi-timeframe approach: <strong>4H for bias → 1H for structure → 5M/1M for precision entries</strong>. It combines FVG + OTE setups with liquidity-based take-profits and advanced risk management.</p>
                 </div>
             </div>
-            <!-- FAQ Item 2 -->
             <div class="faq-item bg-gray-900/80 backdrop-blur-xl rounded-xl border overflow-hidden">
                 <div class="faq-header flex justify-between items-center p-6 pr-4" onclick="toggleFAQ(this)">
                     <div class="flex items-center">
@@ -282,7 +343,6 @@
                     <p><strong>Realistic: 5-12% monthly</strong> with proper risk management. Check our <a href="https://t.me/mopsentrysetups" target="_blank" class="text-teal-400 hover:text-teal-300">@mopsentrysetups</a> Telegram channel for live verified results.</p>
                 </div>
             </div>
-            <!-- FAQ Item 3 -->
             <div class="faq-item bg-gray-900/80 backdrop-blur-xl rounded-xl border overflow-hidden">
                 <div class="faq-header flex justify-between items-center p-6 pr-4" onclick="toggleFAQ(this)">
                     <div class="flex items-center">
@@ -295,7 +355,6 @@
                     <p><strong>Recommended:</strong> IC Markets, Pepperstone, or FP Markets (Raw/ECN accounts). Minimum $500-1000. <strong>ECN brokers only!</strong></p>
                 </div>
             </div>
-            <!-- FAQ Item 4 -->
             <div class="faq-item bg-gray-900/80 backdrop-blur-xl rounded-xl border overflow-hidden">
                 <div class="faq-header flex justify-between items-center p-6 pr-4" onclick="toggleFAQ(this)">
                     <div class="flex items-center">
@@ -308,7 +367,6 @@
                     <p><strong>Yes! Lifetime support</strong> via WhatsApp + <a href="https://t.me/mopsentrysetups" target="_blank" class="text-teal-400 hover:text-teal-300">@mopsentrysetups</a>. Installation help, setup guidance, and ongoing updates included.</p>
                 </div>
             </div>
-            <!-- FAQ Item 5 -->
             <div class="faq-item bg-gray-900/80 backdrop-blur-xl rounded-xl border overflow-hidden">
                 <div class="faq-header flex justify-between items-center p-6 pr-4" onclick="toggleFAQ(this)">
                     <div class="flex items-center">
@@ -323,6 +381,7 @@
             </div>
         </div>
     </section>
+
     <!-- Email Subscription -->
     <section class="py-12 px-4 max-w-2xl mx-auto">
         <h2 class="title-font text-2xl md:text-3xl text-center mb-6 text-blue-400">Stay Updated</h2>
@@ -341,12 +400,14 @@
             <i class="fas fa-mobile-alt mr-1"></i> Mobile version coming soon
         </p>
     </section>
+
     <!-- Disclaimer -->
     <div class="py-8 px-4 max-w-4xl mx-auto border-t border-gray-800 mt-8">
         <p class="text-xs text-center text-red-400">
             <i class="fas fa-exclamation-triangle mr-1"></i> These bots are not FSCA regulated. Use at your own risk. No financial guarantees are made.
         </p>
     </div>
+
     <!-- Footer -->
     <footer class="py-8 px-4 max-w-4xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-center">
@@ -364,16 +425,15 @@
             </div>
         </div>
     </footer>
+
     <script>
         function toggleFAQ(header) {
             const item = header.parentElement;
             const content = item.querySelector('.faq-content');
             const icon = header.querySelector('i:last-child');
-           
-            // Toggle active class
+         
             item.classList.toggle('active');
-           
-            // Rotate icon
+         
             icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
         // Close all FAQs when clicking outside
@@ -387,133 +447,5 @@
             }
         });
     </script>
-</body>
-</html>
-        <!-- 3D PHONES WITH YOUR REAL SCREENSHOTS -->
-        <div class="flex justify-center items-center gap-8 md:gap-16 my-20 flex-wrap">
-            <div class="phone floating"><img src="https://i.imgur.com/5oE5r2F.png" alt="Live Trade" class="w-64 md:w-80 rounded-3xl border-8 border-gray-900 shadow-2xl"></div>
-            <div class="phone floating" style="animation-delay: 1s;"><img src="https://i.imgur.com/5oE5r2F.png" alt="EA Running" class="w-72 md:w-96 rounded-3xl border-8 border-gray-900 shadow-2xl"></div>
-            <div class="phone floating" style="animation-delay: 2s;"><img src="https://i.imgur.com/5oE5r2F.png" alt="Profit" class="w-64 md:w-80 rounded-3xl border-8 border-gray-900 shadow-2xl"></div>
-        </div>
-
-        <h2 class="text-5xl md:text-7xl font-black mb-8 glow-text">Start Winning Today</h2>
-        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
-            The most accurate ICT-based EA in 2025 • 4H Bias • FVG + OTE • Liquidity Sweeps • 24/7 Automation
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-8 justify-center mb-10">
-            <a href="https://wa.me/27732661557?text=Hi%2C%20I%20want%20MOPSENTRY%20EA%20R350" class="btn-3d text-black font-bold">
-                BUY NOW — R350 ONLY
-            </a>
-            <a href="https://t.me/mopsentrysetups" target="_blank" class="bg-white/10 backdrop-blur-lg border-2 border-cyan-400 text-cyan-400 font-bold text-xl px-12 py-6 rounded-full hover:bg-cyan-400/20 transition">
-                SEE LIVE PROOF
-            </a>
-        </div>
-
-        <div class="inline-block bg-red-600/90 backdrop-blur-xl px-10 py-5 rounded-full text-2xl font-bold animate-pulse shadow-2xl">
-            LIMITED OFFER — R350 (Normal R550)
-        </div>
-    </div>
-</section>
-
-<!-- REFERRAL DASHBOARD -->
-<section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-        <div class="glass p-12 rounded-3xl text-center border border-cyan-500/30">
-            <h2 class="title-3d text-5xl mb-8">EARN R105 PER SALE</h2>
-            <p class="text-2xl text-cyan-300 mb-12">Share your link — earn 30% on every referral!</p>
-
-            <div id="ref-dashboard" class="space-y-10">
-                <div class="bg-white/5 rounded-3xl p-10 border border-purple-500/30">
-                    <p class="text-purple-300 mb-4 text-lg">Your Referral Link</p>
-                    <p id="ref-link" class="font-mono text-2xl text-cyan-400 break-all mb-6"></p>
-                    <button onclick="copyLink()" class="btn-3d text-black px-12 py-5 text-xl font-bold">
-                        COPY LINK
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-3 gap-8">
-                    <div class="stat-card p-10"><p id="clicks" class="text-6xl font-black text-green-400">0</p><p class="text-green-300 text-xl mt-4">Clicks</p></div>
-                    <div class="stat-card p-10"><p id="sales" class="text-6xl font-black text-yellow-400">0</p><p class="text-yellow-300 text-xl mt-4">Sales</p></div>
-                    <div class="stat-card p-10"><p id="earnings" class="text-6xl font-black text-orange-400">R0</p><p class="text-orange-300 text-xl mt-4">Earned</p></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- QUICK FEATURES + GUIDE + TELEGRAM -->
-<section class="py-20 px-6">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
-        <div class="glass p-10 rounded-3xl text-center border border-teal-500/30">
-            <h3 class="text-3xl font-bold text-teal-400 mb-6">FREE GUIDE</h3>
-            <p class="text-gray-300 mb-8">3-page MOPSENTRY explainer</p>
-            <a href="https://t.me/mopsentrysetups/74" target="_blank" class="btn-3d text-black px-10 py-5 text-xl font-bold">
-                DOWNLOAD FREE
-            </a>
-        </div>
-        <div class="glass p-10 rounded-3xl text-center border border-green-500/30">
-            <h3 class="text-3xl font-bold text-green-400 mb-6">LIVE RESULTS</h3>
-            <p class="text-gray-300 mb-8">Real-time trades daily</p>
-            <a href="https://t.me/mopsentrysetups" target="_blank" class="bg-gradient-to-r from-cyan-500 to-green-500 text-black px-10 py-5 text-xl font-bold rounded-full">
-                JOIN CHANNEL
-            </a>
-        </div>
-        <div class="glass p-10 rounded-3xl text-center border border-purple-500/30">
-            <h3 class="text-3xl font-bold text-purple-400 mb-6">7-DAY GUARANTEE</h3>
-            <p class="text-gray-300 mb-8">Full refund if not happy</p>
-            <div class="text-6xl">Shield</div>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="py-32 px-6 text-center">
-    <h2 class="text-7xl md:text-9xl font-black mb-10 glow-text">JOIN THE WINNERS</h2>
-    <a href="https://wa.me/27732661557?text=Send%20me%20MOPSENTRY%20EA%20now!" class="btn-3d text-black text-4xl px-20 py-10 inline-block">
-        GET IT NOW — R350
-    </a>
-    <p class="text-2xl text-cyan-300 mt-10">Instant delivery • Lifetime updates • 500+ active users</p>
-</section>
-
-<!-- FULL REFERRAL + FAQ SCRIPT -->
-<script>
-    const params = new URLSearchParams(location.search);
-    const ref = params.get('ref');
-    const wa = params.get('wa');
-
-    if (ref && ref.length >= 6) {
-        localStorage.setItem('current_ref', ref);
-        const s = JSON.parse(localStorage.getItem('ref_'+ref) || '{"c":0,"s":0}');
-        s.c++; localStorage.setItem('ref_'+ref, JSON.stringify(s));
-    }
-
-    if (wa) {
-        const code = wa.slice(-8);
-        const link = `https://unkelmops.github.io/the-engine-room/?ref=${code}`;
-        document.getElementById('ref-link').textContent = link;
-
-        const s = JSON.parse(localStorage.getItem('ref_'+code) || '{"c":0,"s":0}');
-        document.getElementById('clicks').textContent = s.c;
-        document.getElementById('sales').textContent = s.s;
-        document.getElementById('earnings').textContent = 'R'+(s.s*105);
-
-        const referrer = localStorage.getItem('current_ref');
-        if (referrer && referrer !== code) {
-            const rs = JSON.parse(localStorage.getItem('ref_'+referrer) || '{"c":0,"s":0}');
-            rs.s++; localStorage.setItem('ref_'+referrer, JSON.stringify(rs));
-        }
-        localStorage.removeItem('current_ref');
-    }
-
-    function copyLink() {
-        const link = document.getElementById('ref-link').textContent;
-        if (link) {
-            navigator.clipboard.writeText(link);
-            alert("Referral link copied!");
-        }
-    }
-</script>
-
 </body>
 </html>
