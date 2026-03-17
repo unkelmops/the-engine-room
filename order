@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Skull Caps - THE HQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #1f2937; }
+        .form-input { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-5">
+    <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg">
+        <h1 class="text-3xl font-bold text-center mb-8">Order Your Skull Cap</h1>
+        
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+            <!-- Replace the action URL with your Formspree/Getform link -->
+            
+            <label class="block mb-2 font-medium">Your Name</label>
+            <input type="text" name="name" required class="form-input">
+
+            <label class="block mb-2 font-medium">Phone Number (WhatsApp)</label>
+            <input type="tel" name="phone" required class="form-input">
+
+            <label class="block mb-2 font-medium">Email</label>
+            <input type="email" name="email" required class="form-input">
+
+            <label class="block mb-2 font-medium">Which Model?</label>
+            <select name="model" required class="form-input">
+                <option value="">Select model</option>
+                <option value="Cross Model">Cross Model (Black embroidery on white / White / Gray)</option>
+                <option value="Purpill Model">Purpill Model</option>
+                <option value="Aesthetic Model">Aesthetic Model (Black / Dark Gray / Light Gray / Navy Blue / Yellow)</option>
+                <option value="X Model">X Model (Black / Gray)</option>
+            </select>
+
+            <label class="block mb-2 font-medium">Quantity</label>
+            <input type="number" name="quantity" min="1" value="1" required class="form-input">
+
+            <label class="block mb-2 font-medium">Delivery Address</label>
+            <textarea name="address" rows="3" required class="form-input"></textarea>
+
+            <button type="submit" class="btn-primary w-full py-4 text-lg font-semibold mt-6 rounded-lg">
+                Submit Order
+            </button>
+        </form>
+
+        <p class="text-center text-sm text-gray-500 mt-6">
+            Delivery takes approximately 6 days. We'll contact you via WhatsApp/email to confirm.
+        </p>
+    </div>
+</body>
+</html>
