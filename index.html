@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE HQ - MOPSENTRY EA & Skull Caps</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,108 +12,92 @@
         body { font-family: 'Inter', system-ui, sans-serif; background-color: #f9fafb; color: #1f2937; line-height: 1.6; }
         .btn-primary { background-color: #2563eb; color: white; transition: all 0.2s; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
         .btn-primary:hover { background-color: #1d4ed8; transform: translateY(-1px); }
-        .card, .ea-card, .product-card { border-radius: 0.75rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .card, .product-card { border-radius: 0.75rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.3s ease; }
         .card:hover, .product-card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .ea-card { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #e0f2fe; border: 1px solid #334155; }
-        .ea-card h2, .ea-card h3 { color: #60a5fa; }
-        .product-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #e0f2fe; border: 1px solid #334155; }
-        .product-price { color: #14b8a6; font-weight: 700; font-size: 1.75rem; }
+        .ea-btn { background: linear-gradient(135deg, #3b82f6, #60a5fa); color: white; }
+        .ea-btn:hover { background: linear-gradient(135deg, #2563eb, #3b82f6); }
         .logo-img { max-height: 100px; width: auto; max-width: 80%; filter: drop-shadow(0 4px 12px rgba(0,170,255,0.3)); margin-bottom: 1rem; }
         .scroll-container { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1rem; scrollbar-width: thin; }
         .scroll-container::-webkit-scrollbar { height: 6px; }
         .scroll-container::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
-        .result-card, .product-card { flex: 0 0 280px; }
-        @media (min-width: 768px) {
-            .scroll-container { flex-wrap: wrap; overflow-x: hidden; justify-content: center; }
-            .result-card, .product-card { flex: 0 0 32%; max-width: 32%; }
-        }
-        .header-title { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.025em; color: #111827; }
-        @media (min-width: 640px) { .header-title { font-size: 3.5rem; } }
-        @media (min-width: 768px) { .header-title { font-size: 4.5rem; } }
-        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
-        .faq-question { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { display: none; padding-top: 0.75rem; color: #4b5563; }
-        .faq-item.open .faq-answer { display: block; }
+        .product-card { flex: 0 0 280px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #e0f2fe; border: 1px solid #334155; }
+        .product-price { color: #14b8a6; font-weight: 700; font-size: 1.75rem; }
+        .header-title { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.025em; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+        .header-subtitle { color: #e0f2fe; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+        .header-bg { background: url('https://i.imgur.com/MpOTaol.png') no-repeat center center; background-size: cover; min-height: 60vh; display: flex; align-items: center; justify-content: center; position: relative; }
+        .header-bg::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+        .header-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+        @media (min-width: 640px) { .header-title { font-size: 3.8rem; } }
+        @media (min-width: 768px) { .header-title { font-size: 5rem; } }
     </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <!-- Header with Logo -->
-    <header class="bg-white border-b border-gray-200 py-10 sm:py-16">
-        <div class="max-w-6xl mx-auto px-5 sm:px-6 text-center">
+    <!-- Header with background image -->
+    <header class="header-bg">
+        <div class="header-content max-w-5xl mx-auto px-5">
             <img src="https://i.imgur.com/MpOTaol.png" alt="THE HQ Logo" class="logo-img mx-auto">
-            <h1 class="header-title mb-2">THE HQ</h1>
-            <p class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">MOPSENTRY EA – Smart Algo Trading</p>
-            <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">Professional algorithmic tool for Forex & Indices</p>
+            <h1 class="header-title mb-3">THE HQ</h1>
+            <p class="text-xl sm:text-2xl header-subtitle mb-4">MOPSENTRY EA – Smart Algo Trading</p>
+            <p class="text-base sm:text-lg header-subtitle max-w-3xl mx-auto opacity-90">
+                Professional algorithmic tool for Forex & Indices
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/90">
+                <span><i class="fas fa-check-circle text-cyan-400 mr-1"></i>Live Verified</span>
+                <span><i class="fas fa-shield-alt text-cyan-400 mr-1"></i>Support Included</span>
+                <span><i class="fas fa-undo-alt text-cyan-400 mr-1"></i>7-Day Guarantee</span>
+            </div>
+            <a href="mopsentry.html" class="ea-btn inline-flex items-center px-10 py-5 rounded-xl text-lg font-semibold mt-10 shadow-lg">
+                Trade with MOPSENTRY EA
+            </a>
         </div>
     </header>
 
-    <!-- EA Card -->
-    <section class="py-10 sm:py-16">
-        <div class="max-w-5xl mx-auto px-5 sm:px-6">
-            <div class="ea-card p-6 sm:p-10 rounded-xl">
-                <div class="flex flex-col sm:flex-row justify-between items-start mb-6 sm:mb-8">
-                    <h2 class="text-2xl sm:text-3xl font-bold">MOPSENTRY EA</h2>
-                    <span class="mt-3 sm:mt-0 px-4 py-1.5 bg-blue-900/40 text-cyan-300 rounded-full text-sm font-medium border border-cyan-600/30">Forex • Indices</span>
-                </div>
-                <p class="text-base sm:text-lg text-sky-100 mb-6 sm:mb-8">Multi-timeframe SMC system: higher TF bias + precise entries with news filter & dynamic risk control.</p>
-                <!-- Features & Pricing unchanged -->
-                <div class="bg-black/30 border border-cyan-700/40 rounded-lg p-6 sm:p-8 text-center mb-8">
-                    <p class="text-base text-sky-200 line-through mb-2">Standard: R550</p>
-                    <p class="text-3xl sm:text-4xl font-bold price mb-5">Now: R350</p>
-                    <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20interested%20in%20MOPSENTRY%20EA" target="_blank" class="btn-primary w-full sm:w-auto px-8 py-4 rounded-lg text-base sm:text-lg font-semibold shadow">
-                        <i class="fab fa-whatsapp mr-2"></i> Buy Now – R350
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skull Caps Collection – Horizontal Scroll on Mobile -->
-    <section class="py-10 sm:py-16 bg-gray-50">
+    <!-- Skull Caps Collection – horizontal scroll on mobile -->
+    <section class="py-12 sm:py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-5 sm:px-6">
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center">Skull Caps Collection</h2>
             <p class="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">Come accessorize with attitude – elevate your style with our premium Skull Caps.</p>
 
             <div class="scroll-container">
                 <!-- Cross Model -->
-                <div class="product-card">
-                    <img src="https://i.imgur.com/xuzhrKE.png" alt="Cross Model" class="w-full h-64 object-cover">
+                <div class="product-card min-w-[280px]">
+                    <img src="https://i.imgur.com/xuzhrKE.png" alt="Cross Model Skull Cap" class="w-full h-64 object-cover">
                     <div class="p-5 text-center">
                         <h3 class="text-xl font-bold text-white mb-1">Cross Model</h3>
                         <p class="text-gray-300 text-sm mb-3">Black embroidery on white, White, Gray</p>
-                        <p class="text-2xl product-price mb-4">R99.99</p>
-                        <p class="delivery-note mb-4">Delivery takes ~6 days</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="text-sm text-gray-400 mb-4">Delivery ~6 days</p>
                         <a href="order.html#cross" class="btn-primary w-full py-3 rounded-lg text-base font-semibold">Order Now</a>
                     </div>
                 </div>
 
                 <!-- Purpill Model -->
-                <div class="product-card">
-                    <img src="https://i.imgur.com/mS8B2yu.png" alt="Purpill Model" class="w-full h-64 object-cover">
+                <div class="product-card min-w-[280px]">
+                    <img src="https://i.imgur.com/mS8B2yu.png" alt="Purpill Model Skull Cap" class="w-full h-64 object-cover">
                     <div class="p-5 text-center">
                         <h3 class="text-xl font-bold text-white mb-1">Purpill Model</h3>
                         <p class="text-gray-300 text-sm mb-3">Unique purpill design</p>
-                        <p class="text-2xl product-price mb-4">R99.99</p>
-                        <p class="delivery-note mb-4">Delivery takes ~6 days</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="text-sm text-gray-400 mb-4">Delivery ~6 days</p>
                         <a href="order.html#purpill" class="btn-primary w-full py-3 rounded-lg text-base font-semibold">Order Now</a>
                     </div>
                 </div>
 
                 <!-- Aesthetic Model -->
-                <div class="product-card">
-                    <img src="https://i.imgur.com/9OnLoJK.png" alt="Aesthetic Model" class="w-full h-64 object-cover">
+                <div class="product-card min-w-[280px]">
+                    <img src="https://i.imgur.com/9OnLoJK.png" alt="Aesthetic Model Skull Cap" class="w-full h-64 object-cover">
                     <div class="p-5 text-center">
                         <h3 class="text-xl font-bold text-white mb-1">Aesthetic Model</h3>
                         <p class="text-gray-300 text-sm mb-3">Black, Dark Gray, Light Gray, Navy Blue, Yellow</p>
-                        <p class="text-2xl product-price mb-4">R99.99</p>
-                        <p class="delivery-note mb-4">Delivery takes ~6 days</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="text-sm text-gray-400 mb-4">Delivery ~6 days</p>
                         <a href="order.html#aesthetic" class="btn-primary w-full py-3 rounded-lg text-base font-semibold">Order Now</a>
                     </div>
                 </div>
 
                 <!-- X Model -->
-                <div class="product-card">
+                <div class="product-card min-w-[280px]">
                     <div class="flex">
                         <img src="https://i.imgur.com/HaAqD0C.png" alt="X Model Black" class="w-1/2 h-64 object-cover">
                         <img src="https://i.imgur.com/bBVrP8m.png" alt="X Model Gray" class="w-1/2 h-64 object-cover">
@@ -122,8 +105,8 @@
                     <div class="p-5 text-center">
                         <h3 class="text-xl font-bold text-white mb-1">X Model</h3>
                         <p class="text-gray-300 text-sm mb-3">Black & Gray</p>
-                        <p class="text-2xl product-price mb-4">R99.99</p>
-                        <p class="delivery-note mb-4">Delivery takes ~6 days</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="text-sm text-gray-400 mb-4">Delivery ~6 days</p>
                         <a href="order.html#x" class="btn-primary w-full py-3 rounded-lg text-base font-semibold">Order Now</a>
                     </div>
                 </div>
@@ -131,56 +114,105 @@
         </div>
     </section>
 
-    <!-- Rest of the site (Free Guide, Telegram, FAQ, Footer) remains the same as before -->
+    <!-- Free Guide -->
+    <section class="py-12 sm:py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-5 sm:px-6 text-center">
+            <i class="fas fa-book-open text-6xl text-blue-600 mb-6"></i>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Free MOPSENTRY Guide</h2>
+            <p class="text-lg text-gray-700 mb-6 max-w-xl mx-auto">3-page PDF explaining what MOPSENTRY EA is, how it works, and the strategy behind it.</p>
+            <a href="https://t.me/mopsentrysetups/74" target="_blank" class="btn-primary inline-flex items-center px-10 py-5 rounded-xl text-lg font-semibold shadow">
+                <i class="fas fa-download mr-3"></i> Download Free
+            </a>
+        </div>
+    </section>
 
-    <!-- Free Guide, Telegram, FAQ, Footer sections are unchanged from the previous version I sent. 
-    (To save space here, they are the same as in my last message. Copy them from the previous code if needed.) -->
+    <!-- Telegram -->
+    <section class="py-12 sm:py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-5 sm:px-6 text-center">
+            <i class="fab fa-telegram-plane text-6xl text-blue-600 mb-6"></i>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Live Results & Updates</h2>
+            <p class="text-lg text-gray-700 mb-6 max-w-xl mx-auto">Join @mopsentrysetups for real-time performance screenshots, verified statements, and the latest updates.</p>
+            <a href="https://t.me/mopsentrysetups" target="_blank" class="btn-primary inline-flex items-center px-10 py-5 rounded-xl text-lg font-semibold shadow">
+                <i class="fab fa-telegram-plane mr-3"></i> Join Channel
+            </a>
+        </div>
+    </section>
 
-    <!-- FAQ with fixed expandable script -->
-    <section class="py-10 sm:py-16 bg-white">
+    <!-- FAQ -->
+    <section class="py-12 sm:py-16 bg-white">
         <div class="max-w-4xl mx-auto px-5 sm:px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-                <!-- FAQ items with improved click handling -->
-                <div class="faq-item">
-                    <div class="faq-question text-lg" onclick="this.parentElement.classList.toggle('open')">
+            <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="faq-item border border-gray-200 rounded-lg p-4">
+                    <div class="faq-question text-xl" onclick="this.parentElement.classList.toggle('open')">
                         <span>How does MOPSENTRY EA work?</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        It checks the 4H trend direction first, then waits for the right movement before trading. Version 2 is coming soon (mobile version also coming). Check live examples in our <a href="https://t.me/mopsentrysetups" class="text-blue-600">Telegram channel</a>.
+                    <div class="faq-answer mt-3">
+                        It checks the 4H trend direction first, then waits for the right movement before trading. Version 2 is coming soon (mobile version also coming). Check live examples in our <a href="https://t.me/mopsentrysetups" class="text-blue-600 hover:underline">Telegram channel</a>.
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question text-lg" onclick="this.parentElement.classList.toggle('open')">
+
+                <div class="faq-item border border-gray-200 rounded-lg p-4">
+                    <div class="faq-question text-xl" onclick="this.parentElement.classList.toggle('open')">
                         <span>What brokers do you recommend?</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        ECN brokers like IC Markets, Pepperstone or FP Markets work best. Send an email to thabopopane2@gmail.com for personalized recommendations.
+                    <div class="faq-answer mt-3">
+                        ECN brokers like IC Markets, Pepperstone or FP Markets work best. Send an email to <a href="mailto:thabopopane2@gmail.com" class="text-blue-600 hover:underline">thabopopane2@gmail.com</a> for personalized recommendations.
                     </div>
                 </div>
-                <!-- Other FAQs unchanged -->
+
+                <div class="faq-item border border-gray-200 rounded-lg p-4">
+                    <div class="faq-question text-xl" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Is there support after purchase?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-3">
+                        Yes — lifetime support via WhatsApp and our Telegram channel, including help with installation, settings, and updates.
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200 rounded-lg p-4">
+                    <div class="faq-question text-xl" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What is your refund policy?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-3">
+                        7-day money-back guarantee if you're not satisfied after proper testing (conditions apply — no refunds after 7 days or if misused).
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200 rounded-lg p-4">
+                    <div class="faq-question text-xl" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Can I see live results?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-3">
+                        Yes — join our free Telegram channel @mopsentrysetups for real-time screenshots, account statements and performance updates.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer unchanged -->
+    <!-- Footer -->
     <footer class="bg-gray-100 border-t border-gray-200 py-8">
         <div class="max-w-5xl mx-auto px-5 sm:px-6 text-center text-gray-600 text-sm">
             <p>© 2026 THE HQ. All rights reserved.</p>
-            <p class="mt-2">Email: <a href="mailto:thabopopane2@gmail.com" class="text-blue-600">thabopopane2@gmail.com</a> • WhatsApp: 073 266 1557</p>
+            <p class="mt-2">Email: <a href="mailto:thabopopane2@gmail.com" class="text-blue-600 hover:underline">thabopopane2@gmail.com</a> • WhatsApp: 073 266 1557</p>
+            <p class="mt-4 text-red-600">Trading involves high risk of loss. No guarantees. Not FSCA regulated.</p>
         </div>
     </footer>
 
     <script>
-        // Improved FAQ toggle
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
-                const parent = q.parentElement;
-                parent.classList.toggle('open');
+                const item = q.parentElement;
+                item.classList.toggle('open');
             });
         });
     </script>
+
 </body>
 </html>
