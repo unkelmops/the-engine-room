@@ -3,165 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE HQ - MOPSENTRY EA</title>
+    <title>THE HQ - MOPSENTRY EA & Skull Caps</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f9fafb;
-            color: #1f2937;
-            line-height: 1.6;
-        }
-        .btn-primary {
-            background-color: #2563eb;
-            color: white;
-            transition: background-color 0.2s ease;
-            min-height: 48px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-        }
-        .card {
-            background-color: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .ea-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e0f2fe;
-            border: 1px solid #334155;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-        }
-        .ea-card h2, .ea-card h3 {
-            color: #60a5fa;
-        }
-        .ea-card .check-icon {
-            color: #60a5fa;
-        }
-        .ea-card .price {
-            color: #38bdf8;
-        }
-        .ea-card .line-through {
-            color: #94a3b8;
-        }
-        .highlight-coming {
-            color: #22d3ee;
-            font-weight: 600;
-            background: rgba(34, 211, 238, 0.1);
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-        .logo-img {
-            max-height: 90px;
-            width: auto;
-            max-width: 70%;
-            filter: drop-shadow(0 4px 12px rgba(0, 170, 255, 0.3));
-            margin-bottom: 1rem;
-        }
-        .results-scroll {
-            display: flex;
-            overflow-x: auto;
-            gap: 1rem;
-            padding-bottom: 1rem;
-            scrollbar-width: thin;
-        }
-        .results-scroll::-webkit-scrollbar {
-            height: 6px;
-        }
-        .results-scroll::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 3px;
-        }
-        .result-card {
-            flex: 0 0 280px; /* fixed width per card on mobile */
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .result-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        @media (min-width: 768px) {
-            .results-scroll {
-                flex-wrap: wrap;
-                overflow-x: hidden;
-                justify-content: center;
-            }
-            .result-card {
-                flex: 0 0 32%;
-                max-width: 32%;
-            }
-            .logo-img {
-                max-height: 120px;
-                max-width: 50%;
-            }
-        }
-        .header-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            color: #111827;
-        }
-        @media (min-width: 640px) { .header-title { font-size: 3.2rem; } }
-        @media (min-width: 768px) { .header-title { font-size: 4.2rem; } }
-        @media (max-width: 640px) {
-            section { padding-top: 2rem; padding-bottom: 2rem; }
-            .card, .ea-card { padding: 1.25rem; }
-        }
-        .faq-item {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1rem 0;
-        }
-        .faq-question {
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            display: none;
-            padding-top: 0.75rem;
-            color: #4b5563;
-        }
-        .faq-item.open .faq-answer {
-            display: block;
-        }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f9fafb; color: #1f2937; line-height: 1.6; }
+        .btn-primary { background-color: #2563eb; color: white; transition: background-color 0.2s ease; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+        .btn-primary:hover { background-color: #1d4ed8; }
+        .card { background-color: white; border: 1px solid #e5e7eb; border-radius: 0.75rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .ea-card { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #e0f2fe; border: 1px solid #334155; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15); }
+        .ea-card h2, .ea-card h3 { color: #60a5fa; }
+        .ea-card .check-icon { color: #60a5fa; }
+        .ea-card .price { color: #38bdf8; }
+        .ea-card .line-through { color: #94a3b8; }
+        .highlight-coming { color: #22d3ee; font-weight: 600; background: rgba(34, 211, 238, 0.1); padding: 0.25rem 0.5rem; border-radius: 0.25rem; display: inline-block; margin-top: 0.5rem; }
+        .logo-img { max-height: 100px; width: auto; max-width: 80%; filter: drop-shadow(0 4px 12px rgba(0, 170, 255, 0.3)); margin-bottom: 1rem; }
+        .product-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 640px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+        .product-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #e0f2fe; border: 1px solid #334155; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 170, 255, 0.15); transition: transform 0.2s ease; }
+        .product-card:hover { transform: translateY(-4px); }
+        .product-card img { width: 100%; height: auto; display: block; }
+        .product-price { color: #14b8a6; font-weight: 700; font-size: 1.75rem; }
+        .delivery-note { font-size: 0.875rem; color: #94a3b8; }
+        .header-title { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.025em; color: #111827; }
+        @media (min-width: 640px) { .header-title { font-size: 3.5rem; } }
+        @media (min-width: 768px) { .header-title { font-size: 4.5rem; } }
+        @media (max-width: 640px) { section { padding-top: 2.5rem; padding-bottom: 2.5rem; } .card, .ea-card, .product-card { padding: 1.25rem; } }
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
+        .faq-question { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { display: none; padding-top: 0.75rem; color: #4b5563; }
+        .faq-item.open .faq-answer { display: block; }
     </style>
 </head>
 <body class="min-h-screen">
 
     <!-- Header with Logo -->
-    <header class="bg-white border-b border-gray-200 py-8 sm:py-12 md:py-16">
+    <header class="bg-white border-b border-gray-200 py-10 sm:py-16">
         <div class="max-w-6xl mx-auto px-5 sm:px-6 text-center">
-            <img 
-                src="https://i.imgur.com/MpOTaol.png"
-                alt="THE HQ Logo" 
-                class="logo-img mx-auto"
-            >
+            <img src="https://i.imgur.com/MpOTaol.png" alt="THE HQ Logo" class="logo-img mx-auto">
             <h1 class="header-title mb-2">THE HQ</h1>
-            <p class="text-lg sm:text-xl font-semibold text-gray-800 mb-3">
-                MOPSENTRY EA – Smart Algo Trading
-            </p>
-            <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-                Professional algorithmic tool for Forex & Indices
-            </p>
-            
-            <div class="mt-6 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-gray-600">
+            <p class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">MOPSENTRY EA – Smart Algo Trading</p>
+            <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">Professional algorithmic tool for Forex & Indices</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
                 <span><i class="fas fa-check-circle text-green-600 mr-1"></i>Live Verified</span>
                 <span><i class="fas fa-shield-alt text-blue-600 mr-1"></i>Support Included</span>
                 <span><i class="fas fa-undo-alt text-purple-600 mr-1"></i>7-Day Guarantee</span>
@@ -169,21 +56,15 @@
         </div>
     </header>
 
-    <!-- Main EA Product Card -->
+    <!-- EA Section (unchanged) -->
     <section class="py-10 sm:py-16">
         <div class="max-w-5xl mx-auto px-5 sm:px-6">
             <div class="ea-card p-6 sm:p-10 rounded-xl">
                 <div class="flex flex-col sm:flex-row justify-between items-start mb-6 sm:mb-8">
                     <h2 class="text-2xl sm:text-3xl font-bold">MOPSENTRY EA</h2>
-                    <span class="mt-3 sm:mt-0 px-4 py-1.5 bg-blue-900/40 text-cyan-300 rounded-full text-sm font-medium border border-cyan-600/30">
-                        Forex • Indices
-                    </span>
+                    <span class="mt-3 sm:mt-0 px-4 py-1.5 bg-blue-900/40 text-cyan-300 rounded-full text-sm font-medium border border-cyan-600/30">Forex • Indices</span>
                 </div>
-
-                <p class="text-base sm:text-lg text-sky-100 mb-6 sm:mb-8">
-                    Multi-timeframe SMC system: higher TF bias + precise entries with news filter & dynamic risk control.
-                </p>
-
+                <p class="text-base sm:text-lg text-sky-100 mb-6 sm:mb-8">Multi-timeframe SMC system: higher TF bias + precise entries with news filter & dynamic risk control.</p>
                 <div class="grid sm:grid-cols-2 gap-6 sm:gap-10 mb-8 sm:mb-12">
                     <div>
                         <h3 class="text-lg sm:text-xl font-semibold mb-4">Core Features</h3>
@@ -194,7 +75,6 @@
                             <li class="flex items-start"><i class="fas fa-check check-icon mr-2.5 mt-1 text-base"></i>Liquidity TP zones</li>
                         </ul>
                     </div>
-
                     <div>
                         <h3 class="text-lg sm:text-xl font-semibold mb-4">Risk Protection</h3>
                         <ul class="space-y-3 text-sky-100 text-sm sm:text-base">
@@ -205,75 +85,90 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="bg-black/30 border border-cyan-700/40 rounded-lg p-6 sm:p-8 text-center mb-8">
                     <p class="text-base text-sky-200 line-through mb-2">Standard: R550</p>
                     <p class="text-3xl sm:text-4xl font-bold price mb-5">Now: R350</p>
-                    <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20interested%20in%20MOPSENTRY%20EA"
-                       target="_blank"
-                       class="btn-primary w-full sm:w-auto px-8 py-4 rounded-lg text-base sm:text-lg font-semibold shadow">
+                    <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20interested%20in%20MOPSENTRY%20EA" target="_blank" class="btn-primary w-full sm:w-auto px-8 py-4 rounded-lg text-base sm:text-lg font-semibold shadow">
                         <i class="fab fa-whatsapp mr-2"></i> Buy Now – R350
                     </a>
                 </div>
-
-                <p class="text-center text-sm text-sky-300/80">
-                    Lifetime updates • Support • 7-day money-back
-                </p>
+                <p class="text-center text-sm text-sky-300/80">Lifetime updates • Support • 7-day money-back</p>
             </div>
         </div>
     </section>
 
-    <!-- Real Performance Examples – horizontal scroll on mobile -->
+    <!-- Skull Caps Collection -->
     <section class="py-10 sm:py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-5 sm:px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Real Performance Examples</h2>
-            <div class="results-scroll">
-                <div class="result-card">
-                    <img src="https://i.imgur.com/ftlXvN6.png" alt="MOPSENTRY EA performance screenshot 1">
-                    <div class="p-3 text-center text-xs sm:text-sm text-gray-600">
-                        Live trade result – Example 1
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <img src="https://i.imgur.com/MeisssM.png" alt="MOPSENTRY EA performance screenshot 2">
-                    <div class="p-3 text-center text-xs sm:text-sm text-gray-600">
-                        Live trade result – Example 2
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <img src="https://i.imgur.com/1nG7CAD.png" alt="MOPSENTRY EA performance screenshot 3">
-                    <div class="p-3 text-center text-xs sm:text-sm text-gray-600">
-                        Live trade result – Example 3
-                    </div>
-                </div>
-            </div>
-            <p class="text-center text-sm text-gray-500 mt-6">
-                Screenshots from live trading. Join @mopsentrysetups on Telegram for more real-time updates.
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center">Skull Caps Collection</h2>
+            <p class="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto font-medium">
+                Come accessorize with attitude – elevate your style with our premium Skull Caps.
             </p>
-        </div>
-    </section>
 
-    <!-- Comfy Sleeper Gloves -->
-    <section class="py-10 sm:py-16 bg-white">
-        <div class="max-w-5xl mx-auto px-5 sm:px-6">
-            <div class="card p-6 sm:p-10 rounded-xl">
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Comfy Sleeper Gloves</h2>
-                <p class="text-base sm:text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
-                    Ultra-soft, cozy sleeper gloves designed for ultimate comfort during rest or light activities.
-                </p>
-                <div class="text-center">
-                    <p class="text-3xl font-bold text-blue-700 mb-6">R400 each</p>
-                    <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20interested%20in%20the%20Comfy%20Sleeper%20Gloves"
-                       target="_blank"
-                       class="btn-primary inline-block px-10 py-4 rounded-lg text-lg font-semibold shadow">
-                        <i class="fab fa-whatsapp mr-2"></i> Order Now – R400
-                    </a>
+            <div class="product-grid">
+                <!-- Cross Model -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/xuzhrKE.png" alt="Cross Model Skull Cap" class="w-full h-64 object-cover">
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Cross Model</h3>
+                        <p class="text-gray-300 mb-3 text-sm">Black embroidery on white, White, Gray</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="delivery-note mb-4">Delivery takes approximately 6 days</p>
+                        <a href="order.html#cross-model" class="btn-primary inline-block px-8 py-3 rounded-lg text-base font-semibold shadow w-full">
+                            Order Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Purpill Model -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/mS8B2yu.png" alt="Purpill Model Skull Cap" class="w-full h-64 object-cover">
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Purpill Model</h3>
+                        <p class="text-gray-300 mb-3 text-sm">Unique purpill aesthetic design</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="delivery-note mb-4">Delivery takes approximately 6 days</p>
+                        <a href="order.html#purpill-model" class="btn-primary inline-block px-8 py-3 rounded-lg text-base font-semibold shadow w-full">
+                            Order Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Aesthetic Model -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/9OnLoJK.png" alt="Aesthetic Model Skull Cap" class="w-full h-64 object-cover">
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Aesthetic Model</h3>
+                        <p class="text-gray-300 mb-3 text-sm">Black, Dark Gray, Light Gray, Navy Blue, Yellow</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="delivery-note mb-4">Delivery takes approximately 6 days</p>
+                        <a href="order.html#aesthetic-model" class="btn-primary inline-block px-8 py-3 rounded-lg text-base font-semibold shadow w-full">
+                            Order Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- X Model -->
+                <div class="product-card">
+                    <div class="flex">
+                        <img src="https://i.imgur.com/HaAqD0C.png" alt="X Model Black" class="w-1/2 h-64 object-cover">
+                        <img src="https://i.imgur.com/bBVrP8m.png" alt="X Model Gray" class="w-1/2 h-64 object-cover">
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">X Model</h3>
+                        <p class="text-gray-300 mb-3 text-sm">Black, Gray</p>
+                        <p class="text-2xl product-price mb-2">R99.99</p>
+                        <p class="delivery-note mb-4">Delivery takes approximately 6 days</p>
+                        <a href="order.html#x-model" class="btn-primary inline-block px-8 py-3 rounded-lg text-base font-semibold shadow w-full">
+                            Order Now
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Rest of the page (Free Guide, Telegram, FAQ, Footer) remains unchanged -->
 
     <!-- Free Guide -->
     <section class="py-10 sm:py-16 bg-gray-50">
@@ -283,33 +178,30 @@
             <p class="text-base sm:text-lg text-gray-700 mb-6 max-w-xl mx-auto">
                 3-page PDF explaining what MOPSENTRY EA is, how it works, and the strategy behind it.
             </p>
-            <a href="https://t.me/mopsentrysetups/74" target="_blank"
-               class="btn-primary inline-flex items-center px-7 py-4 rounded-lg text-base sm:text-lg font-semibold shadow w-full sm:w-auto">
+            <a href="https://t.me/mopsentrysetups/74" target="_blank" class="btn-primary inline-flex items-center px-7 py-4 rounded-lg text-base sm:text-lg font-semibold shadow w-full sm:w-auto">
                 <i class="fas fa-download mr-2"></i> Download Free
             </a>
         </div>
     </section>
 
     <!-- Telegram -->
-    <section class="py-10 sm:py-16">
+    <section class="py-10 sm:py-16 bg-white">
         <div class="max-w-4xl mx-auto px-5 sm:px-6 text-center">
             <i class="fab fa-telegram-plane text-5xl sm:text-6xl text-blue-600 mb-5"></i>
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Live Results & Updates</h2>
             <p class="text-base sm:text-lg text-gray-700 mb-6 max-w-xl mx-auto">
-                Join @mopsentrysetups for real-time performance screenshots, verified statements, and latest updates.
+                Join @mopsentrysetups for real-time performance screenshots, verified statements, and the latest updates.
             </p>
-            <a href="https://t.me/mopsentrysetups" target="_blank"
-               class="btn-primary inline-flex items-center px-7 py-4 rounded-lg text-base sm:text-lg font-semibold shadow w-full sm:w-auto">
+            <a href="https://t.me/mopsentrysetups" target="_blank" class="btn-primary inline-flex items-center px-7 py-4 rounded-lg text-base sm:text-lg font-semibold shadow w-full sm:w-auto">
                 <i class="fab fa-telegram-plane mr-2"></i> Join Channel
             </a>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="py-10 sm:py-16 bg-white">
+    <section class="py-10 sm:py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-5 sm:px-6">
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-            
             <div class="space-y-4">
                 <div class="faq-item">
                     <div class="faq-question text-lg" onclick="this.parentElement.classList.toggle('open')">
@@ -323,45 +215,34 @@
                         <p class="mt-3"><span class="highlight-coming">Mobile version is also coming soon</span> — stay tuned via our Telegram channel for updates and release info.</p>
                     </div>
                 </div>
-
+                <!-- Other FAQs unchanged -->
                 <div class="faq-item">
                     <div class="faq-question text-lg" onclick="this.parentElement.classList.toggle('open')">
                         <span>What brokers do you recommend?</span>
                         <i class="fas fa-chevron-down transition-transform"></i>
                     </div>
-                    <div class="faq-answer">
-                        ECN/Raw spread brokers such as IC Markets, Pepperstone or FP Markets work best. Minimum account size of $500–$1000 is recommended for proper risk management.
-                    </div>
+                    <div class="faq-answer">ECN/Raw spread brokers such as IC Markets, Pepperstone or FP Markets work best. Minimum account size of $500–$1000 is recommended for proper risk management.</div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question text-lg" onclick="this.parentElement.classList.toggle('open')">
                         <span>Is there support after purchase?</span>
                         <i class="fas fa-chevron-down transition-transform"></i>
                     </div>
-                    <div class="faq-answer">
-                        Yes — lifetime support via WhatsApp and our Telegram channel, including help with installation, settings, and updates.
-                    </div>
+                    <div class="faq-answer">Yes — lifetime support via WhatsApp and our Telegram channel, including help with installation, settings, and updates.</div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question text-lg" onclick="this.parentElement.classList.toggle('open')">
                         <span>What is your refund policy?</span>
                         <i class="fas fa-chevron-down transition-transform"></i>
                     </div>
-                    <div class="faq-answer">
-                        7-day money-back guarantee if you're not satisfied after proper testing (conditions apply — no refunds after 7 days or if misused).
-                    </div>
+                    <div class="faq-answer">7-day money-back guarantee if you're not satisfied after proper testing (conditions apply — no refunds after 7 days or if misused).</div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question text-lg" onclick="this.parentElement.classList.toggle('open')">
                         <span>Can I see live results?</span>
                         <i class="fas fa-chevron-down transition-transform"></i>
                     </div>
-                    <div class="faq-answer">
-                        Yes — join our free Telegram channel @mopsentrysetups for real-time screenshots, account statements and performance updates.
-                    </div>
+                    <div class="faq-answer">Yes — join our free Telegram channel @mopsentrysetups for real-time screenshots, account statements and performance updates.</div>
                 </div>
             </div>
         </div>
