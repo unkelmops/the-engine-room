@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; background-color: #f9fafb; color: #1f2937; line-height: 1.6; }
         .btn-primary { background-color: #2563eb; color: white; transition: all 0.2s; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
@@ -15,32 +16,25 @@
         .card:hover, .product-card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .ea-btn { background: linear-gradient(135deg, #3b82f6, #60a5fa); color: white; }
         .ea-btn:hover { background: linear-gradient(135deg, #2563eb, #3b82f6); }
-        .logo-img { max-height: 90px; width: auto; max-width: 70%; filter: drop-shadow(0 4px 12px rgba(0,170,255,0.3)); margin-bottom: 1rem; }
+        .logo-img { max-height: 100px; width: auto; max-width: 80%; filter: drop-shadow(0 4px 12px rgba(0,170,255,0.3)); margin-bottom: 1rem; }
         .scroll-container { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1rem; scrollbar-width: thin; }
         .scroll-container::-webkit-scrollbar { height: 6px; }
         .scroll-container::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
-        .product-card { flex: 0 0 280px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #e0f2fe; border: 1px solid #334155; }
+        .result-card, .product-card { flex: 0 0 280px; background: white; border: 1px solid #e5e7eb; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .result-card img { width: 100%; height: auto; display: block; }
+        .product-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #e0f2fe; border: 1px solid #334155; }
         .product-price { color: #14b8a6; font-weight: 700; font-size: 1.75rem; }
         .header-title { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.025em; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
         .header-subtitle { color: #e0f2fe; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+        .header-bg { background: url('https://i.imgur.com/MpOTaol.png') no-repeat center center; background-size: cover; min-height: 60vh; display: flex; align-items: center; justify-content: center; position: relative; }
+        .header-bg::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+        .header-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
         @media (min-width: 640px) { .header-title { font-size: 3.8rem; } }
         @media (min-width: 768px) { .header-title { font-size: 5rem; } }
-        .header-bg {
-            background: url('https://i.imgur.com/MpOTaol.png') no-repeat center center;
-            background-size: cover;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .header-bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.55);
-        }
-        .header-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
+        .faq-question { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { display: none; padding-top: 0.75rem; color: #4b5563; }
+        .faq-item.open .faq-answer { display: block; }
     </style>
 </head>
 <body>
@@ -74,7 +68,7 @@
             <div class="scroll-container">
                 <!-- Cross Model -->
                 <div class="product-card min-w-[280px]">
-                    <img src="https://i.imgur.com/xuzhrKE.png" alt="Cross Model" class="w-full h-64 object-cover">
+                    <img src="https://i.imgur.com/xuzhrKE.png" alt="Cross Model Skull Cap" class="w-full h-64 object-cover">
                     <div class="p-5 text-center">
                         <h3 class="text-xl font-bold text-white mb-1">Cross Model</h3>
                         <p class="text-gray-300 text-sm mb-3">Black embroidery on white, White, Gray</p>
@@ -86,7 +80,7 @@
 
                 <!-- Purpill Model -->
                 <div class="product-card min-w-[280px]">
-                    <img src="https://i.imgur.com/mS8B2yu.png" alt="Purpill Model" class="w-full h-64 object-cover">
+                    <img src="https://i.imgur.com/mS8B2yu.png" alt="Purpill Model Skull Cap" class="w-full h-64 object-cover">
                     <div class="p-5 text-center">
                         <h3 class="text-xl font-bold text-white mb-1">Purpill Model</h3>
                         <p class="text-gray-300 text-sm mb-3">Unique purpill design</p>
@@ -98,7 +92,7 @@
 
                 <!-- Aesthetic Model -->
                 <div class="product-card min-w-[280px]">
-                    <img src="https://i.imgur.com/9OnLoJK.png" alt="Aesthetic Model" class="w-full h-64 object-cover">
+                    <img src="https://i.imgur.com/9OnLoJK.png" alt="Aesthetic Model Skull Cap" class="w-full h-64 object-cover">
                     <div class="p-5 text-center">
                         <h3 class="text-xl font-bold text-white mb-1">Aesthetic Model</h3>
                         <p class="text-gray-300 text-sm mb-3">Black, Dark Gray, Light Gray, Navy Blue, Yellow</p>
@@ -126,8 +120,30 @@
         </div>
     </section>
 
-    <!-- Free Guide -->
+    <!-- Real Performance Examples – horizontal scroll on mobile -->
     <section class="py-12 sm:py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-5 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Real Performance Examples</h2>
+            <div class="scroll-container">
+                <div class="result-card">
+                    <img src="https://i.imgur.com/ftlXvN6.png" alt="MOPSENTRY EA result 1">
+                    <div class="p-4 text-center text-sm text-gray-600">Live result example</div>
+                </div>
+                <div class="result-card">
+                    <img src="https://i.imgur.com/MeisssM.png" alt="MOPSENTRY EA result 2">
+                    <div class="p-4 text-center text-sm text-gray-600">Live result example</div>
+                </div>
+                <div class="result-card">
+                    <img src="https://i.imgur.com/1nG7CAD.png" alt="MOPSENTRY EA result 3">
+                    <div class="p-4 text-center text-sm text-gray-600">Live result example</div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-6">More live updates in our <a href="https://t.me/mopsentrysetups" class="text-blue-600 hover:underline">Telegram channel</a></p>
+        </div>
+    </section>
+
+    <!-- Free Guide -->
+    <section class="py-12 sm:py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-5 sm:px-6 text-center">
             <i class="fas fa-book-open text-6xl text-blue-600 mb-6"></i>
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Free MOPSENTRY Guide</h2>
@@ -139,7 +155,7 @@
     </section>
 
     <!-- Telegram -->
-    <section class="py-12 sm:py-16 bg-gray-50">
+    <section class="py-12 sm:py-16 bg-white">
         <div class="max-w-4xl mx-auto px-5 sm:px-6 text-center">
             <i class="fab fa-telegram-plane text-6xl text-blue-600 mb-6"></i>
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Live Results & Updates</h2>
@@ -151,7 +167,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="py-12 sm:py-16 bg-white">
+    <section class="py-12 sm:py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-5 sm:px-6">
             <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Frequently Asked Questions</h2>
             <div class="space-y-6">
