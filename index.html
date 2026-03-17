@@ -61,6 +61,35 @@
             display: inline-block;
             margin-top: 0.5rem;
         }
+        .logo-img {
+            max-height: 100px;
+            width: auto;
+            max-width: 80%;
+            filter: drop-shadow(0 4px 12px rgba(0, 170, 255, 0.3));
+            margin-bottom: 1rem;
+        }
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .result-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .result-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .result-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
         .header-title {
             font-size: 2.8rem;
             font-weight: 800;
@@ -96,9 +125,14 @@
 </head>
 <body class="min-h-screen">
 
-    <!-- Header -->
+    <!-- Header with Logo -->
     <header class="bg-white border-b border-gray-200 py-10 sm:py-16">
         <div class="max-w-6xl mx-auto px-5 sm:px-6 text-center">
+            <img 
+                src="https://i.imgur.com/0a1b2c3d.png"  <!-- Replace with the direct link to your first image (logo) -->
+                alt="THE HQ Logo" 
+                class="logo-img mx-auto"
+            >
             <h1 class="header-title mb-2">THE HQ</h1>
             <p class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">
                 MOPSENTRY EA – Smart Algo Trading
@@ -115,7 +149,7 @@
         </div>
     </header>
 
-    <!-- Main Product Card -->
+    <!-- Main EA Product Card -->
     <section class="py-10 sm:py-16">
         <div class="max-w-5xl mx-auto px-5 sm:px-6">
             <div class="ea-card p-6 sm:p-10 rounded-xl">
@@ -169,13 +203,68 @@
         </div>
     </section>
 
+    <!-- Real Performance Examples (your three EA result screenshots) -->
+    <section class="py-10 sm:py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-5 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Real Performance Examples</h2>
+            <div class="result-grid">
+                <!-- Second image from your album -->
+                <div class="result-card">
+                    <img src="https://i.imgur.com/second-image-from-album.jpg" alt="MOPSENTRY EA performance screenshot 1">
+                    <div class="p-4 text-center text-sm text-gray-600">
+                        Verified trade result - Example 1
+                    </div>
+                </div>
+
+                <!-- Third image -->
+                <div class="result-card">
+                    <img src="https://i.imgur.com/third-image-from-album.jpg" alt="MOPSENTRY EA performance screenshot 2">
+                    <div class="p-4 text-center text-sm text-gray-600">
+                        Verified trade result - Example 2
+                    </div>
+                </div>
+
+                <!-- Fourth image -->
+                <div class="result-card">
+                    <img src="https://i.imgur.com/fourth-image-from-album.jpg" alt="MOPSENTRY EA performance screenshot 3">
+                    <div class="p-4 text-center text-sm text-gray-600">
+                        Verified trade result - Example 3
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-6">
+                Screenshots from live trading. Join @mopsentrysetups on Telegram for more real-time updates.
+            </p>
+        </div>
+    </section>
+
+    <!-- Comfy Sleeper Gloves -->
+    <section class="py-10 sm:py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-5 sm:px-6">
+            <div class="card p-6 sm:p-10 rounded-xl">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Comfy Sleeper Gloves</h2>
+                <p class="text-base sm:text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+                    Ultra-soft, cozy sleeper gloves designed for ultimate comfort during rest or light activities. Keeps hands warm without feeling bulky.
+                </p>
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-blue-700 mb-6">R400 each</p>
+                    <a href="https://wa.me/27732661557?text=Hi%2C%20I'm%20interested%20in%20the%20Comfy%20Sleeper%20Gloves"
+                       target="_blank"
+                       class="btn-primary inline-block px-10 py-4 rounded-lg text-lg font-semibold shadow">
+                        <i class="fab fa-whatsapp mr-2"></i> Order Now – R400
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Free Guide -->
     <section class="py-10 sm:py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-5 sm:px-6 text-center">
             <i class="fas fa-book-open text-5xl sm:text-6xl text-blue-600 mb-5"></i>
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Free Guide</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Free MOPSENTRY Guide</h2>
             <p class="text-base sm:text-lg text-gray-700 mb-6 max-w-xl mx-auto">
-                3-page PDF: what MOPSENTRY is, how it works, strategy explained.
+                Download our 3-page PDF explaining what MOPSENTRY EA is, how it works, and the strategy behind it.
             </p>
             <a href="https://t.me/mopsentrysetups/74" target="_blank"
                class="btn-primary inline-flex items-center px-7 py-4 rounded-lg text-base sm:text-lg font-semibold shadow w-full sm:w-auto">
@@ -188,9 +277,9 @@
     <section class="py-10 sm:py-16">
         <div class="max-w-4xl mx-auto px-5 sm:px-6 text-center">
             <i class="fab fa-telegram-plane text-5xl sm:text-6xl text-blue-600 mb-5"></i>
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Live Results</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Live Results & Updates</h2>
             <p class="text-base sm:text-lg text-gray-700 mb-6 max-w-xl mx-auto">
-                Join @mopsentrysetups → real-time results, verified statements.
+                Join @mopsentrysetups for real-time performance screenshots, verified statements, and the latest updates.
             </p>
             <a href="https://t.me/mopsentrysetups" target="_blank"
                class="btn-primary inline-flex items-center px-7 py-4 rounded-lg text-base sm:text-lg font-semibold shadow w-full sm:w-auto">
@@ -199,7 +288,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section class="py-10 sm:py-16 bg-white">
         <div class="max-w-4xl mx-auto px-5 sm:px-6">
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
@@ -214,7 +303,7 @@
                         <p>When you attach MOPSENTRY EA to a currency pair or index, it first checks the overall trend direction on the 4-hour timeframe to determine whether the market is bullish or bearish.</p>
                         <p class="mt-3">After confirming the bias, it does <strong>not</strong> place trades immediately. It waits for a specific market movement or volatility condition before executing any orders. This is the behavior in <strong>Version 2</strong>.</p>
                         <p class="mt-3"><strong>Version 1</strong> (build 351) places orders right away when attached to the chart. <span class="highlight-coming">Version 2 is coming soon</span> — it will wait for the right setup instead of trading instantly.</p>
-                        <p class="mt-3"><span class="highlight-coming">Mobile version is also coming soon</span> — stay tuned via our Telegram channel for updates.</p>
+                        <p class="mt-3"><span class="highlight-coming">Mobile version is also coming soon</span> — stay tuned via our Telegram channel for updates and release info.</p>
                     </div>
                 </div>
 
@@ -276,7 +365,6 @@
     </footer>
 
     <script>
-        // FAQ toggle
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
                 q.parentElement.classList.toggle('open');
