@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE HQ — Premium Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --gold-dark: #8b6914;
+    --navy: #04080f;
+    --navy-mid: #0a1628;
+    --navy-card: #0d1f3c;
+    --cyan: #00d4ff;
+    --cyan-dim: rgba(0,212,255,0.15);
+    --white: #f0f4ff;
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(201,168,76,0.25);
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse 120% 80% at 50% 0%, #0a1f4a 0%, #04080f 70%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://i.imgur.com/MpOTaol.png') center/cover no-repeat;
+    opacity: 0.12;
+    transform: scale(1.05);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 100%, transparent 20%, black 80%);
+  }
+  .hero-glow {
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 100px;
+    padding: 6px 20px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    background: rgba(201,168,76,0.08);
+  }
+  .hero-title {
+    font-size: clamp(5rem, 14vw, 10rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    background: linear-gradient(135deg, #f0d080 0%, #c9a84c 30%, #ffffff 60%, #c9a84c 80%, #8b6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 60px rgba(201,168,76,0.5));
+    margin-bottom: 1rem;
+  }
+  .hero-powered {
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    color: rgba(200,220,255,0.6);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #c9a84c, #f0d080, #c9a84c);
+    color: #0a0800;
+    box-shadow: 0 0 40px rgba(201,168,76,0.45), inset 0 1px 0 rgba(255,255,255,0.4);
+    transition: all 0.3s;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-gold::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 40%; height: 200%;
+    background: rgba(255,255,255,0.25);
+    transform: skewX(-20deg);
+    animation: shimmer 3s infinite;
+  }
+  @keyframes shimmer { 0%,100%{left:-60%} 50%{left:120%} }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 36px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    box-shadow: 0 0 20px rgba(0,212,255,0.15), inset 0 0 20px rgba(0,212,255,0.05);
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { box-shadow: 0 0 40px rgba(0,212,255,0.35); }
+
+  /* ===== FLOATING 3D ORBS ===== */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .orb-1 { width: 500px; height: 500px; background: rgba(201,168,76,0.12); top: -100px; right: -150px; }
+  .orb-2 { width: 400px; height: 400px; background: rgba(0,212,255,0.08); bottom: -100px; left: -100px; }
+
+  /* ===== SCROLL CUE ===== */
+  .scroll-cue {
+    position: absolute;
+    bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .scroll-cue span { font-size: 10px; letter-spacing: 3px; color: rgba(201,168,76,0.5); text-transform: uppercase; }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
+
+  /* ===== SECTION LAYOUT ===== */
+  section { padding: 6rem 1.5rem; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(200,220,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .max-w { max-width: 1100px; margin: 0 auto; }
+
+  /* ===== EA CARD ===== */
+  .ea-card {
+    position: relative;
+    border-radius: 24px;
+    padding: 4px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.6), rgba(0,212,255,0.3), rgba(201,168,76,0.2));
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 80px rgba(201,168,76,0.15);
+  }
+  .ea-card-inner {
+    background: linear-gradient(160deg, #0d1f3c 0%, #04080f 100%);
+    border-radius: 22px;
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ea-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.8), transparent);
+  }
+  .ea-card-bg-glow {
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(0,212,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .ea-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: rgba(0,212,255,0.1);
+    color: var(--cyan);
+    border: 1px solid rgba(0,212,255,0.3);
+    margin-bottom: 1.5rem;
+  }
+  .ea-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 40px rgba(0,212,255,0.4));
+    margin-bottom: 0.75rem;
+  }
+  .ea-sub { font-size: 1rem; color: rgba(180,220,255,0.65); margin-bottom: 3rem; font-weight: 300; }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    text-align: left;
+  }
+  .feature-col h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 1rem; font-weight: 600; }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: rgba(200,225,255,0.75);
+    margin-bottom: 14px; line-height: 1.4;
+  }
+  .feat-icon {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: linear-gradient(135deg, #00d4ff, #0080ff);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .feat-icon::after {
+    content: '';
+    width: 6px; height: 4px;
+    border-left: 1.5px solid white; border-bottom: 1.5px solid white;
+    transform: rotate(-45deg) translateY(-1px);
+  }
+  .ea-btn-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== PRODUCT CARDS ===== */
+  .products-scroll { display: flex; gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: rgba(201,168,76,0.3) transparent; }
+  .products-scroll::-webkit-scrollbar { height: 4px; }
+  .products-scroll::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.4); border-radius: 2px; }
+  .prod-card {
+    flex: 0 0 270px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--navy-card);
+    border: 1px solid rgba(201,168,76,0.15);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+  }
+  .prod-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent);
+  }
+  .prod-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 30px rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); }
+  .prod-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .prod-body { padding: 1.25rem; }
+  .prod-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .prod-desc { font-size: 12px; color: rgba(200,220,255,0.5); margin-bottom: 1rem; line-height: 1.5; }
+  .prod-price { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
+  .prod-delivery { font-size: 11px; color: rgba(200,220,255,0.35); margin-bottom: 1rem; }
+  .btn-card {
+    display: block; width: 100%; padding: 12px;
+    border-radius: 8px; font-size: 13px; font-weight: 600;
+    text-align: center; text-decoration: none; letter-spacing: 1px;
+    background: linear-gradient(135deg, #c9a84c, #f0d080);
+    color: #0a0800;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    transition: all 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-card:hover { box-shadow: 0 8px 30px rgba(201,168,76,0.5); transform: translateY(-2px); }
+
+  /* ===== PERFORMANCE ===== */
+  .perf-section { background: linear-gradient(180deg, var(--navy) 0%, #060e1e 100%); }
+  .perf-scroll { display: flex; gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: rgba(0,212,255,0.3) transparent; }
+  .perf-card {
+    flex: 0 0 300px; border-radius: 12px; overflow: hidden;
+    border: 1px solid rgba(0,212,255,0.15);
+    background: var(--navy-card);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .perf-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,212,255,0.15); }
+  .perf-card img { width: 100%; display: block; }
+  .perf-label { padding: 0.75rem 1rem; font-size: 11px; color: rgba(0,212,255,0.5); text-align: center; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ===== FREE GUIDE / TG ===== */
+  .resource-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 860px; margin: 0 auto; }
+  @media(max-width:600px){ .resource-grid { grid-template-columns: 1fr; } }
+  .resource-card {
+    border-radius: 20px; padding: 2.5rem 2rem;
+    background: linear-gradient(160deg, #0d1f3c, #04080f);
+    border: 1px solid rgba(201,168,76,0.2);
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .resource-card:hover { transform: translateY(-6px); box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 30px rgba(201,168,76,0.1); }
+  .resource-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .resource-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .resource-card p { font-size: 14px; color: rgba(200,220,255,0.55); line-height: 1.6; margin-bottom: 1.5rem; }
+
+  /* ===== FAQ ===== */
+  .faq-wrap { max-width: 700px; margin: 0 auto; }
+  .faq-item {
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    background: rgba(13,31,60,0.5);
+  }
+  .faq-item.open { border-color: rgba(201,168,76,0.35); }
+  .faq-q {
+    padding: 1.25rem 1.5rem;
+    font-weight: 600; font-size: 15px;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer;
+    color: rgba(220,235,255,0.9);
+    gap: 1rem;
+  }
+  .faq-arrow { color: var(--gold); transition: transform 0.3s; font-size: 1.2rem; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .faq-item.open .faq-a { max-height: 200px; }
+  .faq-a-inner { padding: 0 1.5rem 1.25rem; font-size: 14px; color: rgba(200,220,255,0.55); line-height: 1.7; }
+  .faq-a-inner a { color: var(--cyan); text-decoration: none; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #020508;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+  .footer-logo { font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; }
+  .footer-meta { font-size: 13px; color: rgba(200,220,255,0.35); line-height: 2; }
+  .footer-meta a { color: var(--cyan); text-decoration: none; }
+  .footer-risk { margin-top: 1.5rem; font-size: 11px; color: rgba(255,80,80,0.5); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .divider { width: 60px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 3rem; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Professional Trading & Premium Accessories</div>
+    <h1 class="hero-title">THE HQ</h1>
+    <p class="hero-powered">Powered by MOPSENTRY EA</p>
+    <p class="hero-sub">Professional online shop for traders & premium accessories</p>
+    <div class="hero-cta-row">
+      <a href="mopsentryea.html" class="btn-gold">Get Access</a>
+      <a href="https://t.me/mopsentrysetups" target="_blank" class="btn-outline">View Performance</a>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- EA CARD -->
+<section>
+  <div class="max-w">
+    <div class="ea-card">
+      <div class="ea-card-inner">
+        <div class="ea-card-bg-glow"></div>
+        <div class="ea-badge">Automated Trading Bot</div>
+        <h2 class="ea-title">MOPSENTRY EA</h2>
+        <p class="ea-sub">High-probability multi-timeframe SMC system with 85% win rate</p>
+        <div class="feature-grid">
+          <div class="feature-col">
+            <h4>Key Features</h4>
+            <div class="feature-item"><div class="feat-icon"></div>4H bias analysis</div>
+            <div class="feature-item"><div class="feat-icon"></div>1H structure mapping</div>
+            <div class="feature-item"><div class="feat-icon"></div>5M/1M FVG + OTE entries</div>
+            <div class="feature-item"><div class="feat-icon"></div>Liquidity TP zones</div>
+          </div>
+          <div class="feature-col">
+            <h4>Risk Protection</h4>
+            <div class="feature-item"><div class="feat-icon"></div>News & volatility filter</div>
+            <div class="feature-item"><div class="feat-icon"></div>Dynamic risk logic</div>
+            <div class="feature-item"><div class="feat-icon"></div>Advanced trade management</div>
+            <div class="feature-item"><div class="feat-icon"></div>ECN broker optimized</div>
+          </div>
+        </div>
+        <div class="ea-btn-row">
+          <a href="mopsentryea.html" class="btn-gold">Get Access</a>
+          <a href="https://t.me/mopsentrysetups" target="_blank" class="btn-outline">View Performance</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKULL CAPS -->
+<section>
+  <div class="max-w">
+    <p class="section-label">Headwear Collection</p>
+    <h2 class="section-title">Skull Caps Collection</h2>
+    <div class="divider" style="margin:0 0 3rem;"></div>
+    <div class="products-scroll">
+      <div class="prod-card">
+        <img src="https://i.imgur.com/xuzhrKE.png" alt="Cross Model Skull Cap" class="prod-img">
+        <div class="prod-body">
+          <div class="prod-name">Cross Model</div>
+          <div class="prod-desc">Black embroidery on white, White, Gray</div>
+          <div class="prod-price">R99.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#cross" class="btn-card">Order Now</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img src="https://i.imgur.com/mS8B2yu.png" alt="Purpill Model Skull Cap" class="prod-img">
+        <div class="prod-body">
+          <div class="prod-name">Purpill Model</div>
+          <div class="prod-desc">Unique purpill design</div>
+          <div class="prod-price">R99.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#purpill" class="btn-card">Order Now</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img src="https://i.imgur.com/9OnLoJK.png" alt="Aesthetic Model Skull Cap" class="prod-img">
+        <div class="prod-body">
+          <div class="prod-name">Aesthetic Model</div>
+          <div class="prod-desc">Black, Dark Gray, Light Gray, Navy Blue, Yellow</div>
+          <div class="prod-price">R99.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#aesthetic" class="btn-card">Order Now</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div style="display:flex;height:220px;">
+          <img src="https://i.imgur.com/HaAqD0C.png" alt="X Model Black" style="width:50%;object-fit:cover;">
+          <img src="https://i.imgur.com/bBVrP8m.png" alt="X Model Gray" style="width:50%;object-fit:cover;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">X Model</div>
+          <div class="prod-desc">Black & Gray</div>
+          <div class="prod-price">R99.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#x" class="btn-card">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FITTED CAPS -->
+<section style="padding-top:0;">
+  <div class="max-w">
+    <p class="section-label">Headwear Collection</p>
+    <h2 class="section-title">Fitted Caps Collection</h2>
+    <div class="divider" style="margin:0 0 3rem;"></div>
+    <div class="products-scroll">
+      <div class="prod-card">
+        <img src="https://i.imgur.com/nMCoKc5.png" alt="NY Edition" class="prod-img">
+        <div class="prod-body">
+          <div class="prod-name">NY Edition</div>
+          <div class="prod-desc">Premium fitted design with bold NY-inspired detailing</div>
+          <div class="prod-price">R129.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#fitted-ny" class="btn-card">Order Now</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img src="https://i.imgur.com/EjcAnGO.png" alt="Aesthetic Edition" class="prod-img">
+        <div class="prod-body">
+          <div class="prod-name">Aesthetic Edition</div>
+          <div class="prod-desc">Clean, modern aesthetic look – various color options</div>
+          <div class="prod-price">R129.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#fitted-aesthetic" class="btn-card">Order Now</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img src="https://i.imgur.com/80nXFJ9.png" alt="Soldier Edition" class="prod-img">
+        <div class="prod-body">
+          <div class="prod-name">Soldier Edition</div>
+          <div class="prod-desc">Tactical-inspired fitted cap with rugged detailing</div>
+          <div class="prod-price">R129.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#fitted-soldier" class="btn-card">Order Now</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img src="https://i.imgur.com/j1nl3Iy.png" alt="Classic" class="prod-img">
+        <div class="prod-body">
+          <div class="prod-name">Classic</div>
+          <div class="prod-desc">Timeless fitted style – clean and versatile</div>
+          <div class="prod-price">R129.99</div>
+          <div class="prod-delivery">Delivery ~6 days</div>
+          <a href="order.html#fitted-classic" class="btn-card">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE -->
+<section class="perf-section">
+  <div class="max-w" style="text-align:center;">
+    <p class="section-label">Track Record</p>
+    <h2 class="section-title">Real Performance Examples</h2>
+    <div class="divider" style="margin:0 auto 3rem;"></div>
+    <div class="perf-scroll">
+      <div class="perf-card">
+        <img src="https://i.imgur.com/ftlXvN6.png" alt="Live result 1">
+        <div class="perf-label">Live result example</div>
+      </div>
+      <div class="perf-card">
+        <img src="https://i.imgur.com/MeisssM.png" alt="Live result 2">
+        <div class="perf-label">Live result example</div>
+      </div>
+      <div class="perf-card">
+        <img src="https://i.imgur.com/1nG7CAD.png" alt="Live result 3">
+        <div class="perf-label">Live result example</div>
+      </div>
+    </div>
+    <p style="margin-top:2rem;font-size:13px;color:rgba(200,220,255,0.35);">
+      More live updates in our <a href="https://t.me/mopsentrysetups" style="color:var(--cyan);text-decoration:none;">Telegram channel</a>
+    </p>
+  </div>
+</section>
+
+<!-- FREE GUIDE & TG -->
+<section>
+  <div class="max-w" style="text-align:center;">
+    <p class="section-label">Resources</p>
+    <h2 class="section-title">Free Access & Community</h2>
+    <div class="divider" style="margin:0 auto 3rem;"></div>
+    <div class="resource-grid">
+      <div class="resource-card">
+        <div class="resource-icon">📘</div>
+        <h3>Free MOPSENTRY Guide</h3>
+        <p>3-page PDF explaining what MOPSENTRY EA is, how it works, and the strategy behind it.</p>
+        <a href="https://t.me/mopsentrysetups/74" target="_blank" class="btn-gold" style="display:inline-flex;gap:8px;padding:14px 28px;">↓ Download Free</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">✈️</div>
+        <h3>Live Results & Updates</h3>
+        <p>Join @mopsentrysetups for real-time performance screenshots and verified statements.</p>
+        <a href="https://t.me/mopsentrysetups" target="_blank" class="btn-outline" style="display:inline-flex;gap:8px;padding:14px 28px;">Join Channel</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:0;">
+  <div class="max-w" style="text-align:center;">
+    <p class="section-label">Support</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="divider" style="margin:0 auto 3rem;"></div>
+    <div class="faq-wrap" style="text-align:left;">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>How does MOPSENTRY EA work?</span>
+          <span class="faq-arrow">⌄</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">It checks the 4H trend direction first, then waits for the right movement before trading. Version 2 is coming soon (mobile version also coming). Check live examples in our <a href="https://t.me/mopsentrysetups">Telegram channel</a>.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>What brokers do you recommend?</span>
+          <span class="faq-arrow">⌄</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">ECN brokers like IC Markets, Pepperstone or FP Markets work best. Send an email to <a href="mailto:thabopopane2@gmail.com">thabopopane2@gmail.com</a> for personalized recommendations.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Is there support after purchase?</span>
+          <span class="faq-arrow">⌄</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — lifetime support via WhatsApp and our Telegram channel, including help with installation, settings, and updates.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>What is your refund policy?</span>
+          <span class="faq-arrow">⌄</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">7-day money-back guarantee if you're not satisfied after proper testing (conditions apply — no refunds after 7 days or if misused).</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Can I see live results?</span>
+          <span class="faq-arrow">⌄</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — join our free Telegram channel @mopsentrysetups for real-time screenshots, account statements and performance updates.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">THE HQ</div>
+  <div class="footer-meta">
+    © 2026 THE HQ. All rights reserved.<br>
+    Email: <a href="mailto:thabopopane2@gmail.com">thabopopane2@gmail.com</a> · WhatsApp: 073 266 1557
+  </div>
+  <div class="footer-risk">
+    Trading involves high risk of loss. No guarantees are made. Not FSCA regulated. Use at your own risk.
+  </div>
+</footer>
+
+</body>
+</html>
