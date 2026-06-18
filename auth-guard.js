@@ -8,7 +8,7 @@
   const session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
 
   if (!session) {
-    const redirect = encodeURIComponent(location.pathname.split('/').pop() || 'mopsentryea.html');
+    const redirect = encodeURIComponent(location.pathname.split('/').pop() || 'mopsentryea_1.html');
     location.replace('login.html?redirect=' + redirect);
     return;
   }
