@@ -7,11 +7,14 @@
   const SESSION_KEY = 'thehq_session';
   const session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
 
-  if (!session) {
-    const redirect = encodeURIComponent(location.pathname.split('/').pop() || 'mopsentryea_1.html');
-    location.replace('login.html?redirect=' + redirect);
-    return;
-  }
+ if (!session) {
+  const redirect = encodeURIComponent(
+    location.pathname.split('/').pop() || 'mopsentryea_1.html'
+  );
+
+  location.replace('login.html?redirect=' + redirect);
+  return;
+}
 
   /* Inject welcome bar at top of page */
   document.addEventListener('DOMContentLoaded', function() {
