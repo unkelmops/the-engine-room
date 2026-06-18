@@ -387,7 +387,7 @@ function getSession()  { return JSON.parse(localStorage.getItem(SESSION_KEY) || 
 function saveSession(s){ localStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
 
 /* If already logged in, redirect */
-const dest = new URLSearchParams(location.search).get('redirect') || 'mopsentryea.html';
+const dest = new URLSearchParams(location.search).get('redirect') || 'mopsentryea_1.html';
 if (getSession()) { location.replace(dest); }
 
 /* ---- Tab switch ---- */
