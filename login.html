@@ -12,31 +12,31 @@
 
 <style>
 :root {
-  --black:   #050507;
-  --obs:     #0b0c11;
-  --iron:    #13151e;
-  --steel:   #1c1f2e;
-  --volt:    #b8ff00;
-  --volt-d:  rgba(184,255,0,0.10);
-  --volt-b:  rgba(184,255,0,0.22);
-  --red:     #ff3366;
-  --red-d:   rgba(255,51,102,0.10);
-  --chrome:  #e8eaf0;
-  --silver:  #a8b0c8;
-  --muted:   rgba(168,176,200,0.45);
-  --border:  rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --f-head:  'Outfit', sans-serif;
-  --f-mono:  'JetBrains Mono', monospace;
+  --black:#050507;
+  --obs:#0b0c11;
+  --iron:#13151e;
+  --steel:#1c1f2e;
+  --volt:#b8ff00;
+  --volt-d:rgba(184,255,0,0.10);
+  --volt-b:rgba(184,255,0,0.22);
+  --red:#ff3366;
+  --red-d:rgba(255,51,102,0.10);
+  --chrome:#e8eaf0;
+  --silver:#a8b0c8;
+  --muted:rgba(168,176,200,0.45);
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --f-head:'Outfit',sans-serif;
+  --f-mono:'JetBrains Mono',monospace;
 }
 
-*, *::before, *::after {
+*,*::before,*::after {
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-html, body {
+html,body {
   height:100%;
 }
 
@@ -186,6 +186,7 @@ main {
     0 40px 100px rgba(0,0,0,0.8),
     0 0 60px rgba(184,255,0,0.05);
   position:relative;
+  animation:fadeUp 0.5s ease both;
 }
 
 .card::before {
@@ -195,12 +196,13 @@ main {
   left:0;
   right:0;
   height:2px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    var(--volt),
-    transparent
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--volt),
+      transparent
+    );
 }
 
 /* TABS */
@@ -320,7 +322,8 @@ main {
 
 .field-input:focus {
   border-color:var(--volt-b);
-  box-shadow:0 0 0 3px rgba(184,255,0,0.08);
+  box-shadow:
+    0 0 0 3px rgba(184,255,0,0.08);
 }
 
 .field-input.error {
@@ -355,7 +358,7 @@ main {
   color:var(--chrome);
 }
 
-/* ERROR */
+/* ERRORS */
 
 .field-error {
   font-family:var(--f-mono);
@@ -401,7 +404,7 @@ main {
   color:var(--volt);
 }
 
-/* SUBMIT */
+/* BUTTON */
 
 .btn-submit {
   width:100%;
@@ -416,7 +419,8 @@ main {
   font-weight:700;
   letter-spacing:2px;
   text-transform:uppercase;
-  box-shadow:0 0 30px rgba(184,255,0,0.25);
+  box-shadow:
+    0 0 30px rgba(184,255,0,0.25);
   transition:
     box-shadow 0.3s,
     transform 0.2s,
@@ -442,13 +446,15 @@ main {
   0%,100% {
     left:-70%;
   }
+
   50% {
     left:130%;
   }
 }
 
 .btn-submit:hover {
-  box-shadow:0 0 50px rgba(184,255,0,0.45);
+  box-shadow:
+    0 0 50px rgba(184,255,0,0.45);
   transform:translateY(-1px);
 }
 
@@ -519,6 +525,7 @@ main {
   cursor:pointer;
   transition:color 0.2s;
   text-transform:uppercase;
+  width:100%;
 }
 
 .forgot:hover {
@@ -560,12 +567,6 @@ footer {
   }
 }
 
-/* FADE */
-
-.card {
-  animation:fadeUp 0.5s ease both;
-}
-
 @keyframes fadeUp {
   from {
     opacity:0;
@@ -588,8 +589,7 @@ footer {
   <div class="bg-scan"></div>
 </div>
 
-<div class="top-bar">
-
+<header class="top-bar">
   <a href="index.html" class="logo">
     THE <span>HQ</span>
   </a>
@@ -597,377 +597,341 @@ footer {
   <a href="index.html" class="top-back">
     Back to site
   </a>
-
-</div>
+</header>
 
 <main>
 
-<div class="card">
+  <div class="card">
 
-  <div class="tabs">
+    <div class="tabs">
+      <button
+        class="tab active"
+        id="tab-login"
+        type="button"
+        onclick="switchTab('login')">
+        Sign In
+      </button>
 
-    <button
-      class="tab active"
-      id="tab-login"
-      onclick="switchTab('login')">
-      Sign In
-    </button>
+      <button
+        class="tab"
+        id="tab-register"
+        type="button"
+        onclick="switchTab('register')">
+        Register
+      </button>
+    </div>
 
-    <button
-      class="tab"
-      id="tab-register"
-      onclick="switchTab('register')">
-      Register
-    </button>
+    <!-- LOGIN -->
 
-  </div>
+    <div id="panel-login" class="form-body">
 
+      <div class="form-header">
+        <div class="form-title">
+          Welcome back
+        </div>
 
-  <!-- =========================
-       LOGIN
-  ========================== -->
-
-  <div id="panel-login" class="form-body">
-
-    <div class="form-header">
-
-      <div class="form-title">
-        Welcome back
+        <div class="form-sub">
+          Sign in to access your trading systems
+        </div>
       </div>
-
-      <div class="form-sub">
-        Sign in to access your trading systems
-      </div>
-
-    </div>
-
-
-    <div
-      class="alert alert-err"
-      id="login-err">
-
-      ⚠ &nbsp;
-      <span id="login-err-msg">
-        Invalid email or password.
-      </span>
-
-    </div>
-
-
-    <div
-      class="alert alert-ok"
-      id="login-ok">
-
-      ✓ &nbsp;
-      <span id="login-ok-msg">
-        Access granted — redirecting...
-      </span>
-
-    </div>
-
-
-    <div class="field">
-
-      <label
-        class="field-label"
-        for="login-email">
-        Email
-      </label>
-
-      <input
-        class="field-input"
-        type="email"
-        id="login-email"
-        placeholder="trader@email.com"
-        autocomplete="email">
 
       <div
-        class="field-error"
-        id="login-email-err">
-        Enter a valid email address
+        class="alert alert-err"
+        id="login-err">
+        ⚠ &nbsp;
+        <span id="login-err-msg">
+          Invalid email or password.
+        </span>
       </div>
 
-    </div>
+      <div
+        class="alert alert-ok"
+        id="login-ok">
+        ✓ &nbsp;
+        <span id="login-ok-msg">
+          Access granted — redirecting...
+        </span>
+      </div>
 
+      <div class="field">
 
-    <div class="field">
-
-      <label
-        class="field-label"
-        for="login-pw">
-        Password
-      </label>
-
-      <div class="field-pw">
+        <label
+          class="field-label"
+          for="login-email">
+          Email
+        </label>
 
         <input
           class="field-input"
-          type="password"
-          id="login-pw"
-          placeholder="••••••••"
-          autocomplete="current-password">
+          type="email"
+          id="login-email"
+          placeholder="trader@email.com"
+          autocomplete="email">
 
-        <button
-          class="pw-toggle"
-          type="button"
-          onclick="togglePw('login-pw',this)"
-          title="Show password">
-          👁
-        </button>
+        <div
+          class="field-error"
+          id="login-email-err">
+          Enter a valid email address
+        </div>
 
       </div>
 
-      <div
-        class="field-error"
-        id="login-pw-err">
-        Enter your password
+      <div class="field">
+
+        <label
+          class="field-label"
+          for="login-pw">
+          Password
+        </label>
+
+        <div class="field-pw">
+
+          <input
+            class="field-input"
+            type="password"
+            id="login-pw"
+            placeholder="••••••••"
+            autocomplete="current-password">
+
+          <button
+            class="pw-toggle"
+            type="button"
+            onclick="togglePw('login-pw',this)"
+            title="Show password">
+            👁
+          </button>
+
+        </div>
+
+        <div
+          class="field-error"
+          id="login-pw-err">
+          Enter your password
+        </div>
+
+        <button
+          class="forgot"
+          type="button"
+          onclick="forgotPw()">
+          Forgot password?
+        </button>
+
       </div>
 
       <button
-        class="forgot"
-        onclick="forgotPw()">
-        Forgot password?
+        class="btn-submit"
+        id="login-btn"
+        type="button"
+        onclick="handleLogin()">
+        Sign In
       </button>
 
+      <div class="or-divider">
+        or
+      </div>
+
+      <div class="terms">
+        Don't have an account?
+        <a
+          href="#"
+          onclick="switchTab('register');return false;">
+          Create one free
+        </a>
+      </div>
+
     </div>
 
+    <!-- REGISTER -->
 
-    <button
-      class="btn-submit"
-      id="login-btn"
-      onclick="handleLogin()">
-      Sign In
-    </button>
+    <div
+      id="panel-register"
+      class="form-body"
+      style="display:none;">
 
+      <div class="form-header">
 
-    <div class="or-divider">
-      or
-    </div>
+        <div class="form-title">
+          Create account
+        </div>
 
+        <div class="form-sub">
+          Get access to MOPSENTRY EA &amp; RAPID SCALP X
+        </div>
 
-    <div class="terms">
+      </div>
 
-      Don't have an account?
+      <div
+        class="alert alert-err"
+        id="reg-err">
+        ⚠ &nbsp;
+        <span id="reg-err-msg">
+          Something went wrong.
+        </span>
+      </div>
 
-      <a
-        href="#"
-        onclick="switchTab('register');return false;">
-        Create one free
-      </a>
+      <div
+        class="alert alert-ok"
+        id="reg-ok">
+        ✓ &nbsp;
+        <span>
+          Account created — check your email.
+        </span>
+      </div>
+
+      <div class="field">
+
+        <label
+          class="field-label"
+          for="reg-name">
+          Full Name
+        </label>
+
+        <input
+          class="field-input"
+          type="text"
+          id="reg-name"
+          placeholder="Your name"
+          autocomplete="name">
+
+        <div
+          class="field-error"
+          id="reg-name-err">
+          Enter your name
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label
+          class="field-label"
+          for="reg-email">
+          Email
+        </label>
+
+        <input
+          class="field-input"
+          type="email"
+          id="reg-email"
+          placeholder="trader@email.com"
+          autocomplete="email">
+
+        <div
+          class="field-error"
+          id="reg-email-err">
+          Enter a valid email address
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label
+          class="field-label"
+          for="reg-pw">
+          Password
+        </label>
+
+        <div class="field-pw">
+
+          <input
+            class="field-input"
+            type="password"
+            id="reg-pw"
+            placeholder="Min 8 characters"
+            autocomplete="new-password">
+
+          <button
+            class="pw-toggle"
+            type="button"
+            onclick="togglePw('reg-pw',this)"
+            title="Show password">
+            👁
+          </button>
+
+        </div>
+
+        <div
+          class="field-error"
+          id="reg-pw-err">
+          Password must be at least 8 characters
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label
+          class="field-label"
+          for="reg-pw2">
+          Confirm Password
+        </label>
+
+        <div class="field-pw">
+
+          <input
+            class="field-input"
+            type="password"
+            id="reg-pw2"
+            placeholder="••••••••"
+            autocomplete="new-password">
+
+          <button
+            class="pw-toggle"
+            type="button"
+            onclick="togglePw('reg-pw2',this)"
+            title="Show password">
+            👁
+          </button>
+
+        </div>
+
+        <div
+          class="field-error"
+          id="reg-pw2-err">
+          Passwords do not match
+        </div>
+
+      </div>
+
+      <button
+        class="btn-submit"
+        id="reg-btn"
+        type="button"
+        onclick="handleRegister()">
+        Create Account
+      </button>
+
+      <div
+        class="terms"
+        style="margin-top:1rem;">
+
+        By registering you agree to our
+        <a href="#">
+          Terms
+        </a>
+        &amp;
+        <a href="#">
+          Privacy Policy
+        </a>.
+
+        <br>
+
+        Already have an account?
+
+        <a
+          href="#"
+          onclick="switchTab('login');return false;">
+          Sign in
+        </a>
+
+      </div>
 
     </div>
 
   </div>
-
-
-  <!-- =========================
-       REGISTER
-  ========================== -->
-
-  <div
-    id="panel-register"
-    class="form-body"
-    style="display:none;">
-
-    <div class="form-header">
-
-      <div class="form-title">
-        Create account
-      </div>
-
-      <div class="form-sub">
-        Get access to MOPSENTRY EA &amp; RAPID SCALP X
-      </div>
-
-    </div>
-
-
-    <div
-      class="alert alert-err"
-      id="reg-err">
-
-      ⚠ &nbsp;
-      <span id="reg-err-msg">
-        Something went wrong.
-      </span>
-
-    </div>
-
-
-    <div
-      class="alert alert-ok"
-      id="reg-ok">
-
-      ✓ &nbsp;
-      <span id="reg-ok-msg">
-        Check your email to confirm your account.
-      </span>
-
-    </div>
-
-
-    <div class="field">
-
-      <label
-        class="field-label"
-        for="reg-name">
-        Full Name
-      </label>
-
-      <input
-        class="field-input"
-        type="text"
-        id="reg-name"
-        placeholder="Your name"
-        autocomplete="name">
-
-      <div
-        class="field-error"
-        id="reg-name-err">
-        Enter your name
-      </div>
-
-    </div>
-
-
-    <div class="field">
-
-      <label
-        class="field-label"
-        for="reg-email">
-        Email
-      </label>
-
-      <input
-        class="field-input"
-        type="email"
-        id="reg-email"
-        placeholder="trader@email.com"
-        autocomplete="email">
-
-      <div
-        class="field-error"
-        id="reg-email-err">
-        Enter a valid email address
-      </div>
-
-    </div>
-
-
-    <div class="field">
-
-      <label
-        class="field-label"
-        for="reg-pw">
-        Password
-      </label>
-
-      <div class="field-pw">
-
-        <input
-          class="field-input"
-          type="password"
-          id="reg-pw"
-          placeholder="Min 8 characters"
-          autocomplete="new-password">
-
-        <button
-          class="pw-toggle"
-          type="button"
-          onclick="togglePw('reg-pw',this)"
-          title="Show password">
-          👁
-        </button>
-
-      </div>
-
-      <div
-        class="field-error"
-        id="reg-pw-err">
-        Password must be at least 8 characters
-      </div>
-
-    </div>
-
-
-    <div class="field">
-
-      <label
-        class="field-label"
-        for="reg-pw2">
-        Confirm Password
-      </label>
-
-      <div class="field-pw">
-
-        <input
-          class="field-input"
-          type="password"
-          id="reg-pw2"
-          placeholder="••••••••"
-          autocomplete="new-password">
-
-        <button
-          class="pw-toggle"
-          type="button"
-          onclick="togglePw('reg-pw2',this)"
-          title="Show password">
-          👁
-        </button>
-
-      </div>
-
-      <div
-        class="field-error"
-        id="reg-pw2-err">
-        Passwords do not match
-      </div>
-
-    </div>
-
-
-    <button
-      class="btn-submit"
-      id="reg-btn"
-      onclick="handleRegister()">
-      Create Account
-    </button>
-
-
-    <div
-      class="terms"
-      style="margin-top:1rem;">
-
-      By registering you agree to our
-
-      <a href="#">
-        Terms
-      </a>
-
-      &amp;
-
-      <a href="#">
-        Privacy Policy
-      </a>.
-
-      <br>
-
-      Already have an account?
-
-      <a
-        href="#"
-        onclick="switchTab('login');return false;">
-        Sign in
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
 
 </main>
-
 
 <footer>
   THE HQ &copy; 2026
@@ -988,112 +952,190 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
   'sb_publishable_ocHhAGireOn0snnVty7pMQ_deVfJeD6';
 
+const { createClient } = supabase;
 
-const { createClient } =
-  supabase;
-
-
-const supabaseClient =
-  createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY,
-    {
-      auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true
-      }
-    }
-  );
+const supabaseClient = createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
 
 
 /* ==========================================================
-   WEBSITE CONFIGURATION
+   REDIRECT HANDLING
    ========================================================== */
 
-const SITE_URL =
-  'https://unkelmops.github.io/the-engine-room/';
+/*
+   Example:
+
+   login.html?redirect=mopsentryea_1.html
+
+   After authentication:
+
+   -> mopsentryea_1.html
+
+   If there is no redirect parameter,
+   we use mopsentryea_1.html as the default.
+*/
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const requestedRedirect =
+  params.get('redirect');
 
 
 /*
-   Change this later if your dashboard has
-   a different filename.
+   Only allow redirects to pages on this same website.
+
+   This prevents somebody from putting an external
+   website inside ?redirect=...
 */
 
-const DASHBOARD_URL =
-  'mopsentryea_1.html';
+function getSafeRedirect() {
 
+  const fallback = 'mopsentryea_1.html';
 
-/* ==========================================================
-   HELPERS
-   ========================================================== */
-
-function showErr(id, show) {
-
-  const el =
-    document.getElementById(id);
-
-  if (el) {
-    el.classList.toggle('show', show);
+  if (!requestedRedirect) {
+    return fallback;
   }
 
-}
+  try {
 
+    /*
+       Absolute URLs are checked against the current origin.
+    */
 
-function markInput(id, isError) {
+    const url = new URL(
+      requestedRedirect,
+      window.location.origin
+    );
 
-  const el =
-    document.getElementById(id);
-
-  if (el) {
-    el.classList.toggle('error', isError);
-  }
-
-}
-
-
-function clearAlerts() {
-
-  [
-    'login-err',
-    'login-ok',
-    'reg-err',
-    'reg-ok'
-  ].forEach(id => {
-
-    const el =
-      document.getElementById(id);
-
-    if (el) {
-      el.classList.remove('show');
+    if (url.origin !== window.location.origin) {
+      return fallback;
     }
 
-  });
+    return (
+      url.pathname +
+      url.search +
+      url.hash
+    );
 
+  } catch (error) {
+
+    return fallback;
+
+  }
 }
 
+const DESTINATION =
+  getSafeRedirect();
 
-function showAlert(id, message) {
 
-  const el =
-    document.getElementById(id);
+/*
+   This is the page we return to after email confirmation.
 
-  if (!el) return;
+   Example:
 
-  const span =
-    el.querySelector('span');
+   https://your-site.com/login.html?redirect=mopsentryea_1.html
+*/
 
-  if (span) {
-    span.textContent = message;
+const AUTH_CALLBACK_URL =
+  window.location.origin +
+  window.location.pathname +
+  '?redirect=' +
+  encodeURIComponent(DESTINATION);
+
+
+/* ==========================================================
+   CHECK EXISTING SUPABASE SESSION
+   ========================================================== */
+
+async function checkExistingSession() {
+
+  const {
+    data,
+    error
+  } = await supabaseClient.auth.getSession();
+
+  if (error) {
+    console.error(
+      'Session error:',
+      error
+    );
+    return;
   }
 
-  el.classList.add('show');
+  if (data.session) {
 
+    /*
+       The user is already authenticated.
+
+       Send them straight to the page
+       they originally requested.
+    */
+
+    window.location.replace(
+      DESTINATION
+    );
+  }
 }
 
 
 /* ==========================================================
-   TABS
+   AUTH STATE LISTENER
+   ========================================================== */
+
+/*
+   Supabase automatically detects the session returned
+   after the email-confirmation link.
+
+   We listen for that event and redirect the user.
+*/
+
+supabaseClient.auth.onAuthStateChange(
+  async (event, session) => {
+
+    console.log(
+      'Supabase auth event:',
+      event
+    );
+
+    if (
+      event === 'SIGNED_IN' &&
+      session
+    ) {
+
+      /*
+         Small delay so Supabase can finish
+         writing the session to storage.
+      */
+
+      setTimeout(() => {
+
+        window.location.replace(
+          DESTINATION
+        );
+
+      }, 300);
+
+    }
+
+  }
+);
+
+
+/*
+   Run the initial session check.
+
+   This also handles someone opening this page
+   while already logged in.
+*/
+
+checkExistingSession();
+
+
+/* ==========================================================
+   TAB SWITCH
    ========================================================== */
 
 function switchTab(tab) {
@@ -1105,14 +1147,12 @@ function switchTab(tab) {
       ? ''
       : 'none';
 
-
   document.getElementById(
     'panel-register'
   ).style.display =
     tab === 'register'
       ? ''
       : 'none';
-
 
   document.getElementById(
     'tab-login'
@@ -1121,7 +1161,6 @@ function switchTab(tab) {
     tab === 'login'
   );
 
-
   document.getElementById(
     'tab-register'
   ).classList.toggle(
@@ -1129,8 +1168,31 @@ function switchTab(tab) {
     tab === 'register'
   );
 
-
   clearAlerts();
+}
+
+
+/* ==========================================================
+   CLEAR ALERTS
+   ========================================================== */
+
+function clearAlerts() {
+
+  [
+    'login-err',
+    'login-ok',
+    'reg-err',
+    'reg-ok'
+  ].forEach(id => {
+
+    const element =
+      document.getElementById(id);
+
+    if (element) {
+      element.classList.remove('show');
+    }
+
+  });
 
 }
 
@@ -1139,132 +1201,58 @@ function switchTab(tab) {
    PASSWORD TOGGLE
    ========================================================== */
 
-function togglePw(id, btn) {
+function togglePw(id, button) {
 
   const input =
     document.getElementById(id);
 
-  const show =
+  const showing =
     input.type === 'password';
 
   input.type =
-    show ? 'text' : 'password';
+    showing
+      ? 'text'
+      : 'password';
 
-  btn.textContent =
-    show ? '🙈' : '👁';
-
+  button.textContent =
+    showing
+      ? '🙈'
+      : '👁';
 }
 
 
 /* ==========================================================
-   REDIRECT AFTER LOGIN
+   VALIDATION HELPERS
    ========================================================== */
 
-function goToDashboard() {
+function showErr(id, show) {
 
-  window.location.href =
-    DASHBOARD_URL;
+  const element =
+    document.getElementById(id);
+
+  if (element) {
+    element.classList.toggle(
+      'show',
+      show
+    );
+  }
 
 }
 
 
-/* ==========================================================
-   CHECK EXISTING SESSION
-   ========================================================== */
+function markInput(id, error) {
 
-async function checkSession() {
+  const element =
+    document.getElementById(id);
 
-  const {
-    data,
-    error
-  } = await supabaseClient.auth.getSession();
-
-
-  if (error) {
-
-    console.error(
-      'Session error:',
+  if (element) {
+    element.classList.toggle(
+      'error',
       error
     );
-
-    return;
-
-  }
-
-
-  if (data.session) {
-
-    /*
-      The user is already authenticated.
-      Send them to the protected area.
-    */
-
-    goToDashboard();
-
   }
 
 }
-
-
-/* ==========================================================
-   AUTH STATE LISTENER
-   ========================================================== */
-
-supabaseClient.auth.onAuthStateChange(
-  (event, session) => {
-
-    console.log(
-      'Supabase auth event:',
-      event
-    );
-
-
-    if (event === 'SIGNED_IN' && session) {
-
-      /*
-        Do not redirect immediately if
-        the registration confirmation
-        message needs to be displayed.
-      */
-
-      const loginPanel =
-        document.getElementById(
-          'panel-login'
-        );
-
-      const registerPanel =
-        document.getElementById(
-          'panel-register'
-        );
-
-
-      /*
-        If this page was reached through
-        an email confirmation, allow the
-        confirmation handler below to deal
-        with it.
-      */
-
-      const url =
-        new URL(window.location.href);
-
-      const hasCode =
-        url.searchParams.has('code');
-
-
-      if (!hasCode) {
-
-        setTimeout(
-          goToDashboard,
-          300
-        );
-
-      }
-
-    }
-
-  }
-);
 
 
 /* ==========================================================
@@ -1276,27 +1264,25 @@ async function handleLogin() {
   clearAlerts();
 
   const email =
-    document
-      .getElementById('login-email')
-      .value
+    document.getElementById(
+      'login-email'
+    ).value
       .trim()
       .toLowerCase();
 
   const password =
-    document
-      .getElementById('login-pw')
-      .value;
-
+    document.getElementById(
+      'login-pw'
+    ).value;
 
   let valid = true;
 
 
-  /* Email validation */
+  /* Validate email */
 
   if (
-    !email.match(
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    )
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      .test(email)
   ) {
 
     showErr(
@@ -1326,7 +1312,7 @@ async function handleLogin() {
   }
 
 
-  /* Password validation */
+  /* Validate password */
 
   if (!password) {
 
@@ -1357,7 +1343,9 @@ async function handleLogin() {
   }
 
 
-  if (!valid) return;
+  if (!valid) {
+    return;
+  }
 
 
   const button =
@@ -1365,98 +1353,35 @@ async function handleLogin() {
       'login-btn'
     );
 
-
   button.disabled = true;
 
   button.innerHTML =
     '<span class="spinner"></span>Verifying...';
 
 
-  try {
+  /*
+     IMPORTANT:
 
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.auth.signInWithPassword({
-        email: email,
-        password: password
-      });
+     We are NOT hashing the password ourselves.
 
+     Supabase Auth handles password verification.
+  */
 
-    if (error) {
-
-      console.error(
-        'Login error:',
-        error
-      );
-
-      button.disabled = false;
-
-      button.textContent =
-        'Sign In';
+  const {
+    data,
+    error
+  } =
+    await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
 
 
-      let message =
-        'Invalid email or password.';
-
-
-      if (
-        error.message
-          .toLowerCase()
-          .includes('email not confirmed')
-      ) {
-
-        message =
-          'Please confirm your email before signing in.';
-
-      }
-
-
-      showAlert(
-        'login-err',
-        message
-      );
-
-
-      markInput(
-        'login-email',
-        true
-      );
-
-      markInput(
-        'login-pw',
-        true
-      );
-
-      return;
-
-    }
-
-
-    if (data.session) {
-
-      showAlert(
-        'login-ok',
-        'Access granted — redirecting...'
-      );
-
-
-      button.textContent =
-        '✓ Access Granted';
-
-
-      setTimeout(
-        goToDashboard,
-        800
-      );
-
-    }
-
-  } catch (err) {
+  if (error) {
 
     console.error(
-      err
+      'Supabase login error:',
+      error
     );
 
     button.disabled = false;
@@ -1465,10 +1390,81 @@ async function handleLogin() {
       'Sign In';
 
 
-    showAlert(
-      'login-err',
-      'Something went wrong. Please try again.'
+    /*
+       Supabase returns this when email confirmation
+       is still required.
+    */
+
+    let message =
+      error.message ||
+      'Unable to sign in.';
+
+
+    if (
+      message
+        .toLowerCase()
+        .includes('email not confirmed')
+    ) {
+
+      message =
+        'Please confirm your email address using the link we sent you, then try again.';
+
+    }
+
+
+    document.getElementById(
+      'login-err-msg'
+    ).textContent =
+      message;
+
+    document.getElementById(
+      'login-err'
+    ).classList.add(
+      'show'
     );
+
+    markInput(
+      'login-email',
+      true
+    );
+
+    markInput(
+      'login-pw',
+      true
+    );
+
+    return;
+  }
+
+
+  /*
+     Successful Supabase login.
+  */
+
+  if (data.session) {
+
+    document.getElementById(
+      'login-ok'
+    ).classList.add(
+      'show'
+    );
+
+    document.getElementById(
+      'login-ok-msg'
+    ).textContent =
+      'Access granted — redirecting...';
+
+    button.textContent =
+      '✓ Access Granted';
+
+
+    setTimeout(() => {
+
+      window.location.replace(
+        DESTINATION
+      );
+
+    }, 500);
 
   }
 
@@ -1483,33 +1479,27 @@ async function handleRegister() {
 
   clearAlerts();
 
-
   const name =
-    document
-      .getElementById('reg-name')
-      .value
-      .trim();
-
+    document.getElementById(
+      'reg-name'
+    ).value.trim();
 
   const email =
-    document
-      .getElementById('reg-email')
-      .value
+    document.getElementById(
+      'reg-email'
+    ).value
       .trim()
       .toLowerCase();
 
-
   const password =
-    document
-      .getElementById('reg-pw')
-      .value;
-
+    document.getElementById(
+      'reg-pw'
+    ).value;
 
   const password2 =
-    document
-      .getElementById('reg-pw2')
-      .value;
-
+    document.getElementById(
+      'reg-pw2'
+    ).value;
 
   let valid = true;
 
@@ -1548,9 +1538,8 @@ async function handleRegister() {
   /* Email */
 
   if (
-    !email.match(
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    )
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      .test(email)
   ) {
 
     showErr(
@@ -1613,7 +1602,9 @@ async function handleRegister() {
 
   /* Confirm password */
 
-  if (password !== password2) {
+  if (
+    password !== password2
+  ) {
 
     showErr(
       'reg-pw2-err',
@@ -1642,7 +1633,9 @@ async function handleRegister() {
   }
 
 
-  if (!valid) return;
+  if (!valid) {
+    return;
+  }
 
 
   const button =
@@ -1650,128 +1643,55 @@ async function handleRegister() {
       'reg-btn'
     );
 
-
   button.disabled = true;
 
   button.innerHTML =
     '<span class="spinner"></span>Creating account...';
 
 
-  try {
+  /*
+     Create the Supabase user.
 
-    /*
-      IMPORTANT:
+     The name is stored in user_metadata.
+  */
 
-      Supabase will send the confirmation
-      email to this URL.
-    */
+  const {
+    data,
+    error
+  } =
+    await supabaseClient.auth.signUp({
 
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.auth.signUp({
+      email: email,
 
-        email: email,
+      password: password,
 
-        password: password,
+      options: {
 
-        options: {
+        data: {
+          full_name: name
+        },
 
-          emailRedirectTo:
-            SITE_URL,
+        /*
+           After the user clicks the confirmation
+           email, Supabase sends them back here.
 
-          data: {
+           The original requested destination
+           is preserved in ?redirect=...
+        */
 
-            full_name:
-              name
+        emailRedirectTo:
+          AUTH_CALLBACK_URL
 
-          }
+      }
 
-        }
-
-      });
-
-
-    if (error) {
-
-      console.error(
-        'Registration error:',
-        error
-      );
-
-      button.disabled = false;
-
-      button.textContent =
-        'Create Account';
+    });
 
 
-      showAlert(
-        'reg-err',
-        error.message
-      );
-
-      return;
-
-    }
-
-
-    /*
-      Supabase normally returns:
-
-      session = null
-
-      when email confirmation
-      is required.
-    */
-
-    if (!data.session) {
-
-      showAlert(
-        'reg-ok',
-        'Account created. Check your email and click the confirmation link.'
-      );
-
-
-      button.textContent =
-        '✓ Check Your Email';
-
-
-      /*
-        Don't redirect yet.
-        The user must confirm their email.
-      */
-
-      return;
-
-    }
-
-
-    /*
-      If email confirmation is disabled,
-      Supabase may sign the user in immediately.
-    */
-
-    showAlert(
-      'reg-ok',
-      'Account created — redirecting...'
-    );
-
-
-    button.textContent =
-      '✓ Account Created';
-
-
-    setTimeout(
-      goToDashboard,
-      800
-    );
-
-
-  } catch (err) {
+  if (error) {
 
     console.error(
-      err
+      'Supabase registration error:',
+      error
     );
 
     button.disabled = false;
@@ -1779,11 +1699,78 @@ async function handleRegister() {
     button.textContent =
       'Create Account';
 
+    document.getElementById(
+      'reg-err-msg'
+    ).textContent =
+      error.message ||
+      'Unable to create account.';
 
-    showAlert(
-      'reg-err',
-      'Something went wrong. Please try again.'
+    document.getElementById(
+      'reg-err'
+    ).classList.add(
+      'show'
     );
+
+    return;
+  }
+
+
+  /*
+     If email confirmation is enabled,
+     Supabase normally returns a user but
+     no active session yet.
+
+     That is expected.
+  */
+
+  if (
+    data.user &&
+    !data.session
+  ) {
+
+    document.getElementById(
+      'reg-ok'
+    ).classList.add(
+      'show'
+    );
+
+    document.getElementById(
+      'reg-ok'
+    ).querySelector('span').textContent =
+      'Account created — check your email to confirm your account.';
+
+    button.textContent =
+      '✓ Check Your Email';
+
+    return;
+  }
+
+
+  /*
+     If email confirmation is disabled,
+     the session may already exist.
+
+     In that case redirect immediately.
+  */
+
+  if (data.session) {
+
+    document.getElementById(
+      'reg-ok'
+    ).classList.add(
+      'show'
+    );
+
+    button.textContent =
+      '✓ Account Created';
+
+    setTimeout(() => {
+
+      window.location.replace(
+        DESTINATION
+      );
+
+    }, 500);
 
   }
 
@@ -1798,24 +1785,28 @@ async function forgotPw() {
 
   clearAlerts();
 
-
   const email =
-    document
-      .getElementById('login-email')
-      .value
+    document.getElementById(
+      'login-email'
+    ).value
       .trim()
       .toLowerCase();
 
 
   if (
-    !email.match(
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    )
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      .test(email)
   ) {
 
-    showAlert(
-      'login-err',
-      'Enter your email address first.'
+    document.getElementById(
+      'login-err-msg'
+    ).textContent =
+      'Enter your email address first.';
+
+    document.getElementById(
+      'login-err'
+    ).classList.add(
+      'show'
     );
 
     markInput(
@@ -1824,137 +1815,65 @@ async function forgotPw() {
     );
 
     return;
-
   }
 
 
-  try {
+  /*
+     IMPORTANT:
 
-    const {
-      error
-    } =
-      await supabaseClient.auth.resetPasswordForEmail(
+     You should create a separate password-reset page
+     later, for example:
+
+     reset-password.html
+
+     For now this sends the user to that page after
+     clicking the email.
+  */
+
+  const resetUrl =
+    window.location.origin +
+    '/reset-password.html';
+
+
+  const {
+    error
+  } =
+    await supabaseClient.auth
+      .resetPasswordForEmail(
         email,
         {
-          redirectTo:
-            SITE_URL
+          redirectTo: resetUrl
         }
       );
 
 
-    if (error) {
+  if (error) {
 
-      showAlert(
-        'login-err',
-        error.message
-      );
+    document.getElementById(
+      'login-err-msg'
+    ).textContent =
+      error.message;
 
-      return;
-
-    }
-
-
-    showAlert(
-      'login-ok',
-      'Password reset instructions have been sent to your email.'
+    document.getElementById(
+      'login-err'
+    ).classList.add(
+      'show'
     );
 
-
-  } catch (err) {
-
-    console.error(
-      err
-    );
-
-    showAlert(
-      'login-err',
-      'Unable to send password reset email.'
-    );
-
+    return;
   }
 
-}
 
+  document.getElementById(
+    'login-ok-msg'
+  ).textContent =
+    'If the account exists, a password-reset email has been sent.';
 
-/* ==========================================================
-   EMAIL CONFIRMATION HANDLING
-   ========================================================== */
-
-async function handleEmailConfirmation() {
-
-  const url =
-    new URL(
-      window.location.href
-    );
-
-
-  /*
-    Supabase can return a PKCE "code"
-    after email confirmation.
-  */
-
-  const code =
-    url.searchParams.get('code');
-
-
-  if (code) {
-
-    try {
-
-      const {
-        data,
-        error
-      } =
-        await supabaseClient.auth.exchangeCodeForSession(
-          code
-        );
-
-
-      if (error) {
-
-        console.error(
-          'Confirmation error:',
-          error
-        );
-
-        showAlert(
-          'login-err',
-          'Your email was confirmed, but we could not create your session. Please sign in.'
-        );
-
-        switchTab(
-          'login'
-        );
-
-        return;
-
-      }
-
-
-      if (data.session) {
-
-        showAlert(
-          'login-ok',
-          'Email confirmed — access granted.'
-        );
-
-
-        setTimeout(
-          goToDashboard,
-          1000
-        );
-
-      }
-
-    } catch (err) {
-
-      console.error(
-        err
-      );
-
-    }
-
-  }
+  document.getElementById(
+    'login-ok'
+  ).classList.add(
+    'show'
+  );
 
 }
 
@@ -1967,84 +1886,24 @@ document.addEventListener(
   'keydown',
   function(event) {
 
-    if (
-      event.key !== 'Enter'
-    ) {
+    if (event.key !== 'Enter') {
       return;
     }
 
-
     const loginVisible =
-      document
-        .getElementById('panel-login')
-        .style
-        .display !== 'none';
+      document.getElementById(
+        'panel-login'
+      ).style.display !== 'none';
 
 
     if (loginVisible) {
-
       handleLogin();
-
     } else {
-
       handleRegister();
-
     }
 
   }
 );
-
-
-/* ==========================================================
-   START
-   ========================================================== */
-
-(async function init() {
-
-  /*
-    First handle an email-confirmation
-    redirect if there is one.
-  */
-
-  await handleEmailConfirmation();
-
-
-  /*
-    Then check whether the visitor
-    already has an authenticated session.
-  */
-
-  const {
-    data
-  } =
-    await supabaseClient.auth.getSession();
-
-
-  const url =
-    new URL(
-      window.location.href
-    );
-
-
-  const hasConfirmationCode =
-    url.searchParams.has('code');
-
-
-  /*
-    Don't immediately redirect while
-    processing email confirmation.
-  */
-
-  if (
-    data.session &&
-    !hasConfirmationCode
-  ) {
-
-    goToDashboard();
-
-  }
-
-})();
 
 </script>
 
