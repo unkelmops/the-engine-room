@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
 <title>THE HQ — Access Portal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  rel="stylesheet"
+>
 
 <style>
+
 :root {
   --black:#050507;
   --obs:#0b0c11;
@@ -22,6 +32,7 @@
   --muted:rgba(168,176,200,.45);
   --border:rgba(255,255,255,.07);
   --border2:rgba(255,255,255,.12);
+
   --f-head:'Outfit',sans-serif;
   --f-mono:'JetBrains Mono',monospace;
 }
@@ -43,14 +54,20 @@ body {
   font-family:var(--f-head);
   background:var(--black);
   color:var(--chrome);
+
   min-height:100svh;
+
   display:flex;
   flex-direction:column;
+
   overflow-x:hidden;
+
   -webkit-font-smoothing:antialiased;
 }
 
-/* BACKGROUND */
+/* ==========================================================
+   BACKGROUND
+   ========================================================== */
 
 .bg-scene {
   position:fixed;
@@ -63,6 +80,7 @@ body {
 .bg-grad {
   position:absolute;
   inset:0;
+
   background:
     radial-gradient(
       ellipse 80% 60% at 50% -10%,
@@ -79,15 +97,25 @@ body {
 .bg-grid {
   position:absolute;
   inset:0;
+
   background-image:
-    linear-gradient(rgba(184,255,0,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(184,255,0,.03) 1px,transparent 1px);
+    linear-gradient(
+      rgba(184,255,0,.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(184,255,0,.03) 1px,
+      transparent 1px
+    );
+
   background-size:56px 56px;
 }
 
 .bg-scan {
   position:absolute;
   inset:0;
+
   background:
     repeating-linear-gradient(
       0deg,
@@ -98,17 +126,27 @@ body {
     );
 }
 
-/* HEADER */
+/* ==========================================================
+   HEADER
+   ========================================================== */
 
 .top-bar {
   position:relative;
   z-index:10;
-  padding:1.25rem clamp(1rem,5vw,2rem);
+
+  padding:
+    1.25rem
+    clamp(1rem,5vw,2rem);
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   border-bottom:1px solid var(--border);
-  background:rgba(5,5,7,.7);
+
+  background:
+    rgba(5,5,7,.7);
+
   backdrop-filter:blur(20px);
 }
 
@@ -129,7 +167,9 @@ body {
   font-size:10px;
   letter-spacing:1.5px;
   text-transform:uppercase;
+
   color:var(--muted);
+
   text-decoration:none;
 }
 
@@ -137,69 +177,98 @@ body {
   color:var(--chrome);
 }
 
-/* MAIN */
+/* ==========================================================
+   MAIN
+   ========================================================== */
 
 main {
   position:relative;
   z-index:1;
+
   flex:1;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   padding:3rem 1rem;
 }
 
-/* CARD */
+/* ==========================================================
+   CARD
+   ========================================================== */
 
 .card {
   width:100%;
   max-width:440px;
+
   background:var(--obs);
+
   border:1px solid var(--border2);
   border-radius:12px;
+
   overflow:hidden;
+
   box-shadow:
     0 40px 100px rgba(0,0,0,.8),
     0 0 60px rgba(184,255,0,.05);
+
   position:relative;
-  animation:fadeUp .5s ease both;
+
+  animation:
+    fadeUp .5s ease both;
 }
 
 .card::before {
   content:"";
+
   position:absolute;
+
   top:0;
   left:0;
   right:0;
+
   height:2px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    var(--volt),
-    transparent
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--volt),
+      transparent
+    );
 }
 
-/* TABS */
+/* ==========================================================
+   TABS
+   ========================================================== */
 
 .tabs {
   display:grid;
   grid-template-columns:1fr 1fr;
+
   border-bottom:1px solid var(--border);
 }
 
 .tab {
   padding:1rem;
+
   text-align:center;
+
   cursor:pointer;
+
   font-family:var(--f-mono);
   font-size:11px;
   font-weight:600;
   letter-spacing:2px;
+
   text-transform:uppercase;
+
   color:var(--muted);
+
   border:none;
   background:transparent;
+
   position:relative;
 }
 
@@ -210,13 +279,19 @@ main {
 
 .tab::after {
   content:"";
+
   position:absolute;
+
   bottom:0;
   left:0;
   right:0;
+
   height:2px;
+
   background:var(--volt);
+
   transform:scaleX(0);
+
   transition:transform .3s;
 }
 
@@ -224,7 +299,9 @@ main {
   transform:scaleX(1);
 }
 
-/* FORM */
+/* ==========================================================
+   FORM
+   ========================================================== */
 
 .form-body {
   padding:2rem;
@@ -238,16 +315,17 @@ main {
   font-size:1.7rem;
   font-weight:800;
   letter-spacing:-.03em;
+
   margin-bottom:.35rem;
 }
 
 .form-sub {
   font-size:13px;
+
   color:var(--muted);
+
   line-height:1.5;
 }
-
-/* FIELDS */
 
 .field {
   margin-bottom:1rem;
@@ -255,34 +333,57 @@ main {
 
 .field-label {
   display:block;
+
   font-family:var(--f-mono);
   font-size:10px;
   font-weight:600;
   letter-spacing:2px;
+
   text-transform:uppercase;
+
   color:var(--silver);
+
   margin-bottom:6px;
 }
 
 .field-input {
   width:100%;
+
   padding:12px 14px;
+
   background:var(--iron);
+
   border:1px solid var(--border2);
+
   border-radius:6px;
+
   color:var(--chrome);
+
   font-family:var(--f-head);
   font-size:14px;
+
   outline:none;
+
+  transition:
+    border-color .2s,
+    box-shadow .2s;
+}
+
+.field-input::placeholder {
+  color:rgba(168,176,200,.3);
 }
 
 .field-input:focus {
   border-color:var(--volt-b);
-  box-shadow:0 0 0 3px rgba(184,255,0,.08);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(184,255,0,.08);
 }
 
 .field-input.error {
-  border-color:rgba(255,51,102,.5);
+  border-color:
+    rgba(255,51,102,.5);
 }
 
 .field-pw {
@@ -295,22 +396,37 @@ main {
 
 .pw-toggle {
   position:absolute;
+
   right:12px;
   top:50%;
+
   transform:translateY(-50%);
+
   background:none;
   border:none;
+
   cursor:pointer;
+
+  padding:4px;
+
   color:var(--muted);
+
+  font-size:14px;
 }
 
-/* ERRORS */
+/* ==========================================================
+   ERRORS
+   ========================================================== */
 
 .field-error {
   font-family:var(--f-mono);
   font-size:10px;
+  letter-spacing:1px;
+
   color:var(--red);
+
   margin-top:5px;
+
   display:none;
 }
 
@@ -320,11 +436,17 @@ main {
 
 .alert {
   border-radius:6px;
+
   padding:10px 14px;
+
   margin-bottom:1rem;
+
   font-family:var(--f-mono);
   font-size:11px;
+
   display:none;
+
+  line-height:1.5;
 }
 
 .alert.show {
@@ -333,46 +455,80 @@ main {
 
 .alert-err {
   background:var(--red-d);
-  border:1px solid rgba(255,51,102,.25);
+
+  border:
+    1px solid
+    rgba(255,51,102,.25);
+
   color:var(--red);
 }
 
 .alert-ok {
   background:var(--volt-d);
-  border:1px solid var(--volt-b);
+
+  border:
+    1px solid
+    var(--volt-b);
+
   color:var(--volt);
 }
 
-/* BUTTON */
+/* ==========================================================
+   BUTTON
+   ========================================================== */
 
 .btn-submit {
   width:100%;
+
   padding:14px;
+
   background:var(--volt);
   color:var(--black);
+
   border:none;
   border-radius:6px;
+
   cursor:pointer;
+
   font-family:var(--f-mono);
+
   font-size:12px;
   font-weight:700;
+
   letter-spacing:2px;
+
   text-transform:uppercase;
+
   margin-top:.5rem;
+
+  transition:
+    opacity .2s,
+    transform .2s;
+}
+
+.btn-submit:hover {
+  transform:translateY(-1px);
 }
 
 .btn-submit:disabled {
   opacity:.5;
   cursor:not-allowed;
+  transform:none;
 }
 
-/* TERMS */
+/* ==========================================================
+   TERMS / FORGOT
+   ========================================================== */
 
 .terms {
   font-size:11px;
+
   color:var(--muted);
+
   text-align:center;
+
   margin-top:1.25rem;
+
   line-height:1.6;
 }
 
@@ -381,50 +537,77 @@ main {
   text-decoration:none;
 }
 
-/* FORGOT */
-
 .forgot {
   display:block;
+
   margin-top:5px;
   margin-left:auto;
+
   background:none;
   border:none;
+
   cursor:pointer;
+
   font-family:var(--f-mono);
+
   font-size:10px;
+
   color:var(--muted);
+
+  text-transform:uppercase;
 }
 
 .forgot:hover {
   color:var(--volt);
 }
 
-/* FOOTER */
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 
 footer {
   position:relative;
   z-index:1;
+
   padding:1.25rem;
+
   text-align:center;
+
   border-top:1px solid var(--border);
+
   font-family:var(--f-mono);
+
   font-size:9px;
   letter-spacing:1.5px;
+
   text-transform:uppercase;
+
   color:rgba(168,176,200,.25);
 }
 
-/* SPINNER */
+/* ==========================================================
+   SPINNER
+   ========================================================== */
 
 .spinner {
   display:inline-block;
+
   width:14px;
   height:14px;
-  border:2px solid rgba(0,0,0,.3);
+
+  border:
+    2px solid
+    rgba(0,0,0,.3);
+
   border-top-color:#000;
+
   border-radius:50%;
-  animation:spin .6s linear infinite;
+
+  animation:
+    spin .6s linear infinite;
+
   vertical-align:middle;
+
   margin-right:6px;
 }
 
@@ -445,6 +628,7 @@ footer {
     transform:translateY(0);
   }
 }
+
 </style>
 </head>
 
@@ -458,12 +642,18 @@ footer {
 
 <header class="top-bar">
 
-  <a href="index.html" class="logo">
+  <a
+    href="index.html"
+    class="logo"
+  >
     THE <span>HQ</span>
   </a>
 
-  <a href="index.html" class="top-back">
-    Back to site
+  <a
+    href="index.html"
+    class="top-back"
+  >
+    ← Back to site
   </a>
 
 </header>
@@ -477,22 +667,31 @@ footer {
     <button
       class="tab active"
       id="tab-login"
-      onclick="switchTab('login')">
+      type="button"
+      onclick="switchTab('login')"
+    >
       Sign In
     </button>
 
     <button
       class="tab"
       id="tab-register"
-      onclick="switchTab('register')">
+      type="button"
+      onclick="switchTab('register')"
+    >
       Register
     </button>
 
   </div>
 
-  <!-- LOGIN -->
+  <!-- ======================================================
+       LOGIN
+       ====================================================== -->
 
-  <div id="panel-login" class="form-body">
+  <div
+    id="panel-login"
+    class="form-body"
+  >
 
     <div class="form-header">
 
@@ -508,13 +707,15 @@ footer {
 
     <div
       class="alert alert-err"
-      id="login-err">
+      id="login-err"
+    >
       ⚠ <span id="login-err-msg"></span>
     </div>
 
     <div
       class="alert alert-ok"
-      id="login-ok">
+      id="login-ok"
+    >
       ✓ Access granted — redirecting...
     </div>
 
@@ -522,7 +723,8 @@ footer {
 
       <label
         class="field-label"
-        for="login-email">
+        for="login-email"
+      >
         Email
       </label>
 
@@ -531,11 +733,13 @@ footer {
         type="email"
         id="login-email"
         placeholder="trader@email.com"
-        autocomplete="email">
+        autocomplete="email"
+      >
 
       <div
         class="field-error"
-        id="login-email-err">
+        id="login-email-err"
+      >
         Enter a valid email address
       </div>
 
@@ -545,7 +749,8 @@ footer {
 
       <label
         class="field-label"
-        for="login-pw">
+        for="login-pw"
+      >
         Password
       </label>
 
@@ -556,12 +761,14 @@ footer {
           type="password"
           id="login-pw"
           placeholder="••••••••"
-          autocomplete="current-password">
+          autocomplete="current-password"
+        >
 
         <button
           class="pw-toggle"
           type="button"
-          onclick="togglePw('login-pw',this)">
+          onclick="togglePw('login-pw',this)"
+        >
           👁
         </button>
 
@@ -569,13 +776,16 @@ footer {
 
       <div
         class="field-error"
-        id="login-pw-err">
+        id="login-pw-err"
+      >
         Enter your password
       </div>
 
       <button
         class="forgot"
-        onclick="forgotPw()">
+        type="button"
+        onclick="forgotPw()"
+      >
         Forgot password?
       </button>
 
@@ -584,7 +794,9 @@ footer {
     <button
       class="btn-submit"
       id="login-btn"
-      onclick="handleLogin()">
+      type="button"
+      onclick="handleLogin()"
+    >
       Sign In
     </button>
 
@@ -594,7 +806,11 @@ footer {
 
       <a
         href="#"
-        onclick="switchTab('register');return false;">
+        onclick="
+          switchTab('register');
+          return false;
+        "
+      >
         Create one free
       </a>
 
@@ -603,12 +819,15 @@ footer {
   </div>
 
 
-  <!-- REGISTER -->
+  <!-- ======================================================
+       REGISTER
+       ====================================================== -->
 
   <div
     id="panel-register"
     class="form-body"
-    style="display:none;">
+    style="display:none;"
+  >
 
     <div class="form-header">
 
@@ -624,13 +843,15 @@ footer {
 
     <div
       class="alert alert-err"
-      id="reg-err">
+      id="reg-err"
+    >
       ⚠ <span id="reg-err-msg"></span>
     </div>
 
     <div
       class="alert alert-ok"
-      id="reg-ok">
+      id="reg-ok"
+    >
       ✓ Account created. Check your email to confirm your account.
     </div>
 
@@ -638,7 +859,8 @@ footer {
 
       <label
         class="field-label"
-        for="reg-name">
+        for="reg-name"
+      >
         Full Name
       </label>
 
@@ -647,11 +869,13 @@ footer {
         type="text"
         id="reg-name"
         placeholder="Your name"
-        autocomplete="name">
+        autocomplete="name"
+      >
 
       <div
         class="field-error"
-        id="reg-name-err">
+        id="reg-name-err"
+      >
         Enter your name
       </div>
 
@@ -661,7 +885,8 @@ footer {
 
       <label
         class="field-label"
-        for="reg-email">
+        for="reg-email"
+      >
         Email
       </label>
 
@@ -670,11 +895,13 @@ footer {
         type="email"
         id="reg-email"
         placeholder="trader@email.com"
-        autocomplete="email">
+        autocomplete="email"
+      >
 
       <div
         class="field-error"
-        id="reg-email-err">
+        id="reg-email-err"
+      >
         Enter a valid email address
       </div>
 
@@ -684,7 +911,8 @@ footer {
 
       <label
         class="field-label"
-        for="reg-pw">
+        for="reg-pw"
+      >
         Password
       </label>
 
@@ -695,12 +923,14 @@ footer {
           type="password"
           id="reg-pw"
           placeholder="Min 8 characters"
-          autocomplete="new-password">
+          autocomplete="new-password"
+        >
 
         <button
           class="pw-toggle"
           type="button"
-          onclick="togglePw('reg-pw',this)">
+          onclick="togglePw('reg-pw',this)"
+        >
           👁
         </button>
 
@@ -708,7 +938,8 @@ footer {
 
       <div
         class="field-error"
-        id="reg-pw-err">
+        id="reg-pw-err"
+      >
         Password must be at least 8 characters
       </div>
 
@@ -718,7 +949,8 @@ footer {
 
       <label
         class="field-label"
-        for="reg-pw2">
+        for="reg-pw2"
+      >
         Confirm Password
       </label>
 
@@ -729,12 +961,14 @@ footer {
           type="password"
           id="reg-pw2"
           placeholder="••••••••"
-          autocomplete="new-password">
+          autocomplete="new-password"
+        >
 
         <button
           class="pw-toggle"
           type="button"
-          onclick="togglePw('reg-pw2',this)">
+          onclick="togglePw('reg-pw2',this)"
+        >
           👁
         </button>
 
@@ -742,7 +976,8 @@ footer {
 
       <div
         class="field-error"
-        id="reg-pw2-err">
+        id="reg-pw2-err"
+      >
         Passwords do not match
       </div>
 
@@ -751,7 +986,9 @@ footer {
     <button
       class="btn-submit"
       id="reg-btn"
-      onclick="handleRegister()">
+      type="button"
+      onclick="handleRegister()"
+    >
       Create Account
     </button>
 
@@ -768,7 +1005,11 @@ footer {
 
       <a
         href="#"
-        onclick="switchTab('login');return false;">
+        onclick="
+          switchTab('login');
+          return false;
+        "
+      >
         Sign in
       </a>
 
@@ -781,15 +1022,19 @@ footer {
 </main>
 
 <footer>
-THE HQ © 2026 · Secure Access Portal
+  THE HQ © 2026 · Secure Access Portal
 </footer>
 
 
-<!-- SUPABASE -->
+<!-- ========================================================
+     SUPABASE
+     ======================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+
+"use strict";
 
 /* ==========================================================
    SUPABASE CONFIG
@@ -812,21 +1057,6 @@ const supabaseClient =
    SITE CONFIG
    ========================================================== */
 
-/*
-  This is your GitHub Pages website.
-
-  The current page's query string determines which EA
-  the user originally requested.
-
-  Example:
-
-  auth.html?redirect=mopsentryea_1.html
-
-  or
-
-  auth.html?redirect=rapidscalpx.html
-*/
-
 const SITE_URL =
   "https://unkelmops.github.io/the-engine-room/";
 
@@ -841,25 +1071,22 @@ const DEFAULT_EA =
 function getRequestedEA() {
 
   const params =
-    new URLSearchParams(window.location.search);
+    new URLSearchParams(
+      window.location.search
+    );
 
   const redirect =
     params.get("redirect");
 
   /*
-    Only allow local HTML pages.
-
-    This prevents somebody from putting an arbitrary
-    external website into the redirect parameter.
+    Only accept local HTML filenames.
   */
 
   if (
     redirect &&
     /^[a-zA-Z0-9_-]+\.html$/.test(redirect)
   ) {
-
     return redirect;
-
   }
 
   return DEFAULT_EA;
@@ -867,7 +1094,7 @@ function getRequestedEA() {
 
 
 /* ==========================================================
-   BUILD EA URL
+   GET EA URL
    ========================================================== */
 
 function getEAUrl() {
@@ -891,12 +1118,16 @@ function switchTab(tab) {
   document.getElementById(
     "panel-login"
   ).style.display =
-    tab === "login" ? "" : "none";
+    tab === "login"
+      ? ""
+      : "none";
 
   document.getElementById(
     "panel-register"
   ).style.display =
-    tab === "register" ? "" : "none";
+    tab === "register"
+      ? ""
+      : "none";
 
   document.getElementById(
     "tab-login"
@@ -927,7 +1158,7 @@ function clearAlerts() {
     "login-ok",
     "reg-err",
     "reg-ok"
-  ].forEach(id => {
+  ].forEach(function(id) {
 
     const element =
       document.getElementById(id);
@@ -954,10 +1185,14 @@ function togglePw(id, button) {
     input.type === "password";
 
   input.type =
-    show ? "text" : "password";
+    show
+      ? "text"
+      : "password";
 
   button.textContent =
-    show ? "🙈" : "👁";
+    show
+      ? "🙈"
+      : "👁";
 }
 
 
@@ -976,7 +1211,6 @@ function showErr(id, show) {
       show
     );
   }
-
 }
 
 
@@ -991,7 +1225,6 @@ function markInput(id, error) {
       error
     );
   }
-
 }
 
 
@@ -1098,13 +1331,11 @@ async function handleLogin() {
     data,
     error
   } =
-    await supabaseClient.auth.signInWithPassword({
-
-      email,
-
-      password
-
-    });
+    await supabaseClient.auth
+      .signInWithPassword({
+        email,
+        password
+      });
 
 
   if (error) {
@@ -1124,11 +1355,13 @@ async function handleLogin() {
     ).classList.add("show");
 
     return;
-
   }
 
 
-  if (!data.session) {
+  if (
+    !data ||
+    !data.session
+  ) {
 
     button.disabled = false;
 
@@ -1145,7 +1378,6 @@ async function handleLogin() {
     ).classList.add("show");
 
     return;
-
   }
 
 
@@ -1157,13 +1389,18 @@ async function handleLogin() {
     "✓ Access Granted";
 
 
-  setTimeout(() => {
+  /*
+    Send the authenticated user directly
+    to the EA they originally requested.
+  */
+
+  setTimeout(function() {
 
     window.location.replace(
       getEAUrl()
     );
 
-  }, 800);
+  }, 500);
 
 }
 
@@ -1202,6 +1439,8 @@ async function handleRegister() {
   let valid = true;
 
 
+  /* NAME */
+
   if (!name) {
 
     showErr(
@@ -1230,6 +1469,8 @@ async function handleRegister() {
 
   }
 
+
+  /* EMAIL */
 
   if (
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -1262,6 +1503,8 @@ async function handleRegister() {
   }
 
 
+  /* PASSWORD */
+
   if (password.length < 8) {
 
     showErr(
@@ -1290,6 +1533,8 @@ async function handleRegister() {
 
   }
 
+
+  /* CONFIRM PASSWORD */
 
   if (password !== password2) {
 
@@ -1339,11 +1584,20 @@ async function handleRegister() {
   /*
     THIS IS THE IMPORTANT PART.
 
-    Supabase sends the confirmation email.
+    Supabase will put this exact EA URL
+    into the confirmation flow.
 
-    When the user clicks the confirmation
-    link, Supabase returns them to the EA
-    they originally selected.
+    Example:
+
+    https://unkelmops.github.io/
+    the-engine-room/
+    mopsentryea_1.html
+
+    OR
+
+    https://unkelmops.github.io/
+    the-engine-room/
+    rapidscalpx.html
   */
 
   const redirectUrl =
@@ -1394,24 +1648,25 @@ async function handleRegister() {
     ).classList.add("show");
 
     return;
-
   }
 
 
   /*
     With email confirmation enabled,
     Supabase normally returns a user
-    but no active session.
+    but no session.
 
-    Therefore we DO NOT redirect immediately.
+    We therefore WAIT for the user
+    to click the email confirmation.
 
-    We tell the user to check their email.
+    The email confirmation itself will
+    redirect to the original EA.
   */
 
   document.getElementById(
     "reg-ok"
   ).textContent =
-    "✓ Account created. Check your email and confirm your address. You will then be taken directly to your EA.";
+    "✓ Account created. Check your email and confirm your address. After confirmation, you will be taken directly to your EA.";
 
   document.getElementById(
     "reg-ok"
@@ -1436,6 +1691,7 @@ async function forgotPw() {
       .trim()
       .toLowerCase();
 
+
   if (!email) {
 
     alert(
@@ -1443,7 +1699,6 @@ async function forgotPw() {
     );
 
     return;
-
   }
 
 
@@ -1455,7 +1710,8 @@ async function forgotPw() {
         email,
         {
           redirectTo:
-            SITE_URL + "reset-password.html"
+            SITE_URL +
+            "login.html"
         }
       );
 
@@ -1468,32 +1724,33 @@ async function forgotPw() {
     );
 
     return;
-
   }
 
 
   alert(
     "Password reset instructions have been sent to " +
-    email + "."
+    email +
+    "."
   );
 
 }
 
 
 /* ==========================================================
-   AFTER EMAIL CONFIRMATION
+   AUTH STATE
    ========================================================== */
 
-/*
-  Supabase automatically detects the authentication
-  session from the confirmation redirect.
-
-  We listen for the signed-in event and then send
-  the user to their originally requested EA.
-*/
-
 supabaseClient.auth.onAuthStateChange(
-  (event, session) => {
+  function(event, session) {
+
+    /*
+      If Supabase restores a session on
+      login.html, send the user to the
+      originally requested EA.
+
+      We deliberately do NOT use the old
+      thehq_session localStorage system.
+    */
 
     if (
       event === "SIGNED_IN" &&
@@ -1501,22 +1758,24 @@ supabaseClient.auth.onAuthStateChange(
     ) {
 
       /*
-        If the user arrived directly on this
-        page after confirmation, send them
-        to the requested EA.
+        Only redirect automatically when
+        the login page itself is being used.
+
+        This prevents unnecessary redirects
+        while the user is already on an EA.
       */
 
-      const path =
+      const currentPage =
         window.location.pathname
+          .split("/")
+          .pop()
           .toLowerCase();
 
       if (
-        path.endsWith(
-          "auth.html"
-        )
+        currentPage === "login.html"
       ) {
 
-        setTimeout(() => {
+        setTimeout(function() {
 
           window.location.replace(
             getEAUrl()
@@ -1538,7 +1797,7 @@ supabaseClient.auth.onAuthStateChange(
 
 document.addEventListener(
   "keydown",
-  event => {
+  function(event) {
 
     if (
       event.key !== "Enter"
@@ -1550,6 +1809,7 @@ document.addEventListener(
       document.getElementById(
         "panel-login"
       ).style.display !== "none";
+
 
     if (loginVisible) {
 
