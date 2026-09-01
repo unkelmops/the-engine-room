@@ -1,0 +1,2399 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MOPSENTRY | Partner Program</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            animation: pageLoad 0.8s ease forwards;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           PAGE LOAD
+        ========================= */
+
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.88);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            height: 72px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #bbbbbb;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        .nav-button {
+            background: #00ff88;
+            color: #000 !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MOBILE MENU BUTTON
+        ========================= */
+
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: #080808;
+            border-top: 1px solid #171717;
+            padding: 20px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 14px 5px;
+            color: #aaa;
+            border-bottom: 1px solid #161616;
+        }
+
+        .mobile-menu a:hover {
+            color: #00ff88;
+        }
+
+        .mobile-menu .mobile-apply {
+            margin-top: 15px;
+            text-align: center;
+            background: #00ff88;
+            color: #000;
+            border-radius: 8px;
+            font-weight: 800;
+            border: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: menuOpen 0.35s ease forwards;
+        }
+
+        @keyframes menuOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 25px 100px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            background: #00ff88;
+            opacity: 0.06;
+
+            filter: blur(120px);
+            border-radius: 50%;
+
+            top: 10%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            animation: glowMove 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowMove {
+            0% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(40px);
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+
+            animation:
+                heroEnter 1s
+                cubic-bezier(0.16, 1, 0.3, 1)
+                forwards;
+        }
+
+        @keyframes heroEnter {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .badge {
+            display: inline-block;
+
+            border: 1px solid rgba(0,255,136,0.35);
+            background: rgba(0,255,136,0.06);
+
+            color: #00ff88;
+
+            padding: 8px 16px;
+
+            border-radius: 50px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 25px;
+
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 rgba(0,255,136,0);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(0,255,136,0.12);
+            }
+
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 82px);
+            line-height: 1;
+
+            font-weight: 900;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+
+            color: #a6a6a6;
+
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: #00ff88;
+            color: #000;
+
+            padding: 15px 28px;
+
+            border-radius: 9px;
+
+            font-weight: 800;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,255,136,0.20);
+        }
+
+        .secondary-btn {
+            border: 1px solid #333;
+
+            color: #fff;
+
+            padding: 14px 28px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+        .secondary-btn:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            max-width: 700px;
+
+            margin:
+                0 auto
+                55px;
+        }
+
+        .small-title {
+            color: #00ff88;
+
+            text-transform: uppercase;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 5vw, 48px);
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #999;
+        }
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform
+                0.8s
+                cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            border-top: 1px solid #151515;
+            border-bottom: 1px solid #151515;
+        }
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .stat-card {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 38px;
+
+            font-weight: 900;
+
+            color: #00ff88;
+        }
+
+        .stat-label {
+            color: #888;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           BENEFITS
+        ========================= */
+
+        .benefits-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: #0b0b0b;
+
+            border: 1px solid #1c1c1c;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .benefit-card:hover {
+            border-color:
+                rgba(0,255,136,0.4);
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.35);
+        }
+
+        .benefit-icon {
+            font-size: 28px;
+
+            margin-bottom: 18px;
+
+            display: inline-block;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform:
+                translateY(-5px)
+                scale(1.1);
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            color: #888;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           COMMISSION
+        ========================= */
+
+        .commission-section {
+            background: #080808;
+        }
+
+        .commission-box {
+            max-width: 850px;
+
+            margin: auto;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #101010,
+                    #080808
+                );
+
+            border: 1px solid #222;
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .commission-box:hover {
+            border-color:
+                rgba(0,255,136,0.25);
+
+            transform: translateY(-3px);
+        }
+
+        .commission-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 22px 0;
+
+            border-bottom:
+                1px solid #202020;
+        }
+
+        .commission-row:last-child {
+            border-bottom: none;
+        }
+
+        .commission-level {
+            font-weight: 700;
+        }
+
+        .commission-sales {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        .commission-percent {
+            color: #00ff88;
+
+            font-size: 25px;
+
+            font-weight: 900;
+
+            transition:
+                transform 0.3s ease,
+                text-shadow 0.3s ease;
+        }
+
+        .commission-row:hover
+        .commission-percent {
+            transform: scale(1.08);
+
+            text-shadow:
+                0 0 20px
+                rgba(0,255,136,0.35);
+        }
+
+        .commission-note {
+            margin-top: 25px;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .step {
+            position: relative;
+
+            padding: 25px;
+
+            background: #0b0b0b;
+
+            border: 1px solid #1b1b1b;
+
+            border-radius: 15px;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(0,255,136,0.45);
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.35);
+        }
+
+        .step-number {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #00ff88;
+
+            color: #000;
+
+            border-radius: 50%;
+
+            font-weight: 900;
+
+            margin-bottom: 18px;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .step:hover .step-number {
+            transform:
+                rotate(8deg)
+                scale(1.08);
+
+            box-shadow:
+                0 0 25px
+                rgba(0,255,136,0.25);
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #888;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           APPLICATION
+        ========================= */
+
+        .application-section {
+            background: #080808;
+        }
+
+        .application-box {
+            max-width: 700px;
+
+            margin: auto;
+
+            background: #0c0c0c;
+
+            border: 1px solid #222;
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .application-box:hover {
+            border-color:
+                rgba(0,255,136,0.25);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: #ddd;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            background: #050505;
+
+            border: 1px solid #292929;
+
+            color: #fff;
+
+            border-radius: 8px;
+
+            padding: 14px;
+
+            outline: none;
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #00ff88;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,255,136,0.06);
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+        .checkbox {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin: 20px 0;
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+        .checkbox input {
+            margin-top: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #00ff88;
+
+            color: #000;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,255,136,0.18);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .success-message {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            background:
+                rgba(0,255,136,0.08);
+
+            border:
+                1px solid
+                rgba(0,255,136,0.3);
+
+            color: #00ff88;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+        details {
+            background: #0b0b0b;
+
+            border: 1px solid #1c1c1c;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            margin-bottom: 12px;
+
+            transition:
+                border-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        details:hover {
+            border-color:
+                rgba(0,255,136,0.3);
+
+            transform: translateX(3px);
+        }
+
+        details[open] {
+            border-color:
+                rgba(0,255,136,0.4);
+        }
+
+        summary {
+            cursor: pointer;
+
+            font-weight: 700;
+        }
+
+        details p {
+            color: #888;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FINAL CTA
+        ========================= */
+
+        .final-cta {
+            text-align: center;
+
+            background: #00ff88;
+
+            color: #000;
+        }
+
+        .final-cta h2 {
+            font-size:
+                clamp(32px, 5vw, 55px);
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+        .final-cta p {
+            max-width: 600px;
+
+            margin: auto;
+
+            opacity: 0.7;
+        }
+
+        .cta-black {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            background: #000;
+
+            color: #fff;
+
+            padding: 15px 30px;
+
+            border-radius: 9px;
+
+            font-weight: 800;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+            animation:
+                floatingButton
+                3s
+                ease-in-out
+                infinite;
+        }
+
+        .cta-black:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,0.25);
+        }
+
+        @keyframes floatingButton {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #030303;
+
+            padding: 40px 25px;
+
+            border-top:
+                1px solid #161616;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+        .footer-logo span {
+            color: #00ff88;
+        }
+
+        .footer-text {
+            color: #666;
+
+            font-size: 12px;
+
+            max-width: 450px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-container {
+                height: 65px;
+
+                padding:
+                    0 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero {
+                padding:
+                    125px 20px 80px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding:
+                    75px 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .steps {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .commission-box {
+                padding:
+                    25px 20px;
+            }
+
+            .commission-row {
+                gap: 15px;
+            }
+
+            .commission-percent {
+                font-size: 21px;
+            }
+
+            .application-box {
+                padding:
+                    25px 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 450px) {
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .section-heading h2 {
+                font-size: 32px;
+            }
+
+            .commission-row {
+                align-items: flex-start;
+            }
+
+            .commission-percent {
+                font-size: 20px;
+            }
+
+        }
+
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                MOPSENTRY<span>.</span>
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="#benefits">
+                    Benefits
+                </a>
+
+                <a href="#commission">
+                    Commission
+                </a>
+
+                <a href="#how">
+                    How It Works
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
+                <a
+                    href="#apply"
+                    class="nav-button"
+                >
+                    Become a Partner
+                </a>
+
+            </div>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <a href="#benefits">
+                Benefits
+            </a>
+
+            <a href="#commission">
+                Commission
+            </a>
+
+            <a href="#how">
+                How It Works
+            </a>
+
+            <a href="#faq">
+                FAQ
+            </a>
+
+            <a
+                href="#apply"
+                class="mobile-apply"
+            >
+                Become a Partner
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                MOPSENTRY PARTNER PROGRAM
+            </div>
+
+
+            <h1>
+
+                GROW WITH<br>
+
+                <span>
+                    MOPSENTRY.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Help us introduce traders to
+                MOPSENTRY EA and earn commissions
+                from successful referrals.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#apply"
+                    class="primary-btn"
+                >
+                    Become a Partner
+                </a>
+
+
+                <a
+                    href="#how"
+                    class="secondary-btn"
+                >
+                    How It Works
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATS
+    ========================= -->
+
+    <section class="stats">
+
+        <div class="container">
+
+            <div class="stats-grid">
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-number">
+                        01
+                    </div>
+
+                    <div class="stat-label">
+                        Unique Referral Link
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card reveal reveal-delay-1">
+
+                    <div class="stat-number">
+                        24/7
+                    </div>
+
+                    <div class="stat-label">
+                        Access to Marketing Assets
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card reveal reveal-delay-2">
+
+                    <div class="stat-number">
+                        ∞
+                    </div>
+
+                    <div class="stat-label">
+                        Growth Potential
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BENEFITS
+    ========================= -->
+
+    <section id="benefits">
+
+        <div class="container">
+
+
+            <div class="section-heading reveal">
+
+                <div class="small-title">
+                    Partner Benefits
+                </div>
+
+                <h2>
+                    More than just a referral link.
+                </h2>
+
+                <p>
+                    Everything you need to promote
+                    MOPSENTRY professionally and consistently.
+                </p>
+
+            </div>
+
+
+            <div class="benefits-grid">
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        🔗
+                    </div>
+
+                    <h3>
+                        Your Referral Link
+                    </h3>
+
+                    <p>
+                        Receive a unique referral link so
+                        your successful referrals can be
+                        attributed to you.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal reveal-delay-1">
+
+                    <div class="benefit-icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Earn Commission
+                    </h3>
+
+                    <p>
+                        Earn a percentage of qualifying sales
+                        generated through your referral activity.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal reveal-delay-2">
+
+                    <div class="benefit-icon">
+                        🎥
+                    </div>
+
+                    <h3>
+                        Marketing Kit
+                    </h3>
+
+                    <p>
+                        Access MOPSENTRY videos, images,
+                        captions and promotional material.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Track Performance
+                    </h3>
+
+                    <p>
+                        Future partner dashboards will allow
+                        partners to track clicks, leads and sales.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal reveal-delay-1">
+
+                    <div class="benefit-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        Partner Recognition
+                    </h3>
+
+                    <p>
+                        Top-performing partners can qualify
+                        for additional rewards and recognition.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal reveal-delay-2">
+
+                    <div class="benefit-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Grow Together
+                    </h3>
+
+                    <p>
+                        Become part of the MOPSENTRY community
+                        and help build the brand.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMMISSION
+    ========================= -->
+
+    <section
+        id="commission"
+        class="commission-section"
+    >
+
+        <div class="container">
+
+
+            <div class="section-heading reveal">
+
+                <div class="small-title">
+                    Commission Structure
+                </div>
+
+                <h2>
+                    Your growth can unlock higher rewards.
+                </h2>
+
+                <p>
+                    A simple tiered structure designed to
+                    reward consistent legitimate referrals.
+                </p>
+
+            </div>
+
+
+            <div class="commission-box reveal">
+
+
+                <div class="commission-row">
+
+                    <div>
+
+                        <div class="commission-level">
+                            Starter Partner
+                        </div>
+
+                        <div class="commission-sales">
+                            1–4 qualifying sales
+                        </div>
+
+                    </div>
+
+
+                    <div class="commission-percent">
+                        15%
+                    </div>
+
+                </div>
+
+
+                <div class="commission-row">
+
+                    <div>
+
+                        <div class="commission-level">
+                            Growth Partner
+                        </div>
+
+                        <div class="commission-sales">
+                            5–9 qualifying sales
+                        </div>
+
+                    </div>
+
+
+                    <div class="commission-percent">
+                        20%
+                    </div>
+
+                </div>
+
+
+                <div class="commission-row">
+
+                    <div>
+
+                        <div class="commission-level">
+                            Elite Partner
+                        </div>
+
+                        <div class="commission-sales">
+                            10+ qualifying sales
+                        </div>
+
+                    </div>
+
+
+                    <div class="commission-percent">
+                        25%
+                    </div>
+
+                </div>
+
+
+                <div class="commission-note">
+
+                    Commission percentages shown are an example
+                    structure and should be confirmed in the official
+                    MOPSENTRY Partner Agreement before launch.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================= -->
+
+    <section id="how">
+
+        <div class="container">
+
+
+            <div class="section-heading reveal">
+
+                <div class="small-title">
+                    The Process
+                </div>
+
+                <h2>
+                    Four simple steps.
+                </h2>
+
+                <p>
+                    From application to your first referral.
+                </p>
+
+            </div>
+
+
+            <div class="steps">
+
+
+                <div class="step reveal">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Apply
+                    </h3>
+
+                    <p>
+                        Submit your application to join
+                        the MOPSENTRY Partner Program.
+                    </p>
+
+                </div>
+
+
+                <div class="step reveal reveal-delay-1">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Get Approved
+                    </h3>
+
+                    <p>
+                        Our team reviews your application
+                        and approves suitable partners.
+                    </p>
+
+                </div>
+
+
+                <div class="step reveal reveal-delay-2">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Promote
+                    </h3>
+
+                    <p>
+                        Share your unique referral link using
+                        your social media and content.
+                    </p>
+
+                </div>
+
+
+                <div class="step reveal reveal-delay-3">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Earn
+                    </h3>
+
+                    <p>
+                        Qualifying purchases generated through
+                        your referrals are tracked for commission.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         APPLICATION
+    ========================= -->
+
+    <section
+        id="apply"
+        class="application-section"
+    >
+
+        <div class="container">
+
+
+            <div class="section-heading reveal">
+
+                <div class="small-title">
+                    Apply Now
+                </div>
+
+                <h2>
+                    Become a MOPSENTRY Partner.
+                </h2>
+
+                <p>
+                    Tell us a little about yourself and how
+                    you plan to promote MOPSENTRY.
+                </p>
+
+            </div>
+
+
+            <div class="application-box reveal">
+
+
+                <form id="partnerForm">
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="platform">
+                            Main Platform
+                        </label>
+
+                        <select
+                            id="platform"
+                            required
+                        >
+
+                            <option value="">
+                                Select platform
+                            </option>
+
+                            <option>
+                                Instagram
+                            </option>
+
+                            <option>
+                                TikTok
+                            </option>
+
+                            <option>
+                                YouTube
+                            </option>
+
+                            <option>
+                                Telegram
+                            </option>
+
+                            <option>
+                                Facebook
+                            </option>
+
+                            <option>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="social">
+                            Social Media Username / Link
+                        </label>
+
+                        <input
+                            type="text"
+                            id="social"
+                            placeholder="@yourusername"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="audience">
+                            Audience Size
+                        </label>
+
+                        <select id="audience">
+
+                            <option>
+                                Under 500
+                            </option>
+
+                            <option>
+                                500 – 1,000
+                            </option>
+
+                            <option>
+                                1,000 – 5,000
+                            </option>
+
+                            <option>
+                                5,000 – 10,000
+                            </option>
+
+                            <option>
+                                10,000+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="promotion">
+                            How would you promote MOPSENTRY?
+                        </label>
+
+                        <textarea
+                            id="promotion"
+                            placeholder="Tell us about your content, audience and promotion strategy..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="agreement"
+                            required
+                        >
+
+                        <label for="agreement">
+
+                            I understand that MOPSENTRY partners
+                            must promote the product honestly and
+                            must not make misleading or guaranteed
+                            profit claims.
+
+                        </label>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        SUBMIT PARTNER APPLICATION
+                    </button>
+
+
+                    <div
+                        class="success-message"
+                        id="successMessage"
+                    >
+
+                        Application form completed.
+                        Connect this form to your backend/email
+                        system before accepting live applications.
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================= -->
+
+    <section id="faq">
+
+        <div class="container">
+
+
+            <div class="section-heading reveal">
+
+                <div class="small-title">
+                    FAQ
+                </div>
+
+                <h2>
+                    Questions?
+                </h2>
+
+                <p>
+                    Here's what potential partners need to know.
+                </p>
+
+            </div>
+
+
+            <div class="faq">
+
+
+                <details class="reveal">
+
+                    <summary>
+                        How do I get my referral link?
+                    </summary>
+
+                    <p>
+                        Once your application is approved,
+                        MOPSENTRY will provide your unique
+                        referral link or partner code.
+                    </p>
+
+                </details>
+
+
+                <details class="reveal reveal-delay-1">
+
+                    <summary>
+                        When do I receive commission?
+                    </summary>
+
+                    <p>
+                        Commission should be paid according
+                        to the official MOPSENTRY Partner
+                        Agreement and after any applicable
+                        refund or verification period.
+                    </p>
+
+                </details>
+
+
+                <details class="reveal reveal-delay-2">
+
+                    <summary>
+                        Can I promote MOPSENTRY on TikTok?
+                    </summary>
+
+                    <p>
+                        Yes. Partners can use social platforms
+                        where promotional activity is permitted,
+                        provided their content follows MOPSENTRY
+                        guidelines and applicable platform rules.
+                    </p>
+
+                </details>
+
+
+                <details class="reveal">
+
+                    <summary>
+                        Can I make profit guarantees?
+                    </summary>
+
+                    <p>
+                        No. Partners must not promise guaranteed
+                        profits, guaranteed returns or claim that
+                        MOPSENTRY cannot lose money.
+                    </p>
+
+                </details>
+
+
+                <details class="reveal reveal-delay-1">
+
+                    <summary>
+                        Will there be a partner dashboard?
+                    </summary>
+
+                    <p>
+                        Yes. The next stage of the program can
+                        include a dashboard showing referrals,
+                        qualifying sales and commissions.
+                    </p>
+
+                </details>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL CTA
+    ========================= -->
+
+    <section class="final-cta">
+
+        <div class="container">
+
+            <h2>
+                BUILD MOPSENTRY<br>
+                WITH US.
+            </h2>
+
+            <p>
+                Your audience. Your content.
+                One growing MOPSENTRY ecosystem.
+            </p>
+
+            <a
+                href="#apply"
+                class="cta-black"
+            >
+                APPLY TO BECOME A PARTNER
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+
+                MOPSENTRY<span>.</span>
+
+            </div>
+
+
+            <div class="footer-text">
+
+                MOPSENTRY is trading software.
+                Trading involves risk and past performance
+                does not guarantee future results. Partners
+                must not make misleading or guaranteed
+                profit claims.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+
+        menuButton.addEventListener(
+            "click",
+            function () {
+
+                mobileMenu.classList.toggle("active");
+
+            }
+        );
+
+
+        /* Close mobile menu
+           after clicking a link */
+
+        const mobileLinks =
+            mobileMenu.querySelectorAll("a");
+
+
+        mobileLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        mobileMenu.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =========================
+           PARTNER FORM
+        ========================= */
+
+        const form =
+            document.getElementById(
+                "partnerForm"
+            );
+
+        const successMessage =
+            document.getElementById(
+                "successMessage"
+            );
+
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                successMessage.style.display =
+                    "block";
+
+
+                successMessage.style.animation =
+                    "heroEnter 0.6s ease forwards";
+
+
+                successMessage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+        );
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList
+                                    .add("active");
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(
+            function (element) {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+
+        /* =========================
+           NAVBAR SCROLL EFFECT
+        ========================= */
+
+        const navbar =
+            document.querySelector(
+                ".navbar"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY > 30
+                ) {
+
+                    navbar.style.background =
+                        "rgba(3,3,3,0.96)";
+
+                } else {
+
+                    navbar.style.background =
+                        "rgba(5,5,5,0.88)";
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+</html>
+```
